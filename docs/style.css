@@ -1,29 +1,16 @@
+/* Kanagawa Lotus palette (rebelot/kanagawa.nvim, "lotus" swatches),
+   mapped onto these web roles — single fixed theme, no dark-mode variant. */
 :root {
-  --bg: #f7f7f5;
-  --surface: #ffffff;
-  --text: #1c1c1e;
-  --text-muted: #62626a;
-  --border: #e2e2e0;
-  --accent: #3452eb;
-  --accent-bg: #e8ecff;
-  --tag-bg: #eef1f6;
-  --tag-text: #40454f;
-  --danger: #c62828;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #15161a;
-    --surface: #1f2024;
-    --text: #eceef0;
-    --text-muted: #9a9ca3;
-    --border: #303237;
-    --accent: #7f96ff;
-    --accent-bg: #26305c;
-    --tag-bg: #2a2c33;
-    --tag-text: #c4c6cd;
-    --danger: #ff8a80;
-  }
+  --bg: #dcd5ac; /* lotusWhite1 */
+  --surface: #f2ecbc; /* lotusWhite3 */
+  --text: #545464; /* lotusInk1 */
+  --text-muted: #8a8980; /* lotusGray3 */
+  --border: #e5ddb0; /* lotusWhite2 */
+  --accent: #4d699b; /* lotusBlue4 */
+  --accent-bg: #c7d7e0; /* lotusBlue1 */
+  --tag-bg: #dcd7ba; /* lotusGray */
+  --tag-text: #716e61; /* lotusGray2 */
+  --danger: #c84053; /* lotusRed */
 }
 
 * {
@@ -189,13 +176,20 @@ main,
 }
 
 .marked-toggle {
-  border: none;
-  background: none;
+  display: inline-block;
+  border: 1px solid var(--border);
+  background: var(--surface);
   color: var(--accent);
+  border-radius: 999px;
   font-size: 0.82rem;
   cursor: pointer;
-  padding: 4px 0;
+  padding: 6px 14px;
+  margin: 0 0 10px;
   white-space: nowrap;
+}
+
+.marked-toggle:hover {
+  border-color: var(--accent);
 }
 
 .paper-list {

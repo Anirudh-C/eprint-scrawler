@@ -3,18 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ePrint Topic Watch</title>
+  <title>Frodo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="page-header">
     <div class="header-row">
       <div>
-        <h1>ePrint Topic Watch</h1>
+        <h1>Frodo</h1>
         <p class="subtitle">
-          New papers from
-          <a href="https://eprint.iacr.org/" target="_blank" rel="noopener">eprint.iacr.org</a>,
-          auto-sorted into topics. <span id="updated-at">Loading…</span>
+          My Sisyphean Paper Scrawler · <span id="updated-at">Loading…</span>
         </p>
       </div>
       <div class="header-actions">
@@ -33,6 +31,8 @@
   </header>
 
   <main>
+    <button id="marked-toggle" type="button" class="marked-toggle" hidden></button>
+
     <div class="controls" id="controls">
       <input
         id="search"
@@ -42,7 +42,6 @@
       />
       <div class="controls-row">
         <nav id="tabs" class="tabs" aria-label="Topics"></nav>
-        <button id="marked-toggle" type="button" class="marked-toggle" hidden></button>
       </div>
     </div>
 
