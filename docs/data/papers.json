@@ -1,6 +1,221 @@
 {
-  "updated_at": "2026-09-13T20:06:57.659956+00:00",
+  "updated_at": "2026-09-13T20:39:33.410496+00:00",
   "papers": [
+    {
+      "id": "2026/1983",
+      "title": "Akita: A High-Performance Lattice-Based Polynomial Commitment Scheme",
+      "abstract": "Lattice-based polynomial commitment schemes (PCSs) promise post-quantum SNARKs with two properties that elliptic curves provide and hash-based schemes, today's deployed post-quantum default, do not: concretely small proofs and commitment time proportional to the number of nonzero entries in the committed polynomial rather than its length. The second property is essential to Twist and Shout (CRYPTO 2026), the fastest known memory-checking arguments and a core component of the Jolt zero-knowledge virtual machine (zkVM): their prover commits to enormous polynomials that are  almost entirely zero. Yet despite a wave of recent work, existing lattice-based PCSs achieve at most two of the three properties that deployment demands: small proof size, fast verification, and soundness from standard assumptions such as Module-SIS.\n\n\nWe present Akita, a lattice-based PCS that achieves all three. We improve on the square-root-time verifier of Hachi (ePrint 2026), our direct predecessor, through a new setup offloading technique: the public setup matrices are committed ahead of time, and the verifier's work in processing them is deferred and proved against these commitments. For any fixed $k\\ge2$, this reduces verification time to $\\widetilde O_{k,\\lambda}(N^{1/k})$ while preserving $\\widetilde O_{k,\\lambda}(\\log N)$ proof size, $\\widetilde O_{k,\\lambda}(N)$ prover time, and security from standard Module-SIS. We also optimize every fold from root to tail and iterate the fold to completion. This includes an optimized digit range check, relation-specific ring dimensions and subring challenges, complementary methods for embedding field evaluations and checking ring relations, commitments compressed to $128$bytes each, and exact Euclidean norm checks for tighter Module-SIS parameters.\n\n\nBeyond the core protocol, Akita provides the capabilities needed for deployment in a zkVM: batched openings of separately committed polynomials, low-communication distributed proving, and an offline planner for selecting secure parameters under configurable cost objectives. We implement Akita in Rust and benchmark it against existing lattice-based and hash-based PCSs. Across these benchmarks, Akita produces proofs of only $61$-$70$KB, matching Greyhound's when both schemes are calibrated to the same security level, while verifying $10\\times$ to $94\\times$ faster. Akita's prover uses the least memory: beyond storing the polynomial itself, its memory overhead grows sublinearly in the polynomial size. We also integrate Akita into Jolt. For every program size we evaluate, Jolt-with-Akita achieves a $1.3\\times$ to $2.2\\times$ prover speedup and $2.2\\times$ to $7.4\\times$ verifier speedup over Jolt-with-Dory, while matching it in proof size, with every proof remaining below $100$KB.",
+      "authors": [
+        "Quang Dao",
+        "Omid Bodaghi",
+        "Amirhossein Khajehpour",
+        "Giuseppe Vitto",
+        "Mohammadtaghi Badakhshan",
+        "Markos Georghiades",
+        "Fengrun Liu",
+        "Jiapeng Zhang",
+        "Justin Thaler"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 16:03:03 +0000",
+      "pub_date_iso": "2026-09-11T16:03:03+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1983",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
+      "id": "2026/1982",
+      "title": "Cryptanalysis of the Alternative Mod-2/Mod-3 Weak PRF",
+      "abstract": "The alternative mod-$2$/mod-$3$ function is one of the most widely used weak PRF constructions in modern cryptographic protocols. Despite its practical importance, its security has received relatively limited attention, with the main cryptanalytic results consisting of two distinguishing attacks due respectively to Cheon et al. and Johansson et al. In this work, we revisit the cryptanalysis of this primitive by analyzing the output distribution of the weak PRF under fixed Hamming weights for both the secret key and the inputs. This refined analysis allows us to isolate and amplify statistical biases that were averaged out in previous works. Using this approach, we derive a new distinguishing attack with asymptotic data and time complexity $\\mathcal O(2^{0.099n})$. We implemented the attack for the original parameter set $n=384$, thereby obtaining the first practical attack against this instance of the construction. We then introduce a generic technique, called the splitting strategy, which consists in partially fixing or guessing part of the secret key in order to amplify the biases while introducing an additional computational cost that can be efficiently handled using Fast Fourier Transform-like techniques. This leads to the currently best known attack against the construction, with asymptotic data, time, and memory complexities $\\widetilde{\\mathcal O}(2^{0.09n})$. This last technique also provides a useful time-memory trade-off for estimating the security of real-world constructions when the available data is bounded: we show that the weak PRF offers less than $128$-bit security for $n = 510$ when the data is limited to $2^{45}$. Finally, we revisit the attack of Johansson et al. and provide a corrected and refined analysis of the underlying bias, showing that the statistical behavior of the attack differs significantly once the Hamming weight of the secret key is taken into account. This new analysis explains phenomena previously observed experimentally but left unexplained. Thanks to this approach we are able to identify a large class of keys for which the attack performs much better asymptotically than anticipated by Johansson et al.",
+      "authors": [
+        "Augustin Bariant",
+        "Christina Boura",
+        "Baptiste Germon",
+        "Rachelle Heim",
+        "Charles Meyer-Hilfiger",
+        "Tyge Tiessen"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 14:30:00 +0000",
+      "pub_date_iso": "2026-09-11T14:30:00+00:00",
+      "iacr_category": "Secret-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1982",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1981",
+      "title": "Parallelized Authenticated Encryption with Tag Combiners",
+      "abstract": "When looking at authenticated encryption schemes, we have schemes that process the input data by having serial calls to their underlying building blocks, like duplex-based constructions, and schemes that allow for parallel calls to their underlying building blocks, like the Galois Counter Mode (GCM). Naturally, one can parallelize a serial scheme by distributing the data to encrypt over different calls to the serial scheme. However, there are many different choices to be made, like how to choose the nonce for the different instances, or if and how to combine the multiple tags into a single one. In this paper, we investigate different possible choices providing proofs for their security. Interestingly, we see a huge variance in the provable properties and hence, the security in making a serial scheme parallel. Or, motivating the problem more generally, we are investigating tag combiners, where the single tags to be combined are secret to the adversary.",
+      "authors": [
+        "Christoph Dobraunig",
+        "Charlotte Lefevre"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 13:56:33 +0000",
+      "pub_date_iso": "2026-09-11T13:56:33+00:00",
+      "iacr_category": "Secret-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1981",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1980",
+      "title": "Better Security Proofs for X3DH and XHMQV",
+      "abstract": "The Signal protocol is used by billions of users daily and recognized as the gold standard for end-to-end encrypted messaging. Its initial handshake protocol X3DH uses XEdDSA to sign its semi-static key and allows parties to derive a session key asynchronously. The protocol is implemented over Curve25519, relying on the assumed 128-bit hardness for solving Discrete Logarithms (DL). Previous non-tight reductions incur a large loss in the number of sessions, and the resulting concrete security guarantees fall far below the intended 128-bit security level. This motivates the development of tight security bounds for these protocols.\n\nIn this paper, we improve the security analysis of X3DH and its recent enhancement XHMQV (Fiedler et al., CRYPTO'25) by providing tight security reductions under multi-user Diffie–Hellman (DH) assumptions (Kiltz et al., CT-RSA'23) in the Random Oracle Model. Unlike prior work, our proofs are in the more realistic multi-Test setting. The variant of X3DH that we analyze hashes additional context into the session key. Although this modification is minor, it yields tight security bounds and provides a stronger justification for the use of Curve25519. In light of our results, the Signal developers plan to adopt the same modification.",
+      "authors": [
+        "Jiawei Bao",
+        "Jiaxin Pan",
+        "Runzhi Zeng"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 13:38:23 +0000",
+      "pub_date_iso": "2026-09-11T13:38:23+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1980",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1979",
+      "title": "From Specs to Apps: Verifying and Monitoring Models of Signal and WhatsApp",
+      "abstract": "The Signal protocol is a prominent messaging protocol that se-\ncures communication for billions of users. It powers WhatsApp,\nthe most widely used messaging application worldwide, and the\nSignal app, popular among privacy-conscious users. Extensive re-\nsearch in the computational and Dolev-Yao settings provides strong\nformal security guarantees for the protocol itself. However, a gap\nremains between the guarantees of the protocol specification and\nthe implementation’s actual behavior at runtime.\n\nIn this work, we bridge this gap by applying SpecMon, a recently\nproposed runtime monitor, to check whether observed executions\nconform to formal protocol models. To this end, we instrument two\napplications (WhatsApp Web and Signal Desktop) to capture their\ninteractions with the network and the cryptographic components.\nUsing this instrumentation, we develop two multiset-rewrite models\nthat are compatible with Tamarin, thus enabling verification. We\nderive the first model of WhatsApp Web’s implementation of the\nSignal protocol and the most detailed model to date of Signal’s\noriginal protocol. Monitoring establishes that observed executions\nconform to these models, relative to the trusted event extraction\nand the symbolic abstraction. For the core components of the Signal\nprotocol, we verify authentication and secrecy properties. Finally,\nmonitoring reveals previously undocumented differences between\nthe original libsignal library and WhatsApp’s fork.\n\nWe evaluate our methodology and demonstrate its reproducibil-\nity. Developing the WhatsApp Web model, instrumenting the app,\nadding fuzzing, and running the experiments took three person-\nweeks. We also demonstrate efficient monitoring of real-world\napplications and detection of deliberately injected security faults,\nwith low overhead in our measured setting.",
+      "authors": [
+        "Moustafa Said",
+        "Aurora Naska",
+        "Kevin Morio",
+        "Robert Künnemann"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 11:52:32 +0000",
+      "pub_date_iso": "2026-09-11T11:52:32+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1979",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1978",
+      "title": "Succinct Two-Round Two-Party Signing from PCFs",
+      "abstract": "We introduce new two-party threshold signature schemes with strong efficiency and security. The application of our methodology to the two most popular signatures, Schnorr and ECDSA, yields two-round, two-party, stateless and deterministic signing with 4-12 ms of computation on one core of a standard laptop, extremely low communication -- 96 B for Schnorr, and 128 B for ECDSA -- and full concurrent simulatable security. At the heart of our approach is a new pseudorandom correlation function (PCF) for vector-OLE that admits an  efficient key generation protocol; we design an end-to-end maliciously-secure and highly parallelizable DKG for this PCF and, using this DKG, we obtain an estimated runtime of 44 s for the (one-time) distributed setup of Schnorr and ECDSA on one core of a standard laptop.",
+      "authors": [
+        "Lennart Braun",
+        "Geoffroy Couteau",
+        "Kelsey Melissaris",
+        "Mahshid Riahinia",
+        "Elahe Sadeghi"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 11:15:51 +0000",
+      "pub_date_iso": "2026-09-11T11:15:51+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1978",
+      "topics": [
+        "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
+      "id": "2026/1977",
+      "title": "Lattice-based Secret-Key Functional Encryption for Constant-Degree Polynomials",
+      "abstract": "We present a lattice-based construction of secret-key functional encryption (FE) for low-norm polynomials of any constant degree $d$, hence also for $\\mathsf{NC}^{0}$ circuits. We rely on two core ingredients:\n1. New trapdoor and preimage sampling algorithms for certain degree-$d$ tensor-structured matrices, used to generate functional secret keys.\n2. A new $k$-LWE-style assumption where short preimages of non-zero images with respect to the above tensor-structured matrix are given as hints, under which we prove that our secret-key FE scheme is selectively secure (under unbounded collusion). To gain confidence in the new assumption, we prove that the standard LWE assumption implies the degree-$1$ case and cryptanalyse the $d > 1$ case.\n\nAs a corollary, we obtain a new pathway to post-quantum secure indistinguishability obfuscation (iO), conditioned on the above new assumption, standard LWE, and the existence of polynomial-stretch pseudorandom generators in $\\mathsf{NC}^{0}$. Along the way, we give a new, simple (public-key) FE scheme for linear functions with selective security under the standard LWE assumption.",
+      "authors": [
+        "Valerio Cini",
+        "Russell W. F. Lai",
+        "Akin Ünal",
+        "Ivy K. Y. Woo"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 09:22:12 +0000",
+      "pub_date_iso": "2026-09-11T09:22:12+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1977",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1976",
+      "title": "Properties of the Me Operation and Me-Scalar Multiplication on Elliptic Curves over Finite Fields",
+      "abstract": "The M operation was introduced by Yura as an alternative to the max operation appearing in the box-ball system (BBS) to construct a BBS over finite fields. The Me operation is a version of the M operation for an elliptic curve $E$ over a finite field ${\\mathbb F}_p$. As with the M operation, the Me operation satisfies the idempotent law and does not satisfy the associative law. Nevertheless, for $P,Z \\in E({\\mathbb F}_p)$ and $n \\in {\\mathbb N}$, the 1st Me-scalar multiplication $P_{n,Z}^{\\,I}$ with auxiliary element $Z$ can be defined. Moreover, for $P,Z \\in E({\\mathbb F}_p)$ and $n \\in {\\mathbb Q}_+$, the 2nd Me-scalar multiplication $P_{n,Z}^{II}$ with auxiliary element $Z$ can be defined. This paper shows the following properties that may be useful to construct cryptographic protocols: $(P_{n_0,Z}^{\\,I})_{n_1,Z}^{\\,I}=(P_{n_1,Z}^{\\,I})_{n_0,Z}^{\\,I}$, $(P_{n_0,Z}^{II})_{n_1,Z}^{II}=(P_{n_1,Z}^{II})_{n_0,Z}^{II}=P_{n_0n_1,Z}^{II}$; the 1st MeDLP and the 2nd MeDLP, which are Me versions of the ECDLP, are difficult to solve on classical computers under certain conditions; the 1st MeCDH and the 2nd MeCDH, which are Me versions of the ECCDH, are NOT difficult to solve; and the sequence $\\{ P_{n,Z}^{II}:n=1,2,3,\\ldots \\}$ is nonperiodic unless it is constant.",
+      "authors": [
+        "Masaaki Shirase"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 04:52:09 +0000",
+      "pub_date_iso": "2026-09-11T04:52:09+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/1976",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1975",
+      "title": "Oblivious Signaling",
+      "abstract": "An anonymous messaging service has to solve a basic routing problem: a server must deliver an encrypted message to its recipient without learning who the recipient is. Broadcasting all ciphertexts hides the destination but forces every recipient to constantly scan for new messages. Oblivious Message Retrieval (OMR; CRYPTO~'22) tackles this by using fully homomorphic encryption (FHE) to let an untrusted server perform message retrieval on a recipient's behalf without learning which messages are pertinent.\n\n\nWe introduce Oblivious Signaling, which shifts this cost from retrieval to sending. The server maintains a fixed-size encrypted inbox for each recipient. When a sender submits a message, the server applies the same homomorphic update to every inbox: the intended inbox absorbs the message, and the rest remain unchanged at the plaintext level. The update is uniform, can be parallelized across inboxes, and ties the delivery cost strictly to the size of the anonymity set rather than global traffic. Recipients retrieve by fetching and decrypting their inbox, so checking for new messages is independent of the global traffic.\n\nWe formalize receiver privacy against an untrusted server, even when it colludes with other users, give a concrete construction based on fully homomorphic encryption, and analyze the resulting \"digital postage'' trade-off: delivery is expensive, but checking is cheap. Our prototype identifies practical regimes in which this cost-model shift is preferable to scan-based retrieval, even with highly optimized OMR implementations. This cost model is well-suited to settings where recipients check frequently, and messages arrive sporadically, and it naturally discourages high-volume spam.",
+      "authors": [
+        "Mirza Kamrul Bashar Shuhan",
+        "Foteini Baldimtsi",
+        "Giuseppe Ateniese"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 02:14:00 +0000",
+      "pub_date_iso": "2026-09-11T02:14:00+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1975",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1974",
+      "title": "Exact-Coset Response Existence in SQIsign-like Protocols: Beyond Additive Hom Geometry",
+      "abstract": "Arithmetic response existence is a prerequisite for signing, but is not implied by a large number of bounded-degree isogenies. We study how endpoint collisions, exact level-structure constraints, and sampling dependence affect this existence problem for supersingular curves in characteristic $p$. For every binary degree filter independent of the endpoints and every $1 \\le D < p$, we prove the mean-square endpoint discrepancy bound $\\mathcal{V}_a \\ll_\\delta p^\\delta(D^2 + D^{7/2}/p) + P_a^2/p^2$, where $P_a$ counts the allowed cyclic kernels on each source curve. The proof combines square-divisor inversion with classical Brandt–Hecke and harmonically weighted Petersson estimates. Filters with $P_a \\ge cD^2$ for fixed $c>0$ give existence probability $1-o(1)$ for independent uniform endpoints above $p^{1/2+\\gamma}$; every filter gives $o(1)$ below $p^{1/2-\\gamma}$, for fixed $\\gamma>0$. The Weil pairing converts the two cosets of the kernel of the quadratic determinant character into degree filters. Combining this observation with an exact-coset incidence bound yields opposite existence probabilities at the same degree bound: $1-o(1)$ for this subgroup and $o(1)$ for split and nonsplit Cartan normalizers, although all three induce the same additive Hom-lattice condition. These are idealized experiments with different challenge-space sizes. We also give challenge-preserving primitive reduction and explicit joint-distribution transfer conditions.",
+      "authors": [
+        "Ti-Hong Qin",
+        "Hong-Yu Tang",
+        "Zong-Bin Wang",
+        "Wen-Lun Pan"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 01:24:12 +0000",
+      "pub_date_iso": "2026-09-11T01:24:12+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1974",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1973",
+      "title": "Addition-Efficient MDS Matrices from Superconcentrators (Full Version)",
+      "abstract": "MDS matrices are a key structure for providing optimal diffusion in symmetric primitives. However, the theoretical analysis of their cost remains limited. This issue is particularly relevant to arithmetization-oriented permutations, where designs often either use costly MDS matrices or sacrifice the MDS property to reduce the number of constraints.\n\nThis paper studies the number of fan-in-two additions needed to implement MDS matrices. We represent fan-in-two addition constraints by a directed acyclic graph and derive lower bounds on the number of additions using the established result that any such computation graph implementing an MDS matrix must be a superconcentrator.\n\nBuilding on size-reduction lemmas for superconcentrators, we present a recursive algorithm that improves both lower and upper bounds for $t\\times t$ matrices with $t\\leq 8$. As a result, we obtain explicit MDS matrices over large primes for $t=3,4,5,6,7,8$, requiring $5,8,12,16,21,26$ additions, respectively. These bounds are tight for $t\\leq 6$. We also use the same superconcentrator graphs as templates for MDS matrices with $k$-bit words. For $t=5,6,7$, our matrices require fewer XORs than the state of the art for most considered parameter choices in this line of work.",
+      "authors": [
+        "Jooyoung Lee",
+        "Seungmin Park",
+        "Mincheol Son"
+      ],
+      "pub_date": "Fri, 11 Sep 2026 01:00:19 +0000",
+      "pub_date_iso": "2026-09-11T01:00:19+00:00",
+      "iacr_category": "Secret-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1973",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1972",
+      "title": "Criminology: Refined Techniques for Compression Side-Channel Attacks",
+      "abstract": "It has been known for two decades that performing compression before encryption is dangerous, because it introduces a side channel leaking information about plaintexts through ciphertext lengths: the compressed plaintext length may be visible in the ciphertext length, and the amount of compression obtained is plaintext-dependent; hence an adversary can obtain some leakage about the plaintext via observation of ciphertext lengths. This issue was first pointed out by Kelsey (FSE 2002) and turned into a practical plaintext recovery attack in the form of the CRIME attack on SSL and TLS by Rizzo and Duong in 2012. A long series of variations and attacks against other systems followed. Despite the known dangers, the compress-then-encrypt paradigm is still prevalent in practice today. This may be because the compression-based side channel is susceptible to noise and may require a large number of queries to enable plaintext recovery, and so can be mitigated by either adding noise (e.g. with random padding) or limiting an adversary's interaction with the system.\n\nWe demonstrate that this side channel is much more powerful than previously thought. We focus on the widely-used DEFLATE algorithm in our analysis. We present novel techniques that enable strong amplification of small length differences arising during compression. Our telescoping and chaining amplification techniques exploit the way in which DEFLATE replaces common strings by shorter back-references. Our collision-based amplification technique focusses on exploiting hash table collisions in DEFLATE implementations. This involves a deeper examination (and exploitation) of the internals of DEFLATE than in previous works. These insights result in compressed length differences growing linearly with the length of queries. Compared with length differences of a few bits or bytes in prior work, our new amplification techniques thus enable us to defeat existing noise-based countermeasures.\n\nFinally, we introduce the concept of CRIME automata, these being carefully crafted query strings that enable an attacker to exert fine control over the internal behaviour of DEFLATE and produce differences in the output lengths of the compressor according to various criteria (such as whether the DEFLATE sliding window contains a given target string). In turn, our automata are composed in a modular fashion from gadgets having different functions, including matching against target strings, performing logical operations between other gadgets, and, most importantly, amplifying differences in output lengths using the above-mentioned techniques. We provide multiple, concrete automata designs that serve different attack goals. These designs are supported by experiments and a publicly available codebase demonstrating the power, flexibility, and practical impact of our CRIME automata approach.",
+      "authors": [
+        "Yuanming Song",
+        "Lenka Mareková",
+        "Kenneth G. Paterson"
+      ],
+      "pub_date": "Thu, 10 Sep 2026 20:57:03 +0000",
+      "pub_date_iso": "2026-09-10T20:57:03+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/1972",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
     {
       "id": "2026/1971",
       "title": "Component-Dual Compression and the Exact Characteristic-Two Contribution Region of the Relaxed Non-Fano Port",
@@ -899,6 +1114,28 @@
       "link": "https://eprint.iacr.org/2026/1059",
       "topics": [
         "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1047",
+      "title": "Round-Optimal Subversion-Resilient UC PAKE from Malleable Trapdoor Smooth Projective Hash Functions",
+      "abstract": "Password-Authenticated Key Exchange (PAKE) allows two parties to establish a common high-entropy secret from a possibly low-entropy pre-shared secret such as a password. In this paper, we revisit the question of constructing PAKE protocols with subversion resilience in the framework of universal composability (UC), where the latter roughly means that UC security still holds even if one of the two parties is malicious and the honest party's code has been subverted (in an undetectable manner). The latter goal was recently achieved by Chakraborty, Magliocco, Magri and Venturi (ASIACRYPT 2024), based on sanitation of oblivious transfer protocols and dual-mode cryptosystems via cryptographic reverse firewalls (Mironov and Stephens-Davidowitz, EUROCRYPT 2015). Our contributions are as follows:\n\n- We introduce so-called malleable trapdoor smooth projective hash functions (M-TSPHF), as an enhancement of trapdoor smooth projective hash functions (Benhamouda et al., CRYPTO 2013). Our extension incorporates new properties including key malleability and element rerandomizability. \n - We give a generic construction of subversion-resilient UC PAKE based on M-TSPHF and other standard cryptographic primitives. As we demonstrate, our PAKE protocol can be instantiated efficiently yielding an improved round and communication complexity with respect to the previous protocol of Chakraborty et al. In particular, our PAKE protocol achieves round optimality, as it concludes in a single round.",
+      "authors": [
+        "Behzad Abdolmaleki",
+        "Suvradip Chakraborty",
+        "Shahram Khazaei",
+        "Lorenzo Magliocco",
+        "Nahid Roustaeifar",
+        "Behzad Vahdani",
+        "Daniele Venturi"
+      ],
+      "pub_date": "Sun, 24 May 2026 15:25:42 +0000",
+      "pub_date_iso": "2026-05-24T15:25:42+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1047",
+      "topics": [
+        "MPC / Threshold / Secret Sharing",
+        "Distributed Computing & Consensus"
       ]
     },
     {
