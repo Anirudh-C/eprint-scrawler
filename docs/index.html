@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ePrint Topic Watch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>ePrint Topic Watch</h1>
+    <p class="subtitle">
+      New papers from
+      <a href="https://eprint.iacr.org/" target="_blank" rel="noopener">eprint.iacr.org</a>,
+      auto-sorted into topics. <span id="updated-at">Loading…</span>
+    </p>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input
+        id="search"
+        type="search"
+        placeholder="Search titles &amp; abstracts…"
+        aria-label="Search papers"
+      />
+      <nav id="tabs" class="tabs" aria-label="Topics"></nav>
+    </div>
+
+    <p id="empty-state" class="empty-state" hidden>No papers match.</p>
+    <ul id="paper-list" class="paper-list"></ul>
+  </main>
+
+  <footer class="page-footer">
+    <p>
+      Source: IACR ePrint RSS feed · Topic rules live in
+      <code>scripts/topics.json</code> · Updated automatically once a day.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

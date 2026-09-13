@@ -1,0 +1,43 @@
+{
+  "Zero-Knowledge Proofs & SNARKs/STARKs": [
+    "zero-knowledge",
+    "zero knowledge",
+    "zk-snark",
+    "zksnark",
+    "snark",
+    "stark",
+    "succinct argument",
+    "sumcheck",
+    "folding scheme",
+    "plonk",
+    "groth16",
+    "proof system",
+    "argument of knowledge"
+  ],
+  "MPC / Threshold / Secret Sharing": [
+    "multi-party computation",
+    "multiparty computation",
+    "mpc",
+    "secret sharing",
+    "threshold signature",
+    "threshold decryption",
+    "threshold cryptography",
+    "secure computation",
+    "garbled circuit",
+    "oblivious transfer"
+  ],
+  "Distributed Computing & Consensus": [
+    "consensus protocol",
+    "consensus algorithm",
+    "consensus mechanism",
+    "distributed consensus",
+    "byzantine",
+    "state machine replication",
+    "broadcast protocol",
+    "composability",
+    "universal composability",
+    "distributed protocol",
+    "leader election",
+    "asynchronous network"
+  ]
+}
