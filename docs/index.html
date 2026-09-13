@@ -8,23 +8,42 @@
 </head>
 <body>
   <header class="page-header">
-    <h1>ePrint Topic Watch</h1>
-    <p class="subtitle">
-      New papers from
-      <a href="https://eprint.iacr.org/" target="_blank" rel="noopener">eprint.iacr.org</a>,
-      auto-sorted into topics. <span id="updated-at">Loading…</span>
-    </p>
+    <div class="header-row">
+      <div>
+        <h1>ePrint Topic Watch</h1>
+        <p class="subtitle">
+          New papers from
+          <a href="https://eprint.iacr.org/" target="_blank" rel="noopener">eprint.iacr.org</a>,
+          auto-sorted into topics. <span id="updated-at">Loading…</span>
+        </p>
+      </div>
+      <div class="header-actions">
+        <button id="random-btn" type="button" class="action-btn">🎲 Random Paper</button>
+        <button id="update-btn" type="button" class="action-btn">⟳ Update Now</button>
+        <button
+          id="token-btn"
+          type="button"
+          class="icon-btn"
+          aria-label="Update-button settings"
+          title="Update-button settings"
+        >⚙</button>
+      </div>
+    </div>
+    <p id="action-status" class="action-status" aria-live="polite" hidden></p>
   </header>
 
   <main>
-    <div class="controls">
+    <div class="controls" id="controls">
       <input
         id="search"
         type="search"
         placeholder="Search titles &amp; abstracts…"
         aria-label="Search papers"
       />
-      <nav id="tabs" class="tabs" aria-label="Topics"></nav>
+      <div class="controls-row">
+        <nav id="tabs" class="tabs" aria-label="Topics"></nav>
+        <button id="marked-toggle" type="button" class="marked-toggle" hidden></button>
+      </div>
     </div>
 
     <p id="empty-state" class="empty-state" hidden>No papers match.</p>
@@ -34,9 +53,49 @@
   <footer class="page-footer">
     <p>
       Source: IACR ePrint RSS feed · Topic rules live in
-      <code>scripts/topics.json</code> · Updated automatically once a day.
+      <code>scripts/topics.json</code> · Updated automatically once a day
+      (or on demand via "Update Now").
     </p>
   </footer>
+
+  <dialog id="random-modal" class="modal">
+    <form method="dialog">
+      <div id="random-modal-body" class="modal-content"></div>
+      <div class="modal-actions">
+        <button id="random-again-btn" type="button" class="action-btn">🎲 Another one</button>
+        <button type="submit" class="action-btn">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="token-modal" class="modal">
+    <form method="dialog" id="token-form">
+      <div class="modal-content">
+        <h2>Update-button access token</h2>
+        <p class="modal-help">
+          "Update Now" triggers this repo's GitHub Actions workflow directly
+          from your browser. That needs a
+          <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained personal access token</a>
+          scoped to just <code>Anirudh-C/eprint-scrawler</code> with
+          <strong>Actions: Read and write</strong> permission. It's stored
+          only in this browser's local storage and sent only to
+          <code>api.github.com</code> — never committed anywhere.
+        </p>
+        <input
+          id="token-input"
+          type="password"
+          placeholder="github_pat_…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <p id="token-status" class="modal-help"></p>
+      </div>
+      <div class="modal-actions">
+        <button id="token-clear-btn" type="button" class="action-btn">Clear saved token</button>
+        <button type="submit" class="action-btn">Save</button>
+      </div>
+    </form>
+  </dialog>
 
   <script src="app.js"></script>
 </body>

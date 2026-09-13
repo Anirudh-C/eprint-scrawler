@@ -20,10 +20,39 @@ itself is plain HTML/CSS/JS reading that data file client-side.
    paper updates in place rather than duplicating).
 3. If `docs/data/papers.json` changed, the workflow commits and pushes it.
 4. GitHub Pages serves `docs/index.html`, which fetches `data/papers.json`
-   and renders topic tabs, a search box, and a card per paper.
+   and renders topic tabs, a search box, and a card grid, one card per paper.
 
 Note: this only picks up papers that appear in the live RSS feed from the
 point the workflow starts running — it does not backfill IACR's full archive.
+
+## Site features
+
+- **Card grid** with topic tabs and a search box across title/abstract.
+- **🎲 Random Paper** — pops up a random paper's full abstract; "Another one"
+  re-rolls without closing. Never picks a marked (hidden) paper, and avoids
+  immediately repeating the last one shown.
+- **Mark** — every card has a "Mark" button that hides it from your view.
+  This is **browser-local only** (stored in `localStorage`, nothing is
+  written to the repo): it doesn't sync across devices/browsers, and
+  clearing this browser's site data brings marked papers back. A
+  "Marked (N) — show" link near the search box lists what you've marked, with
+  an "Unmark" button to restore any of them.
+- **⟳ Update Now** — triggers `.github/workflows/update.yml` directly from
+  the page via the GitHub REST API, then polls until the run finishes and
+  refreshes the data — no need to visit the Actions tab. This needs a GitHub
+  **fine-grained personal access token**, scoped to just this repo
+  (`Anirudh-C/eprint-scrawler`) with **Actions: Read and write** permission
+  (create one at
+  [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new)).
+  Paste it into the token modal (opened automatically the first time you
+  click "Update Now", or any time via the ⚙ button) — it's stored only in
+  that browser's `localStorage` and sent only to `api.github.com`, never
+  committed to the repo or embedded in the page source.
+
+  **Note on scope:** a fine-grained PAT's permissions apply to the whole
+  repo, not just the Actions API — treat it like any other credential
+  (don't paste it on a shared/public computer; revoke it from GitHub
+  settings if you ever suspect it leaked).
 
 ## Editing topics
 
