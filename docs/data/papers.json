@@ -1,6 +1,383 @@
 {
-  "updated_at": "2026-09-19T10:54:33.250283+00:00",
+  "updated_at": "2026-09-20T11:18:38.332523+00:00",
   "papers": [
+    {
+      "id": "2026/2080",
+      "title": "Lightweight Cryptography for Secure UAV Data Integrity Using Ascon-XOF128 and SHAKE128",
+      "abstract": "The increasing deployment of unmanned aerial vehicles (UAVs) in communication, surveillance, and other mission-critical applications has created a growing requirement for efficient mechanisms to preserve the integrity of exchanged data. UAV platforms may operate under computational, memory, energy, and communication constraints, making lightweight cryptographic techniques an important consideration for secure data processing. This paper investigates the applicability of lightweight cryptography for UAV data integrity using two extendable-output functions (XOFs), Ascon-XOF128 and SHAKE128. A mathematical framework is developed to represent UAV messages, cryptographic processing, integrity verification, and relevant security and performance metrics. The two XOF constructions are analyzed with respect to their internal structures, sponge-based processing, security properties, computational characteristics, and suitability for resource-constrained UAV communication. A comparative evaluation framework is established using message-size and output-length variations, with performance and integrity-related measures including execution time, throughput, computational cost, memory usage, communication overhead, and Hamming-distance-based analysis. The study aims to provide an evidence-based comparison of Ascon-XOF128 and SHAKE128 for UAV data-integrity workloads and to identify the practical trade-offs between lightweight resource requirements and cryptographic integrity performance.",
+      "authors": [
+        "Mehul Kumar Das",
+        "Varun Shukla",
+        "Prabhavi Tripathi",
+        "Vivek Shukla",
+        "Divya Mishra",
+        "Atul"
+      ],
+      "pub_date": "Fri, 18 Sep 2026 08:50:45 +0000",
+      "pub_date_iso": "2026-09-18T08:50:45+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2080",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2079",
+      "title": "Period-Aligned Secure Cosine Evaluation Based on Two-Party Computation",
+      "abstract": "The cosine function is widely used in machine-learning applications,\nbut evaluating it on secret-shared data is difficult. Conventional\napproaches use polynomial approximations or lookup tables, whose costs\ngrow substantially over large input domains. More recent protocols first\nreduce the private input modulo the cosine period, but securely performing\nthis modular reduction also incurs significant cost. We present a\nperiod-aligned two-party cosine protocol. Based on the cosine addition rule, it\nrescales each share so that a wrap of the input modulus corresponds to\na full $2\\pi$ period and therefore does not change the recombined cosine.\nEach party evaluates sine and cosine locally on its share, while the\nsecure computation uses only two cross-party products and one fixed-point\noutput conversion. We evaluate the protocol directly on synthetic inputs\nand within private RFF-based RBF-SVM prediction. Comparisons with the protocol of Xing et al. (NDSS 2025) and Guo et al. (USENIX Security 2026) demonstrate better efficiency of our proposed protocol.",
+      "authors": [
+        "Qingyu Mo"
+      ],
+      "pub_date": "Fri, 18 Sep 2026 08:20:21 +0000",
+      "pub_date_iso": "2026-09-18T08:20:21+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2079",
+      "topics": [
+        "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
+      "id": "2026/2078",
+      "title": "Radical Ring-LWR: Efficient Key Encapsulation and Signatures from Structured Rounding",
+      "abstract": "State-of-the-art lattice-based cryptography requires a power-of-two cyclotomic field that limits the attainable security levels, or a module structure for which the cost grows quadratically in the module rank. Radical rings were recently proposed as a solution in the context of Learning With Errors (LWE) based Key Encapsulation Mechanisms (KEMs) with heuristic hardness arguments for the Ring-LWE security and failure probability. We develop the Learning With Rounding counterpart, Radical Ring-LWR (RR-LWR). We give a proved closed-form bound on the distortion incurred from the error sampling independent of the radical ring parameters: this places RR-LWR inside the regime identified by Peikert as safe for instantiating Ring-LWE/LWR. We instantiate two schemes: Mithril, an IND-CCA KEM, and Octarine, an EF-CMA signature scheme. They are built on a single radical-ring arithmetic foundation based on powers of two (favorable for sampling, rounding and masking) and we provide security reductions in the QROM to RR-LWR and SelfTarget-RR-SIS, a radical-ring variant of SIS. We show that the KEM failure probability estimators used for power-of-two cyclotomics are insufficient and provide an exact solution tailored to the RR-LWR setting. Finally, we instantiate Mithril and Octarine with concrete parameters and benchmark optimized AVX2 and Arm Cortex-M4 implementations, showing that both are competitive with (and in some cases significantly faster than) the MLKEM and MLDSA standards.",
+      "authors": [
+        "Joost Renes",
+        "Joppe W. Bos",
+        "Haochen Huang",
+        "Selim Kirbiyik",
+        "Alberto Ovena",
+        "Sujoy Sinha Roy",
+        "Frederik Vercauteren",
+        "Peng Wang",
+        "Fangyu Zheng",
+        "Chenxin Zhong"
+      ],
+      "pub_date": "Fri, 18 Sep 2026 07:54:06 +0000",
+      "pub_date_iso": "2026-09-18T07:54:06+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2078",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2077",
+      "title": "Practical Group Signatures from Tag-Based NTRU Sampler",
+      "abstract": "The post-quantum migration for key agreements and signatures being well underway, the focus naturally shifts to other properties and primitives that still lack efficient solutions. One such area is that of privacy-enhanced primitives, with a growing number of post-quantum constructions. Among the most fundamental are group signatures, which represent an important milestone of anonymity and accountability towards more involved designs. However, despite recent progress, most compact lattice constructions are either computationally intensive or suffer large key materials, or both. \nIn this paper, we introduce a new lattice group signature scheme that reaches compact signatures and keys, while being runtime-efficient in all its procedures. Our key element is a new tag-based gadget sampler that properly interfaces with NTRU, then benefiting from the desirable properties of such trapdoor frameworks for advanced constructions while leveraging the compactness of NTRU. Although applied to group signatures, our sampler may be of independent interest and used for more expressive privacy-driven primitives like anonymous credentials. We also introduce two assumptions, which can be seen as hybrid versions of NTRU and ISIS, that independently underly the security of our group signature. Despite their similarities with the recently introduced NTRU-ISIS$_f$ assumption, they appear strictly harder and even admit reductions from R-ISIS in some parameter settings.",
+      "authors": [
+        "Corentin Jeudy"
+      ],
+      "pub_date": "Fri, 18 Sep 2026 07:23:51 +0000",
+      "pub_date_iso": "2026-09-18T07:23:51+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2077",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2076",
+      "title": "Symmetry-Graded Digit Extraction Framework for Faster BGV Bootstrapping",
+      "abstract": "Bootstrapping is the bottleneck of BGV/BFV homomorphic encryption, and for large plaintext primes $p$ its cost is dominated by digit extraction. Recently, this stage has been accelerated along two separate routes. The first lowers the degree of the digit-extraction polynomial: the bounded-support construction of Ma et al. (Eurocrypt'24) confines its support, and the order-four filter of Xiong et al. (to appear in Asiacrypt'26) removes three quarters of its monomials. The second lowers the depth of its evaluation: the Galois norm map of Okada et al. (Asiacrypt'23) and Zhao et al. (Crypto'26) evaluates a degree-$d$ factor in logarithmic depth. However, how the two routes relate and whether they compose has remained open.\n\nWe propose a symmetry-graded framework that views the two evaluation routes as commuting group actions on the digit-extraction polynomial. Under this unified perspective, the existing evaluators correspond to different specializations of $\\mathrm{cost}(D;r,d)$. For lower degree, we identify a novel rank-two lattice structure underlying digit extraction. The crystallographic restriction limits the filter order to $r\\in\\{1,2,3,4,6\\}$. In particular, the methods of Ma et al. and Xiong et al. correspond to $r=2$ and $r=4$, respectively. Moreover, our framework derives a sparser order-six digit-extraction polynomial, enabling order-six symmetry for Mersenne primes. For lower evaluation cost, we construct a composed evaluator that first folds $P_A$ using the scalar filter and then evaluates the folded polynomial via the slot ring's Galois norm map. Since the rotation and Frobenius actions commute, the two optimizations can be combined within the same framework. Consequently, for any $(p,m)$ we select the optimal $(r,d)$ and evaluate digit extraction in $2\\sqrt{D/(rd)}+O(\\log D)$ non-scalar multiplications.\n\nOn 13 general cyclotomic rings at $\\geq 80$-bit verified security, our single-threaded HElib implementation improves upon the state-of-the-art evaluator of Ma et al., accelerating digit extraction by $2.4$–$4.9\\times$ and thin bootstrapping by $1.3$–$2.8\\times$, while modifying only the digit-extraction stage. In particular, on Ma et al.'s set IV with the Mersenne prime $p=8191$ and set V with $p=65537$, digit extraction is accelerated by $3.6\\times$ and $3.8\\times$, respectively, reducing the total bootstrapping time from 180.4 s to 85.5 s and from 217.6 s to 103.1 s. The implementation is publicly available, and the core analysis is machine-checked in Lean 4.",
+      "authors": [
+        "Zhenyu Xiong",
+        "Mingsheng Wang",
+        "Zhedong Wang",
+        "Han Wang"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 20:25:21 +0000",
+      "pub_date_iso": "2026-09-17T20:25:21+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2076",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2075",
+      "title": "Bounding the Excess Risk for Linear Models Trained on Marginal-Preserving, Differentially-Private, Synthetic Data",
+      "abstract": "The growing use of machine learning (ML) has raised concerns that an ML model may reveal private information about an individual who has contributed to the training dataset. To prevent leakage of sensitive data, we consider using differentially-private (DP), synthetic training data instead of real training data to train an ML model. A key desirable property of synthetic data is its ability to preserve the low-order marginals of the original distribution. Our main contribution comprises novel upper and lower bounds on the excess empirical risk of linear models trained on such synthetic data, for continuous and Lipschitz loss functions. We perform extensive experimentation alongside our theoretical results",
+      "authors": [
+        "Yvonne Zhou",
+        "Mingyu Liang",
+        "Ivan Brugere",
+        "Danial Dervovic",
+        "Antigoni Polychroniadou",
+        "Min Wu",
+        "Dana Dachman-Soled"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 18:16:43 +0000",
+      "pub_date_iso": "2026-09-17T18:16:43+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/2075",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2074",
+      "title": "Revisiting Malicious Private Aggregation: Formalization, Weaknesses, and Enhancements",
+      "abstract": "Private aggregation schemes enable aggregation of sensitive data across clients without leaking any individual client's input. Their applications include privacy-preserving federated learning, private heavy hitters, and anonymous systems.\n\nMany private aggregation schemes assume two non-colluding servers and aim to guarantee privacy even when one server is malicious, i.e., the malicious server learns an aggregation result that includes all honest client inputs. However, many private aggregation schemes in the literature fail to achieve privacy, which we believe is in large part due to a lack of formalism for the nuanced variations of privacy guarantees.\n\nIn this work, we present ideal functionalities for several variants of private aggregation. We also formalize a common paradigm underlying most prior private aggregation schemes. The formal treatment helps us identify security flaws or underspecifications in existing private aggregation schemes. We then present modular modifications or fill in critical details to help prior schemes in the share-aggregate paradigm securely realize the private aggregation functionalities we formally define, including in settings where clients may have unreliable networks.",
+      "authors": [
+        "Ananya Appan",
+        "Pranav Shriram Arunachalaramanan",
+        "David Heath",
+        "Ling Ren"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 17:50:11 +0000",
+      "pub_date_iso": "2026-09-17T17:50:11+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2074",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2073",
+      "title": "Revisiting ML Training under Fully Homomorphic Encryption: Convergence Guarantees, Differential Privacy, and Efficient Algorithms",
+      "abstract": "We present the first theoretical convergence analysis of machine learning training under fully homomorphic encryption (FHE), combined with a differentially private (DP) training algorithm tailored to encrypted computation. Our approach improves computational efficiency over standard differentially private gradient descent (DP-GD) while achieving comparable utility. In particular, we prove convergence of approximate gradient descent using polynomial approximations of activation and loss functions, which are required for FHE compatibility. To preserve privacy in downstream tasks, we integrate differential privacy without relying on costly per-sample gradient clipping, enabling scalable encrypted learning. We also provide data-independent hyperparameter selection and theoretically grounded strategies for polynomial approximation which can be of independent interest. Together, these contributions advance the feasibility of efficient, private, and secure machine learning on sensitive data.",
+      "authors": [
+        "Yvonne Zhou",
+        "Mingyu Liang",
+        "Ivan Brugere",
+        "Danial Dervovic",
+        "Yue Guo",
+        "Antigoni Polychroniadou",
+        "Min Wu",
+        "Dana Dachman-Soled"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 17:50:10 +0000",
+      "pub_date_iso": "2026-09-17T17:50:10+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/2073",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2072",
+      "title": "Sunshine Systems: Enabling Privacy-Preserving Compliance with Freedom of Information Laws",
+      "abstract": "Freedom of information laws (informally known as Sunshine Laws), such as the US Federal Freedom of Information Act, provide legal pathways for members of the public to compel governments to produce internal documentation.  These laws have become a powerful tool for government accountability, allowing journalists and activists to uncover malfeasance and advocate for change. However, because compliance with these laws requires government actors---the same entities who may be accused of malfeasance---to produce documentation, there is a risk that evidence of malfeasance may be suppressed rather than produced in response to a query.\n\nIn this work, we introduce a cryptographic framework called Sunshine Systems, designed to constrain government actors' ability to circumvent freedom of information laws.  At a high level, Sunshine Systems enable agencies to prove, in zero knowledge, that they have produced the complete and correct set of documents responsive to a given request.  We instantiate a Sunshine System that supports keyword queries, building on recent advances in lookup arguments.  We implement and evaluate our approach on low-cost hardware, demonstrating its practicality even for small government agencies.",
+      "authors": [
+        "Aarushi Goel",
+        "Gabriel Kaptchuk",
+        "Yuange Li"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 16:36:27 +0000",
+      "pub_date_iso": "2026-09-17T16:36:27+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/2072",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
+      "id": "2026/2071",
+      "title": "Soft Analytical Side-Channel Attacks on SHA-2 and HMAC",
+      "abstract": "We investigate the use of bit-level Soft Analytical Side-Channel Attacks (SASCA) to recover secret inputs of the SHA-256 hash function, and secret keys of HMAC-SHA-256, using Sentential Decision Diagrams to overcome the computational challenge posed to classical Belief Propagation by multiple-word modular addition.\nOur attack on HMAC requires no control nor knowledge of the input, and exploits its double manipulation of the key to improve key-recovery performance. We make comprehensive simulations to evaluate the attacker’s recovery capacity for both SHA-256 and HMAC-SHA-256. Finally, we study the profiling capabilities of load instructions in a multiposition EM probe setup on a STM32F303RET6 microcontroller, and use these results to evaluate the capability of our attack against software implementations of HMAC-SHA-256 in a realistic scenario.",
+      "authors": [
+        "Maxime Lecomte",
+        "Julien Maillard",
+        "Antoine Moran",
+        "Guénaël Renault",
+        "Benjamin Smith"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 13:39:27 +0000",
+      "pub_date_iso": "2026-09-17T13:39:27+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/2071",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2070",
+      "title": "Polynomial Time Algorithms for the Kadison-Singer Problem",
+      "abstract": "Marcus, Spielman, and Srivastava [MSS15] established the existence of Kadison--Singer partitions. We provide polynomial-time algorithms for the Kadison--Singer problem. For Hermitian matrices $A_1,\\ldots,A_m\\in\\mathbb C^{n\\times n}$ of rank at most one, we give two algorithms that find signs $\\sigma\\in\\{\\pm1\\}^m$ satisfying $\\|\\sum_i \\sigma_iA_i\\|\\le C\\|\\sum_i A_i^2\\|^{1/2}$. The deterministic algorithm achieves $C=3.3443$ using $\\widetilde O(mn^2+n^{56})$ arithmetic operations. The randomized algorithm achieves $C=4.8628$ using $\\widetilde O(mn^2+n^{5.88})$ arithmetic operations in expectation. For vectors satisfying $\\sum_i a_ia_i^*=I$ and $\\|a_i\\|^2\\le\\alpha$, the algorithms yield partitions $[m]=I_1\\cup I_2$ satisfying $\\|\\sum_{i\\in I_j}a_ia_i^*-I/2\\|\\le (C/2)\\sqrt\\alpha$ for $j=1,2$.",
+      "authors": [
+        "Zhao Song",
+        "Song Yue"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 06:50:24 +0000",
+      "pub_date_iso": "2026-09-17T06:50:24+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2070",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2069",
+      "title": "Default Correct: A New Fault Surface in the Comparison Booleanisation of Kyber-KEM",
+      "abstract": "The Fujisaki–Okamoto (FO) transform protects Kyber-KEM against chosen-\nciphertext attacks and is based on a ciphertext comparison step. This comparison is usually treated as a single atomic check. However, in every mainstream implementation it is a short pipeline of independently faultable stages. It comprises a byte-wise mismatch accumulation, a two’s-complement Booleanisation, and a conditional move (cmov). In this work, we expose a previously unexamined stage of this pipeline, the Booleanisation, as a new attack surface. Our research reveals that a\nsingle sub-instruction clock glitch forces the mismatch flag fail to 0, so decapsulation accepts any ciphertext. Every prior fault attack on this comparison targets the equality test or the conditional move. So does the only countermeasure proposed for it: the default-fail cmov ordering of Xagawa et al. Our surface sits upstream of that move, so it escapes both. We instantiate this Default Correct fault on an ARM Cortex-M4 (ChipWhisperer-Lite) and demonstrate it across the pqm4, PQClean, and\nreference implementations of Kyber-512/768/1024 at all optimisation levels (-O0–O3). Crucially, every one of these implementations already carries Xagawa’s default-fail ordering, yet the fault succeeds on all of them: the surface is therefore not merely new but structurally beyond the reach of the state-of-the-art defence for this comparison. The Booleanisation is thus a single point of failure common to all three code bases. Leveraging the accept-everything behaviour, we use the standard plaintext-checking\noracle and recover the full secret key of Kyber-512, Kyber-768, and Kyber-1024 in a single on-device run each. Finally, we analyse why defences that protect only the cmov or a single fail flag cannot address a fault that targets an upstream stage of the comparison, and we propose a producer-side countermeasure: an integrity-checked Booleanisation that computes the same flag while folding in an execution counter, so that any partial instruction skip is detected, at negligible overhead.",
+      "authors": [
+        "Anirudh Jaiswal",
+        "Abhilash Kumar Das",
+        "Dhiman Saha"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 05:49:12 +0000",
+      "pub_date_iso": "2026-09-17T05:49:12+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2069",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2068",
+      "title": "Distributed SNARGs Resilient to Corrupt Verifiers",
+      "abstract": "Distributed certification is a method for monitoring the correctness of a distributed system. The model consists of a centralized prover in addition to multiple verifiers lying on the nodes of a communication network, where the goal is to assert that the network satisfies a desired property. In doing so, the prover generates certificates for each verifier; the verifiers can then communicate in a small number of rounds, and accordingly accept or reject. The prover’s assertion is accepted if all verifiers accept.\n\nA significant body of work has gone toward developing and understanding limitations of distributed certification schemes, predominantly in the setting of information-theoretic soundness, and recently with computational soundness, achieving a form of distributed (locally verifiable) Succinct Non-interactive Arguments (SNARGs) (Aldema Tshuva et al, TCC 2023). As is standard in the model, soundness holds in existing constructions assuming that all verifiers in the network are honest.\n\nIn this work, we introduce and explore the notion of robust distributed SNARGs (rdSNARGs) which retain (computational) soundness guarantees even when the cheating prover can collude with some nodes in the network. Addressing cheating verifiers presents several challenges. We construct rdSNARGs for any distributed language in P with succinct certificate size and communication from extended versions of RAM SNARGs (Kalai et al, STOC 2023), where the level of succinctness scales with the threshold of corrupt nodes. Complementarily, we demonstrate a lower bound showing that an rdSNARG with significantly smaller certificates and communication implies a SNARG for NP.",
+      "authors": [
+        "Elette Boyle",
+        "Lalita Devadas"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 05:41:31 +0000",
+      "pub_date_iso": "2026-09-17T05:41:31+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2068",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2067",
+      "title": "Maltese: Succinct Polynomial Commitment from Lattices",
+      "abstract": "Succinct polynomial commitment schemes are a key building block in succinct non-interactive arguments of knowledge (SNARKs). Existing succinct lattice-based polynomial commitment schemes take a \"split-and-fold\" strategy making use of homomorphism to compress proof size to $O(\\text{polylog} N)$ for polynomials of size $N$. Prior works either (1) incur superlogarithmic verifier work (e.g., $O(\\sqrt{N})$), (2) incur concretely large proof sizes and verifier work (e.g., hundreds of MB), or (3) rely on non-standard lattice assumptions. We proprose a new succinct polynomial commitment scheme Maltese that operates over a Merkle tree commitment of the lattice-based Ajtai hash function. We employ a folding strategy and propose new sum-check-based reductions for managing norm growth of the tree commitment over folding rounds. Maltese is secure under the standard Module-SIS assumption and produces opening proofs of $335$KB for multilinear polynomials of size $N=2^{30}$; proofs are around $300\\times$ smaller than prior work with polylogarithmic verifier complexity but between $2$-$6\\times$ larger than prior work with larger verifier complexity or stronger structured assumptions.",
+      "authors": [
+        "Katarina Cheng",
+        "Wilson Nguyen",
+        "Nirvan Tyagi"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 02:35:24 +0000",
+      "pub_date_iso": "2026-09-17T02:35:24+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2067",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2066",
+      "title": "Optimizing HAETAE and SMAUG-T on Cortex-M4 for Resource-Constrained IoT Devices",
+      "abstract": "The practicality of post-quantum cryptography (PQC) on IoT devices depends on both operation cycle counts and communication costs from public values (public keys, ciphertexts, and signatures). The DSA HAETAE and the KEM SMAUG-T, both selected in the KpqC competition, provide smaller public values than ML-DSA and ML-KEM; however, the lack of platform-specific optimization leaves their operation cycle counts high, which can offset this advantage. In this paper, we optimize HAETAE and SMAUG-T on the Cortex-M4, a representative 32-bit embedded MCU, and conduct a multi-faceted evaluation. We fix two bugs in the existing implementation of the HAETAE $\\mathcal{N}(\\mathbf{s})$ evaluation and propose Autocorrelation-based Spectral-Norm Evaluation (ASNE), which replaces the per-polynomial FFTs with a single autocorrelation FFT. Together with further optimizations, we achieve improvements of up to 309.1%, 4.8%, and 6.0% in KeyGen, Sign, and Verify, respectively, over the state-of-the-art implementation. For SMAUG-T, we analyze the coefficient ranges of the polynomial multiplication operands to select an auxiliary NTT-friendly modulus $q'$, and count the number of operations per layer to apply the optimal NTT. As a result, we achieve improvements of up to 266.7%, 348.9%, and 341.0% in KeyGen, Encaps, and Decaps, respectively, over the reference C implementation. Furthermore, we apply static analysis and dudect measurements to the optimized kernels and observe no evidence of timing leakage. Using models anchored to prior IoT protocol measurements, we estimate the transmission-unit count, end-to-end latency, and energy, showing that HAETAE and SMAUG-T can be competitive PQC alternatives in constrained wireless environments.",
+      "authors": [
+        "JunHyeok Choi",
+        "DongHyun Shin",
+        "Seog Chung Seo"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 02:03:58 +0000",
+      "pub_date_iso": "2026-09-17T02:03:58+00:00",
+      "iacr_category": "Implementation",
+      "link": "https://eprint.iacr.org/2026/2066",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2065",
+      "title": "Differentially Oblivious Resizing for Group-By Aggregations",
+      "abstract": "Systems for private group-by aggregation (e.g., computing histograms, min/max values, or averages) let a confidential virtual machine (CVM) generate statistics from streaming user data. A particular challenge in such systems is ensuring that the CVM's memory-access patterns do not reveal (too much) private information to the untrusted host.\nWhile it is possible to rely on oblivious RAM (ORAM), doing so imposes a significant performance penalty and requires allocating sufficient memory to handle a worst-case data stream.\n\nWe introduce ROGA, a scheme for Resizable Oblivious Group-by Aggregation. ROGA uses an extension of oblivious single-access machines and thus improves performance, both asymptotically and concretely, relative to using ORAM. It also incorporates a novel, differentially oblivious resizing mechanism that ensures the allocated memory is within a constant factor of the memory used by a non-oblivious solution. ROGA also parallelizes cleanly across multiple cores for improved performance. \n\nWe implement ROGA in Rust and use Binsec/Rel to verify trace noninterference of its compiled fixed-capacity operations, resize estimator, and fixed-work noise sampler, showing that executions with equal public parameters have identical branch-target and memory-address traces for all secret inputs. The only data-dependent branch is the differentially private resize decision. Compared to state-of-the-art oblivious schemes for confidential analytics (which\ndo not support private resizing), ROGA is up to 50.4$\\times$ faster when sharded across 64 logical cores, and private resizing cuts memory by up to 14$\\times$ compared to domain-provisioned instances. In a case study, ROGA using 16 cores processes the standard network statistics of a 277-million-packet backbone trace with $5.3\\times$ end-to-end overhead over a non-oblivious pipeline while exactly matching the reference output.",
+      "authors": [
+        "James Bell-Clark",
+        "Albert Cheu",
+        "Adria Gascon",
+        "Jonathan Katz",
+        "Lukas Gerlach"
+      ],
+      "pub_date": "Thu, 17 Sep 2026 00:08:16 +0000",
+      "pub_date_iso": "2026-09-17T00:08:16+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2065",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2064",
+      "title": "Area-Time Efficient NTRU Prime Decapsulation: ASIC Evaluation of the First Five-Way Char-3 Multiplier",
+      "abstract": "Streamlined NTRU Prime (sntrup761) is a lattice-based key encapsulation mechanism that, although not a NIST standard, remains widely deployed in critical internet infrastructure. It is the post-quantum key-exchange default in OpenSSH, standardized in RFC 9941, and used well beyond SSH, in Red Hat Enterprise Linux, the liboqs library, PQConnect, and commercial VPNs. Its decapsulation performs a polynomial multiplication over the characteristic-three ring $\\mathbb{Z}_3[x]/(x^{p}-x-1)$, so faster methods for this operation directly improve these protocols. We use the Yeniaras-Cenk 5-way multiplier (U1-hybrid), which has the lowest arithmetic complexity among characteristic-three multipliers and gives a 35.52% scalar-C software speedup over Bernstein's three-way method (B1). Yet every prior NTRU Prime hardware design, on FPGA or the single existing ASIC, uses only schoolbook or a single layer of two-way Karatsuba. Three-way splits have been implemented only in software; no 5-way split had been implemented at all before this work. We present the first ASIC evaluation of the Yeniaras-Cenk 5-way multiplier (U1-hybrid), synthesized to the Nangate 45 nm library and compared against the state-of-the-art parallel schoolbook multiplier of Peng et al. On the area-delay product (ADP), the Yeniaras-Cenk 5-way multiplier is 6.8x better than the Peng schoolbook at the multiplier level, and 1.27x better in the sntrup761 decapsulation core, which it completes in 2471 cycles against Peng's 3829, a 35.5% core reduction (12.4% once the fixed hash is included). We also compare against a 3-way Karatsuba baseline (Bernstein's B1), noting that no optimized hardware B1 exists and we do not build one; the comparison there is at the operation-count level only. Synthesizing U1 and B1 as combinational circuits isolates where the five-way advantage comes from. It is not gate count: each $\\mathbb{F}_9$ product expands into four $\\mathbb{F}_3$ products, so at the same architecture the two use nearly the same area. The gain is in depth, as those four $\\mathbb{F}_3$ products run in parallel: 138.27 ps against 57.95 ps for one $\\mathbb{F}_3$ multiplier, 2.4x rather than 4x. The advantage is thus a hardware effect: it grows with design parallelism and matches the scalar-C software figure across two parameter sets. All Verilog, testbenches, and synthesis scripts are openly available.",
+      "authors": [
+        "Esra Yeniaras"
+      ],
+      "pub_date": "Wed, 16 Sep 2026 20:26:01 +0000",
+      "pub_date_iso": "2026-09-16T20:26:01+00:00",
+      "iacr_category": "Implementation",
+      "link": "https://eprint.iacr.org/2026/2064",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2063",
+      "title": "Witness Encryption for NP from SNARGs and Groups",
+      "abstract": "We construct the first witness encryption for NP in the generic group model from succinct non-interactive arguments (SNARGs) for NP. Our construction applies to any SNARG with subexponential soundness and polylogarithmic online verification time after input preprocessing.\n\nCentral to our result is the first Karp-Levin reduction from satisfiability for circuits of size $\\mathrm{polylog}(\\lambda)$ to the minimum-distance problem for linear codes (GapMDP) over a prime field of size $\\lambda^{\\omega(1)}$, with an approximation factor of $\\omega(\\log \\lambda)$, where $\\lambda$ is the security parameter. We obtain this reduction by adapting Hair and Sahai's recent hardness result for GapSVP. Combining our reduction with the witness encryption framework due to Barta, Ishai, Ostrovsky, and Wu [CRYPTO 2020], we obtain the first unconditional extractable witness encryption for circuits of size $\\mathrm{polylog}(\\lambda)$ in the generic group model. These techniques may be of independent interest.",
+      "authors": [
+        "Zhengzhong Jin"
+      ],
+      "pub_date": "Wed, 16 Sep 2026 20:20:11 +0000",
+      "pub_date_iso": "2026-09-16T20:20:11+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2063",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2062",
+      "title": "Hamming Ideals and Grobner Bases for ISD-like Syndrome Decoding",
+      "abstract": "We investigate an algebraic approach to the Syndrome Decoding Problem, based on a reformulation of the Hamming weight constraint and its integration with the Information Set Decoding paradigm. We begin with a systematic analysis of the Hamming variety, deriving its defining equations in terms of elementary symmetric functions. Since these equations may have high degree, we exploit convolution identities for elementary symmetric functions, together with factorizations based on Lucas' identity, to derive an equivalent formulation with auxiliary variables and equations of bounded degree.\n\nBuilding on this modeling, we generalize the ISD paradigm through an ISD-like decoding strategy, implemented by the GBDecode algorithm, in which only a subset of an information set is fixed. This approach reduces the size of the combinatorial search space at the cost of solving the associated multivariate nonlinear systems. To handle this algebraic component, we employ the MultiSolve algorithm, which replaces a single Grobner basis computation with a collection of computations on simpler systems, obtained by exhaustively assigning a varying number of indeterminates over the finite field. This provides a tunable balance between combinatorial search and algebraic solving.\n\nWe evaluate the resulting approach experimentally on instances of the Syndrome Decoding Problem for random binary linear codes, using parameters corresponding to the NIST Security Category 1 parameter set of the Classic McEliece cryptosystem. The experiments assess the feasibility of this combinatorial-algebraic approach and provide insights into the practical behavior of Grobner basis techniques within an ISD-like decoding framework.",
+      "authors": [
+        "Roberto La Scala",
+        "Marco Marchesin",
+        "Sharwan K. Tiwari"
+      ],
+      "pub_date": "Wed, 16 Sep 2026 15:30:55 +0000",
+      "pub_date_iso": "2026-09-16T15:30:55+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2062",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2061",
+      "title": "Normal Alignment: Improved Cryptanalytic Sign Recovery on Hard-Label Networks",
+      "abstract": "At EUROCRYPT 2025, Carlini {\\em et al.} proposed a breakthrough in the cryptanalytic extraction on hard‑label (S1) deep neural networks (DNNs), demonstrating polynomial-time signature and sign recovery. However,  Carlini {\\em et al.}'s sign‑recovery method ({which we call \\em Future Toggle}) suffers  only a marginal advantage over random guessing, producing high‑confidence wrong sign predictions in deeper layers. Such errors trigger expensive exponential‑time enumeration. \n\nThis work presents {\\em Normal Alignment}, a novel statistical sign‑recovery approach for S1 DNNs. Drawing on the expected length difference between projected normals of adjacent decision facets at dual points, our method infers neuron signs via normal‑signature alignment. It delivers higher voting accuracy and pushes erroneous predictions to low‑confidence ranks, which further enables a more efficient combined method, {\\em eSOE + Alignment}, by combining {\\em Normal Alignment} with the hard‑label {SOE} extension. This combined strategy removes heavy enumeration overhead and realizes exact polynomial‑time full sign recovery. \n\nExperiments demonstrate the effectiveness of our method,  especially for deep layers. For example, with our method, the signs for CIFAR-10 (architecture 192-64$\\times$8-10) and MNIST (architecture 64-96$\\times$3-32-10) models can be fully recovered in polynomial time; in contrast, Carlini {\\em et al.}'s sign‑recovery method would require exponential‑time enumerations involving $2^{52}$ or $2^{82}$ guesses of the signs, respectively.",
+      "authors": [
+        "Shi Tang",
+        "Zirui Chen",
+        "Yongjia Su",
+        "Zhengchao Gao",
+        "Lingyue Qin",
+        "Xiaoyang Dong"
+      ],
+      "pub_date": "Wed, 16 Sep 2026 13:11:17 +0000",
+      "pub_date_iso": "2026-09-16T13:11:17+00:00",
+      "iacr_category": "Secret-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2061",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2060",
+      "title": "DelegProof: A Machine-Checked Security Analysis of EIP-7702 Delegation",
+      "abstract": "EIP-7702, live on Ethereum since the Pectra upgrade, lets externally owned accounts delegate their execution to arbitrary contract code with a single signature. The consequences are measurable: 63% of observed delegations point to malicious contracts, with $2.36M in confirmed losses, and ecosystem guidance already warns about cross-chain replay and front-run initialization. What is missing is a formal account of the problem: the 7702 delegation lifecycle has no formal treatment, and none of the recommended mitigations has been machine-verified. We present DelegProof, to our knowledge the first symbolic formal analysis of EIP-7702 authorization semantics composed with the ERC-4337 EntryPoint pipeline. Our Tamarin models are calibrated by reproducing four documented attack classes, and yield ten machine-checked attack patterns—among them the silent failure of the advertised temporary-delegation bundle, storage confusion across re-delegation, and an ERC-1271 substitution attack that reaches into the signature checks of relying contracts—together with the security invariants that do hold. Formalizing the recommended mitigations shows that banning chainId-0 authorizations eliminates cross-chain replay, that an account-bound initialization gate restores init authorization while an unbound gate is provably still bypassable, and that namespaced storage slots make the storage-confusion class structurally inexpressible. All models and proofs are available at https://anonymous.4open.science/r/delegproof-artifact-F7FE/.",
+      "authors": [
+        "Rong Qian",
+        "Yu Cheng",
+        "Lingyu Gao",
+        "Yuchang Zhang",
+        "Zengli Guo"
+      ],
+      "pub_date": "Wed, 16 Sep 2026 12:15:56 +0000",
+      "pub_date_iso": "2026-09-16T12:15:56+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/2060",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
     {
       "id": "2026/2059",
       "title": "On Aborts in Differential Privacy",
@@ -829,7 +1206,7 @@
     {
       "id": "2026/2011",
       "title": "CauchyFold: Residue-Optimal High-Arity Lattice Folding via Scaled Cauchy Challenges",
-      "abstract": "A direct $k$-ary quadratic fold with one accumulator and $k$ fresh inputs exposes $k + \\binom{k}{2}$ mixed interactions. These terms need not be retained independently across the folding challenge. A companion boundary analysis shows that, under the separation condition used here, at least $rk$ mixed-state coordinates are required, where $r$ is the dimension of the bilinear mixed-output space of the quadratic relation. Scaled Cauchy challenges attain this width: every pairwise product of challenge coefficients lies in the span of the $k$ single-source coefficients. After clearing the common denominator, the entire mixed contribution becomes a degree-$< k$ polynomial with $k$ output-valued coefficients.\n\nCauchyFold turns this representation into a lattice-based folding protocol. The polynomial carrier is committed before the Cauchy challenge and determines the mixed part of the folded quadratic relation afterward. Field-level checks then reduce the folded relation to committed linear relations over lattice rings, with explicit norm bounds for the openings used in extraction. Rewinding follows the same transcript order. Compatible recoveries lead back to source openings, while incompatible recoveries yield a nonzero short kernel for the corresponding commitment matrix by comparing the original short responses before lifting modular inverses. Under the associated Module-SIS assumptions, this gives node-level knowledge soundness.\n\nWe implement a complete $k = 16$ CauchyFold node under two parameter profiles, including commitment generation, folding, the finite reduction chain, serialization, parsing, and verifier replay. The resulting prover-to-verifier folding transcripts are 127,887 and 129,002 bytes, respectively, with the 16 fresh-input commitments accounted for separately.",
+      "abstract": "High-arity folding combines several relation instances in one step, but a direct quadratic expansion exposes quadratically many mixed terms. Scaled Cauchy challenges admit a carrier: a polynomial representing the mixed contribution with linearly many field coordinates [58]. CauchyFold turns this representation into a committed lattice folding protocol.\nTwo algorithms construct this carrier without enumerating all source pairs. One uses multipoint evaluation; the other computes residues at the Cauchy poles. Both have quasi-linear arithmetic cost in the arity when relation dimensions are fixed. The protocol commits the carrier before the Cauchy challenge. It encodes the folded field values as bounded commitment openings, checks the folded relation over an extension field, and reduces the remaining linear claims through a finite sequence of lattice relations.\nFor a classical prover that can be reset to a complete checkpoint, extraction returns valid source openings or a short nonzero vector in the kernel of a specified commitment matrix. The analysis accounts for bounded retries and expected extraction time, and averages the reduction over the joint setup distribution. A deterministic compiler instantiates a sparse quadratic relation at arity sixteen. For this instance, we give exact statistical and communication bounds, operation counts separated by arithmetic type, and lattice-attack estimates for all twenty independently sampled commitment matrices. The communication includes all independent verifier randomness.",
       "authors": [
         "Xiang Wang"
       ],
@@ -2716,6 +3093,23 @@
       ]
     },
     {
+      "id": "2026/1329",
+      "title": "Flock: Fast Proving for Batch Boolean Computations",
+      "abstract": "For many applications of SNARKs, a key bottleneck is proving large batches of standard cryptographic hash evaluations, such as SHA-256, Keccak, or BLAKE3. We introduce Flock, a hash-based SNARK for extremely fast proving of such batched Boolean computations. Flock proves batches of the same R1CS circuit (plus input/output relations between them), can prove hash-chains and Merkle path openings, and in principle can be extended to full-fledged hash-based signature verification. At its core, Flock combines new optimizations for the lincheck and zerocheck protocols with an aggressively optimized proof-of-concept implementation co-designed by coding agents.\n\nOn a single core of an M4 Max processor, Flock proves 82k evaluations of the BLAKE3 compression function, 42k SHA-256 compressions, and 30k Keccak permutations per second — less than a $250\\times$ overhead over native execution. On ten cores, throughput exceeds 660k BLAKE3 compressions per second; in proving SHA-256, Flock is more than $9\\times$ faster than Binius64, the prior state of the art, and more than $500\\times$ faster than the fastest elliptic curve-based SNARK we measured against.",
+      "authors": [
+        "Benedikt Bünz",
+        "Ron Rothblum",
+        "William Wang"
+      ],
+      "pub_date": "Sun, 28 Jun 2026 00:15:59 +0000",
+      "pub_date_iso": "2026-06-28T00:15:59+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1329",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
       "id": "2026/1317",
       "title": "ProtogaLattice: Lattice-based Algebraic Folding",
       "abstract": "Folding schemes are gaining traction recently as they are suited to prove streaming computations with low memory footprint. In particular, there has been a growing interest in post-quantum folding schemes for more expressive relations, and with improved proof sizes. While the landscape is vast, every lattice-based construction, such as Latticefold+, (Super)Neo, and Cyclo, heavily rely on the sumcheck protocol. Sumcheck gives efficient proving times, but the verifier circuits become very large, partially because of the many random oracle invocations required. When folding sequential computations, this significantly inflates the recursive overhead, as the prover must run the verification at every iteration.\n\nWe present ProtogaLattice, a new lattice-based folding scheme for general high-degree polynomial relations that drastically reduces the size of the verifier's circuits. Our folding backbone deviates from the sumcheck approach and uses algebraic techniques. Our contribution is twofold: \ni) a folding scheme that combines multiple instances of polynomial relations into accumulators for a bounded number of iterations, and \nii) a bootstrapping protocol to reduce the norm of the witnesses underlying these accumulators, which can be used in complement to our bounded-depth folding scheme to unlock unlimited depth.\n\nA full iteration of ProtogaLattice for witnesses of length $2^{30}$ gives a 4$\\times$ shorter proof size than the state-of-the-art, with only $8.13$ KB. Additionally, ProtogaLattice requires less random oracle evaluations and achieves a smaller verifier circuit than its sumcheck counterparts.\nOur techniques open new directions towards building efficient lattice-based proofs for expressive relations and that present small recursion overheads, challenging the established sumcheck-based approaches.",
@@ -2951,6 +3345,21 @@
       "pub_date_iso": "2026-05-29T13:08:16+00:00",
       "iacr_category": "Public-key cryptography",
       "link": "https://eprint.iacr.org/2026/1098",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1088",
+      "title": "FlipFields-New Building Blocks for  Cryptograpic Primitives?",
+      "abstract": "$1+1 \\equiv 0$---while looking strange at first glance, this is certainly true in GF(2). In this paper we propose the two field-like structures \\FlipInts\\ and \\FlipPolys\\ as potential alternative building block for crypographic schemes---in particular in the post-quantum setting. Both structures have $2^d$ elements for some positive integer $d$ and are derived from the natural numbers $N$ in the first case and the univariate polynomial ring GF(2)$[t]$ in the second case. We call the generalization of these two structures FlipFields. In addition, we see examples how they can be used for post-quantum cryptography, in particular Unbalanced Oil and Vinegar, Learning with Errors and Saber. There is also a discussion of cryptographic primitives that are most likely not suitable for FlipFields or at least not easy to tweak. As the structures are very new, this paper also includes a list of OpenProblems.",
+      "authors": [
+        "Christopher Wolf"
+      ],
+      "pub_date": "Thu, 28 May 2026 21:04:21 +0000",
+      "pub_date_iso": "2026-05-28T21:04:21+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/1088",
       "topics": [
         "Uncategorized"
       ]
@@ -3387,7 +3796,7 @@
     {
       "id": "2026/793",
       "title": "Oriole: Adaptively Secure Partially Non-Interactive Threshold Signatures from Lattices",
-      "abstract": "We present the first lattice-based, partially non-interactive threshold signature scheme that tolerates the adaptive corruption of up to T − 1 signers, where T is the signing threshold. Our construction relies on the MSIS and MLWE assumptions, and has two rounds, of which only the second is message-dependent. We substantially improve upon prior adaptively secure lattice-based schemes (CRYPTO ’24 and EUROCRYPT ’26), which require at least two message-dependent rounds. Compared to prior lattice-based partially non-interactive assumptions (CRYPTO ’24, S&P ’25, CRYPTO ’25), we achieve better communication complexity in addition to stronger security guarantees.",
+      "abstract": "We present the first lattice-based, partially non-interactive threshold signature scheme that tolerates the adaptive corruption of up to T −1 signers, where T is the signing threshold. Our construction relies on the MSIS and MLWE assumptions, and has two rounds, of which only the second is message-dependent. We substantially improve upon prior adaptively secure lattice-based schemes (CRYPTO ’24 and EUROCRYPT ’26), which require at least two message-dependent rounds. In addition, compared to prior lattice-based partially non-interactive schemes (CRYPTO ’24, S&P ’25, CRYPTO ’25), we achieve better communication complexity.",
       "authors": [
         "Kaijie Jiang",
         "Hoeteck Wee",
@@ -3449,6 +3858,26 @@
       "link": "https://eprint.iacr.org/2026/653",
       "topics": [
         "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
+      "id": "2026/646",
+      "title": "On Optimal Information-Theoretic Security in Symmetric Encryption under Low-Entropy Keys",
+      "abstract": "Low-entropy keys such as passwords and biometrics are pervasive, yet classical information-theoretic guarantees, such as perfect secrecy and entropic security, cannot generally be achieved in this regime. Honey encryption (HE) and homophonic ciphers (HC) tailor encryption to the message distribution to provide meaningful security, but their analyses do not establish optimal guarantees for arbitrary distributions. We ask: for messages and keys drawn independently from arbitrary distributions $(p_{\\mathrm m},p_{\\mathrm k})$, what is the optimal information-theoretic security achievable by any symmetric encryption scheme, and which conditions characterize its attainment? \n\nFor key confidentiality (KC), the optimal guarantee is that the ciphertext $C$ reveals only negligible information about the key $K$, i.e., $I(K;C)=\\operatorname{negl}(\\ell)$. For uniform schemes, this is achieved if and only if decrypting under every fixed key yields a distribution statistically close to $p_{\\mathrm m}$. HC and HE achieve this guarantee. For message-recovery security (MRS), the optimal guarantee is that no adversary guesses the message with probability above $p_{\\max}+\\operatorname{negl}(\\ell)$, while a trivial adversary achieves at least $p_{\\max}$ by guessing the most likely message or decrypting under the most likely key. We construct MRS-OE, a uniform scheme tailored to $(p_{\\mathrm m},p_{\\mathrm k})$ that attains $p_{\\max}+O(2^{-\\ell})$, and prove that $p_{\\mathrm k}$-agnostic schemes, including HC and HE, cannot achieve optimal MRS in general. We also show that optimal KC and optimal MRS generally cannot be achieved simultaneously. Technically, we establish the KC characterization through flow and cut analysis on a weighted directed acyclic graph. We also introduce a continuous-ciphertext framework that separates structural constraints from discretization error.",
+      "authors": [
+        "Haibo Cheng",
+        "Haijie Su",
+        "Dongyi Li",
+        "Wenting Li",
+        "Ping Wang",
+        "Kaitai Liang"
+      ],
+      "pub_date": "Thu, 02 Apr 2026 12:54:02 +0000",
+      "pub_date_iso": "2026-04-02T12:54:02+00:00",
+      "iacr_category": "Secret-key cryptography",
+      "link": "https://eprint.iacr.org/2026/646",
+      "topics": [
+        "Uncategorized"
       ]
     },
     {
@@ -4513,6 +4942,21 @@
       "topics": [
         "Zero-Knowledge Proofs & SNARKs/STARKs",
         "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
+      "id": "2025/888",
+      "title": "Bootstrapping GBFV with CKKS",
+      "abstract": "Generalized BFV (GBFV) replaces the integer plaintext modulus of BFV with a polynomial plaintext modulus, yielding a flexible tradeoff between precision and SIMD parallelism. This framework encompasses both BFV and CLPX, with CLPX corresponding to the extreme large-precision endpoint where very large plaintext moduli can be supported without increasing the underlying RLWE dimension. However, bootstrapping remains a bottleneck throughout the large-precision GBFV regime: existing GBFV bootstrapping methods rely on BFV-style linear transformations, whose noise growth becomes prohibitive as the plaintext precision grows. We introduce a GBFV bootstrapping method that treats the noise of a GBFV ciphertext as a CKKS plaintext and bootstraps it through CKKS. The main obstacle is that the BFV-from-CKKS bootstrapping technique of Kim et al. (CCS'24) relies on integer plaintext scaling and does not directly apply to GBFV, whose scaling factor involves a polynomial plaintext modulus. We overcome this by developing a noise-extraction and recovery procedure tailored to polynomial plaintext moduli. Our implementation bootstraps large-precision GBFV instances, including CLPX for the first time, supporting plaintext moduli of more than $500{,}000$ bits in less than $20$ seconds. We also introduce GBFV-to-CKKS and CKKS-to-GBFV conversions, interpreting the former as an approximate digit-decomposition toolkit for non-arithmetic operations over large GBFV plaintext spaces.",
+      "authors": [
+        "Jaehyung Kim"
+      ],
+      "pub_date": "Mon, 19 May 2025 07:01:05 +0000",
+      "pub_date_iso": "2025-05-19T07:01:05+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2025/888",
+      "topics": [
+        "Uncategorized"
       ]
     },
     {
