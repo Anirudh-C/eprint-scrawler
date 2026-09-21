@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-20T11:18:38.332523+00:00",
+  "updated_at": "2026-09-21T12:43:15.437357+00:00",
   "papers": [
     {
       "id": "2026/2080",
@@ -3093,6 +3093,22 @@
       ]
     },
     {
+      "id": "2026/1374",
+      "title": "Analysing the Post-Quantum Security of S/MIME",
+      "abstract": "Secure/Multipurpose Internet Mail Extensions (S/MIME) is a standards-based mechanism for certificate-backed email signing and encryption. Its post-quantum migration is now technically actionable: ML-KEM public keys can be represented in X.509 certificates, and CMS can carry ML-KEM recipient information through \\texttt{KEMRecipientInfo}. These standards solve an encoding problem, but they do not by themselves solve an assurance problem. A mailbox may possess a post-quantum-capable certificate while a generated CMS \\texttt{EnvelopedData} object still protects the content-encryption key (CEK) through RSA or elliptic-curve key management; a multi-recipient message may mix ML-KEM and classical recipient paths for the same CEK; and archived mail may remain protected only by quantum-vulnerable mechanisms.This paper studies this assurance gap by shifting the unit of analysis from certificates to encrypted messages. We model encrypted S/MIME as a multi-recipient CMS object with certificate-bound paths to a shared CEK and show that post-quantum confidentiality is a universal message-level property: every valid path to the CEK must satisfy the active migration policy. Consequently, the presence of one ML-KEM recipient path is insufficient if another valid classical path can recover the same CEK. We then present \\texttt{SMIME-PQCheck}, a standards-driven validation framework that combines X.509 profile checks, CMS recipient-structure analysis, policy-driven hybrid handling, and archive-level risk aggregation. The framework classifies S/MIME objects as \\texttt{pqc-protected}, \\texttt{hybrid-protected}, \\texttt{classical-only}, \\texttt{unsafe-mixed-mode}, \\texttt{invalid}, or \\texttt{unknown}. The result is a practical assurance layer for organizations migrating S/MIME deployments from certificate-level PQC readiness to auditable message-level protection.",
+      "authors": [
+        "Sayan Das",
+        "Anupam Chattopadhyay"
+      ],
+      "pub_date": "Sat, 04 Jul 2026 01:19:19 +0000",
+      "pub_date_iso": "2026-07-04T01:19:19+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/1374",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1329",
       "title": "Flock: Fast Proving for Batch Boolean Computations",
       "abstract": "For many applications of SNARKs, a key bottleneck is proving large batches of standard cryptographic hash evaluations, such as SHA-256, Keccak, or BLAKE3. We introduce Flock, a hash-based SNARK for extremely fast proving of such batched Boolean computations. Flock proves batches of the same R1CS circuit (plus input/output relations between them), can prove hash-chains and Merkle path openings, and in principle can be extended to full-fledged hash-based signature verification. At its core, Flock combines new optimizations for the lincheck and zerocheck protocols with an aggressively optimized proof-of-concept implementation co-designed by coding agents.\n\nOn a single core of an M4 Max processor, Flock proves 82k evaluations of the BLAKE3 compression function, 42k SHA-256 compressions, and 30k Keccak permutations per second — less than a $250\\times$ overhead over native execution. On ten cores, throughput exceeds 660k BLAKE3 compressions per second; in proving SHA-256, Flock is more than $9\\times$ faster than Binius64, the prior state of the art, and more than $500\\times$ faster than the fastest elliptic curve-based SNARK we measured against.",
@@ -3208,6 +3224,28 @@
       "pub_date_iso": "2026-06-10T13:35:20+00:00",
       "iacr_category": "Attacks and cryptanalysis",
       "link": "https://eprint.iacr.org/2026/1232",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1229",
+      "title": "Invisible Traces: Subversion Attacks on Batch-Issued Credentials",
+      "abstract": "All EU member states are required to roll out a digital identity system - the European Digital Identity (EUDI) wallet - by the end of 2026. Strong privacy is at the core of the underlying regulation, which mandates the EUDI wallet to support selective disclosure and unlinkability. The wallet currently being developed relies on the batch issuance of one-time ECDSA credentials that sign attributes through individually salted hashes for selective disclosure. This solution is known to achieve only a weak form of unlinkability, where the credential issuer must be honest: a malicious issuer could trace users through the salted hashes it signs and the signature value itself. But such a tracing attack requires the issuer to store all signed data and communicate with the verifying parties for tracing, which can be argued to be too cumbersome or obvious to happen in reality. In this work, we therefore initiate the study of a more subtle type of subversion attacks. Therein, the issuer can deviate from the issuance protocol, with two goals:\n(i) enabling verifiers in possession of a short tracing key to de-anonymize users and\n(ii) keeping this deviation undetectable from users.\nWe formalize unlinkability against such subversion attacks, and show that batch-issued credentials with salted hashes do not achieve that form of privacy. We present several undetectable subversion attacks against batch-issued ECDSA credentials and suggest lightweight mechanisms to provably mediate them.",
+      "authors": [
+        "Anna-Birgitta Burmeister",
+        "Anna Fennig",
+        "Andreas Franke",
+        "Karla Friedrichs",
+        "Anja Lehmann",
+        "Kurt-Kester Leißering",
+        "Konrad Letz",
+        "Cavit Özbay"
+      ],
+      "pub_date": "Wed, 10 Jun 2026 12:22:36 +0000",
+      "pub_date_iso": "2026-06-10T12:22:36+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/1229",
       "topics": [
         "Uncategorized"
       ]
@@ -3596,6 +3634,26 @@
       "pub_date_iso": "2026-05-17T16:06:06+00:00",
       "iacr_category": "Public-key cryptography",
       "link": "https://eprint.iacr.org/2026/975",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/974",
+      "title": "LoTRS: Practical Post-Quantum Structured Threshold Ring Signatures from Lattices",
+      "abstract": "Threshold ring signatures (TRS) enable a quorum of $T$ users to jointly sign a message while hiding which $T$ of the $N$ ring members participated, supporting privacy-preserving endorsement in ad-hoc settings. That said, many deployments do not need anonymity over every $T$-subset of a ring: when the approval pattern is already public, a structured ring can be sufficient. In this work, we first formalize this setting as a structured threshold ring signature (sTRS) and introduce $\\mathsf{LoTRS}$, a lattice-based sTRS that avoids a dedicated leader and keeps interaction to the optimal number of two rounds by separating the threshold signing relation from the anonymity mechanism. \nTo the best of our knowledge, $\\mathsf{LoTRS}$ is the first construction in which a TRS variant is obtained by\ncombining: (i) an aggregated signing layer: a two-round lattice-based multisignature protocol producing an aggregated signature relation, with (ii) a selection-hiding layer: a $1$-out-of-$N$ proof that hides the chosen ring element supporting that relation.\nWhile it is natural to use a $T$-out-of-$N$ proof to build a TRS, our $\\mathsf{LoTRS}$ exploits a $1$-out-of-$N$ proof to significantly improve efficiency.\n$\\mathsf{LoTRS}$ concretely instantiates the aggregated signing layer using $\\mathsf{DualMS}$ (Crypto'23) and the selection-hiding layer arising from Esgin et al.'s lattice-based one-out-of-many proof (IEEE S&P'22).\n\nOur $(T, N\\!\\cdot\\!T)$-$\\mathsf{LoTRS}$ construction achieves $\\mathsf{polylog}(N, T)$ signature size and outperforms $(T, N)$-TRS schemes significantly. For example, for $N=100$ and $T=50$, our analytic signature size is $52.66$ KiB, which is $\\approx2.3 \\times$ smaller than the previously best performing lattice-based scheme $\\mathsf{LastRings}$ by Jeon et al (ISC'25).\nOur Rust reference implementation further supports practicality: for $T=16$ and $N=32$, i.e., structured ring size $T\\cdot N = 512$, it produces $42.72$ KiB signatures, with mean signing time $151.4$ ms and verification time $54.56$ ms in a release build on a Ryzen AI 9 HX 370 laptop.",
+      "authors": [
+        "Nikai Jagganath",
+        "Muhammed F. Esgin",
+        "Ron Steinfeld",
+        "Amin Sakzad",
+        "Markku-Juhani O. Saarinen",
+        "Dongxi Liu"
+      ],
+      "pub_date": "Sun, 17 May 2026 12:13:59 +0000",
+      "pub_date_iso": "2026-05-17T12:13:59+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/974",
       "topics": [
         "Uncategorized"
       ]
@@ -4147,6 +4205,21 @@
       "link": "https://eprint.iacr.org/2026/364",
       "topics": [
         "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
+      "id": "2026/316",
+      "title": "GG-GSW: Chosen-Ciphertext Secure Leveled FHE From Gadget Trapdoors",
+      "abstract": "We present a simple leveled fully homomorphic encryption (FHE) scheme that achieves IND-CCA1 security in the standard model without relying on SNARKs. Our construction combines the gadget trapdoors introduced by Micciancio and Peikert [Eurocrypt 2012] with the GSW leveled FHE scheme [Gentry, Sahai, Waters, Crypto 2013]. We make only minimal changes to GSW to obtain security: ciphertext size remains similar and the homomorphic operations are unchanged. \n\nWe prove IND-CCA1 security under a new delayed-target LWE assumption. We provide evidence for its hardness in two ways: under a lattice knowledge assumption, we give a reduction from standard LWE; for a restricted parameter regime, we give a quantum reduction from the one-more inhomogeneous short integer solution assumption.\n\nFinally, using the randomized evaluation technique from Bourse et al. [Crypto 2016], we obtain IND-CPA-D security for branching programs using only polynomial noise flooding and without requiring statistical correctness.",
+      "authors": [
+        "Jérôme Nguyen"
+      ],
+      "pub_date": "Wed, 18 Feb 2026 18:28:37 +0000",
+      "pub_date_iso": "2026-02-18T18:28:37+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/316",
+      "topics": [
+        "Uncategorized"
       ]
     },
     {
