@@ -1,6 +1,338 @@
 {
-  "updated_at": "2026-09-22T11:33:41.994337+00:00",
+  "updated_at": "2026-09-23T11:30:37.140184+00:00",
   "papers": [
+    {
+      "id": "2026/2156",
+      "title": "Cryptanalysis of Goldreich's PRGs with MAJ–XOR Predicates",
+      "abstract": "Goldreich's pseudorandom generators (PRGs) expand a secret seed by evaluating a fixed low-locality predicate on random subsets of its bits. We study the concrete and asymptotic security of constructions whose local predicate combines majority with XOR. We introduce Deterministic Pooled Recovery (DPR), which guesses a set of seed positions and pools the outputs whose majority inputs are forced by the guess. The selected outputs yield noiseless sparse linear equations. For the proposed \\(\\operatorname{MAJ}_7\\oplus\\operatorname{XOR}_4\\) challenge published in ToSC 2025, with seed length \\(n=1024\\) and output length \\(m=n^2\\), DPR has an estimated recovery cost of \\(2^{109.71}\\) operations using \\(\\omega=2.38\\) for the linear-algebra exponent. This is below the claimed 128-bit security level. We also refine the common-bias analysis by evaluating its advantage at each fixed seed weight. This viewpoint motivates Bias-Amplified Pooled Recovery (BAPR), which uses partial majority bias to construct pooled noisy linear systems. For \\(m=n^s\\) with fixed \\(s>1\\), odd majority locality \\(a\\in\\omega(1)\\cap O(\\log n)\\), and fixed XOR locality \\(b\\ge3\\), we prove that BAPR admits a worst-case \\(2^{o(n)}\\)-time implementation that recovers any fixed seed with high probability. This rules out exponential security in this intermediate-locality regime. In addition, we identify exploitable affine structure and residue constraints in proposed alternative predicates.",
+      "authors": [
+        "Tianning Wang",
+        "Haoyang Wang",
+        "Fukang Liu",
+        "Willi Meier"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 09:47:13 +0000",
+      "pub_date_iso": "2026-09-22T09:47:13+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/2156",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2155",
+      "title": "Practical Adaptor Signatures for NP from Online/Offline NIZK",
+      "abstract": "Adaptor signatures enable conditional payments on blockchain networks: a pre-signature is bound to a public instance $Y$ and can be completed into a valid signature by any party knowing a witness $y$ with $\\mathcal{R}(Y,y)=1$, while the pre-signature and full signature together allow the signer to extract $y$.\nExisting constructions only support specific algebraically-structured relations, lose witness privacy, or have significant overhead both in signature size and computation.\n\nWe present a practical adaptor signature framework for arbitrary NP relations, built from a new primitive we call Online/Offline NIZK whose proof is separated into online and offline parts.  The key property is that the witness can be extracted from the online part knowing the randomness used in the offline part.\nWe give two generic constructions: a basic scheme achieving witness hiding, and an instance-hiding scheme achieving a new, stronger forward-secure privacy notion we introduce.\n\nWe instantiate our framework for the AES-128 relation using the VOLE-in-the-Head paradigm and the FAEST post-quantum signature scheme.\nThe resulting complete signature is $11.6$ kB, roughly $60\\%$ smaller than the state-of-the-art adaptor signature for NP (Ciampi et al., CT-RSA '25), and our implementation is an order of magnitude faster in overall signature generation, verification, and extraction.",
+      "authors": [
+        "Masayuki Abe",
+        "Dung Bui",
+        "Kelong Cong",
+        "Miyako Ohkubo",
+        "Zehua Shang",
+        "Akira Takahashi",
+        "Mehdi Tibouchi"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 08:26:12 +0000",
+      "pub_date_iso": "2026-09-22T08:26:12+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2155",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2154",
+      "title": "Recovering SNOVA Secret Keys from Biased Vinegar Sampling",
+      "abstract": "The Round-3 SNOVA signer samples vinegar variables, which are elements of $\\mathbb{F}_q$, by reducing uniform byte strings modulo a power of $q$. We show that the resulting bias leaks secret-key information for the six odd-characteristic alternative parameter sets. Even though the leakage is small (the most leaky variables leak at most $0.086$ bits of information), this still leads to efficient key-recovery attacks which we demonstrate in practice. Key recovery becomes a $q$-ary LPN problem of dimension $o\\ell$ with a known, full-support error distribution. A naive algorithm needs some ten thousand signatures and $2^{90}$ to $2^{130}$ operations, which is already far below the $170$ to $331$ bits claimed for the six affected sets. Using more signatures makes the attack practical: using standard LPN machinery - BKW reduction with Fourier hypothesis testing - we recover the secret key for four parameter sets in practice using between $9$ and $180$ million signatures, and at most 16 minutes of wall clock time. Fixing SNOVA to sample the vinegar variables uniformly would prevent the attack completely.",
+      "authors": [
+        "Ward Beullens",
+        "Basil Hess"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 08:01:10 +0000",
+      "pub_date_iso": "2026-09-22T08:01:10+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2154",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2153",
+      "title": "New algorithms for quaternion ideals in SQIsign",
+      "abstract": "Many isogeny-based schemes rely on the Deuring correspondance and thus require computations with quaternion ideals. \nIn this paper, we generalize the recent results of Leroux on the inert  representation of quaternion ideals, yielding a normalized representation together with a set of simple and efficient algorithms for quaternion ideals in the context of the Deuring correspondence when the prime characteristic $p$ is equal to $3 \\bmod 4$. \n\nOne of the main benefit of our new algorithms is that the size of the integers involved in the computations is both easy to bound, and smaller than previous work. In particular, when applied to the latest version of SQIsign, our algorithms yield a concrete integer bound of $O(p^4)$ in the worst case, proven under an experimentally verified assumption on the size of the integers required to perform the lattice reduction part of the response sampling. This bound improves upon all known previous bound by a factor at least $O(p^2)$. \n\nOur new algorithms are used in the latest update of SQIsign's implementation submitted to the third round of the NIST call for additional post-quantum signatures. In particular, their low integer bounds facilitated the removal of a dependency on the GMP library in favor of a custom library of fixed-size integers without performance overhead. \n\nWe stress that our algorithms are not limited to SQIsign, but apply to any isogeny-based cryptographic protocol that relies on the Deuring correspondence such as the PRISM signature scheme for instance.",
+      "authors": [
+        "Antonin Leroux",
+        "Sina Schaeffler"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 07:48:58 +0000",
+      "pub_date_iso": "2026-09-22T07:48:58+00:00",
+      "iacr_category": "Implementation",
+      "link": "https://eprint.iacr.org/2026/2153",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2152",
+      "title": "Structural Analysis of Seven Hash Functions Submitted to the NGCC",
+      "abstract": "The Institute of Commercial Cryptography Standards (ICCS) launched the Next-generation Commercial Cryptographic Algorithms Program (NGCC) and invited worldwide comments on draft submission requirements and evaluation criteria for cryptographic hash algorithms. Our analysis of seven submitted hash functions gives the following results:\n\n- Message differences that cancel in every key injection give explicit collisions for all four fixed-output variants of \\textbf{MoFang} and both XOF variants at every finite output length.\n- Two distinct states of \\textbf{Neulaser} become equal after one update, giving collisions for all three variants with the initialization used by the v2 reference and optimized implementations.\n- An invariant subspace of \\textbf{CHIME-512} permits collision search using at most \\(2^{64}\\) hash evaluations when shifts act separately on 64-bit words, as in both submitted implementations.\n- \\textbf{CHAMP}'s determinant constraint gives collision searches using at most \\(2^{192}\\) and \\(2^{384}\\) hash evaluations for its 512- and 1024-bit variants, respectively.\n- The core permutation of \\textbf{QSH} acts on \\(64w\\) bits and preserves a binary subspace of dimension \\(16w\\) through all rounds, where \\(w\\) is the word size.\n- In both versions of \\textbf{WChain}, the message expansion preserves invariant sets and admits sequences of expanded blocks with periods one, three, and six over all prescribed steps.\n- On a set of 256 message blocks, \\textbf{Cuishen}'s message expansion acts as a cyclic shift of eight binary coordinates throughout all 64 rounds. With the same initial chaining register and counter, these blocks give XOR differences between round keys with periods dividing eight.\n\nThe stated evaluation budgets for \\textbf{CHIME-512} and \\textbf{CHAMP} give success probabilities greater than \\(0.39\\).",
+      "authors": [
+        "Yufei Yuan",
+        "Ruichen Wu",
+        "Shanpeng Wei",
+        "Junxu Shen",
+        "Jinpeng Liu",
+        "Yixin Zhang"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 07:32:33 +0000",
+      "pub_date_iso": "2026-09-22T07:32:33+00:00",
+      "iacr_category": "Secret-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2152",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2151",
+      "title": "Tighter  Nonuniform Trace Reductions from Ring-LWE to MP-LWE",
+      "abstract": "Middle-Product LWE (MP-LWE) can inherit hardness from Ring-LWE over many number fields. Peikert and Pepin developed a direct reduction using field traces. Njah Nchiwo and Pellet-Mary (NP26) proved polynomial loss for the route through Polynomial-LWE under an additional condition on the defining polynomial. Recently, Pellet-Mary and Xia (PX26) unified both routes and proved polynomial loss for defining polynomials with polynomially bounded coefficients under suitable modulus conditions.\n\nWe analyze Peikert and Pepin's trace reduction for monic irreducible integer polynomials $f$ of degree $n\\ge2$ with coefficients of absolute value at most a fixed $B\\ge1$.\nFirst, when the prime modulus satisfies\n$q\\nmid[\\mathcal O_{\\mathbb{Q}(\\theta)}:\\mathbb{Z}[\\theta]]$, where $\\theta$ is a root of $f$, we prove the existence of multipliers with primal loss $O_B(n\\sqrt{\\log n/\\log\\log n})$ and dual loss $O_B(n^2)$. The multipliers have polynomial-size descriptions and serve as advice. Second, whenever the polynomial class is nonempty, every $Q\\ge21$ admits a prime $q\\in[Q,2Q]$ for which the index condition holds for at least a $1-O_B(n\\log n/Q)$ fraction of the polynomials. At the same prime, we prove the same lower bound when counting the distinct number fields defined by these polynomials. Both coverage bounds tend to one as $n\\to\\infty$ if $Q/(n\\log n)\\to\\infty$.\nThird, we prove that the trace reduction can match the linear noise bounds achieved by NP26's reduction through Polynomial-LWE. For the same defining polynomial, Ring-LWE variant, and MP-LWE parameters, a suitable trace multiplier exists whose linear noise amplification is no larger than that achieved by NP26's multipliers.",
+      "authors": [
+        "Yihang Cheng",
+        "Xiangzheng Zhao",
+        "Hengyi Luo",
+        "Yanbin Pan",
+        "Siwei Sun"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 07:04:05 +0000",
+      "pub_date_iso": "2026-09-22T07:04:05+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2151",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2150",
+      "title": "Optimal Byzantine Atomic Broadcast with Message Drops",
+      "abstract": "Recent works have studied Byzantine agreement (BA) in the mixed-fault model with resilience threshold $n>2t+r+s$, where $n$ is the number of parties, $t$ is the number of Byzantine parties, $r$ is the number of receive-faulty parties, and $s$ is the number of send-faulty parties. In particular, Feng et al.~(ASIACRYPT~2025) proposed a BA protocol with optimal resilience, expected asymptotically quadratic communication complexity, and expected constant round complexity.  However, existing BA protocols guarantee a meaningful output $v$ only when all parties hold the same input $v$.  Such a guarantee is insufficient for efficient construction of atomic broadcast protocols, leaving efficient atomic broadcast in the mixed-fault setting as an open problem.\n\nIn this paper, we present the first atomic broadcast protocol (UABC) with optimal resilience in the mixed-fault model. In addition, our protocol achieves communication complexity $\\mathcal{O}(n\\ell+n^2\\lambda^2)$ when $t=\\Theta(n)$, where $\\ell$ is the input size and $\\lambda$ is the security parameter. This complexity is asymptotically optimal for moderately large $\\ell$, namely when $\\ell\\ge n\\lambda^2$. At the core of our design is an undead verifiable information dispersal (UVID) protocol, which allows an input to be efficiently dispersed and later reconstructed in the mixed-fault setting. Leveraging UVID together with the undead multi-valued consensus (ASIACRYPT~2025), we further construct a new primitive called weak undead multi-valued validated Byzantine agreement (wUMVBA) and its optimized variant (Opt-wUMVBA). Unlike standard multi-valued validated Byzantine agreement, wUMVBA and Opt-wUMVBA guarantee that the output is either a meaningful value satisfying the validity predicate or $\\bot$. Moreover, the probability of outputting $\\bot$ is at most $(t+s)/n$. Finally, by leveraging Opt-wUMVBA, we obtain our optimal atomic broadcast protocol for the mixed-fault setting.",
+      "authors": [
+        "Dalin Zheng",
+        "Yuchen Ye",
+        "Xiaolin Gui",
+        "Qiang Tang",
+        "Zhenliang Lu"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 06:59:55 +0000",
+      "pub_date_iso": "2026-09-22T06:59:55+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2150",
+      "topics": [
+        "Distributed Computing & Consensus"
+      ]
+    },
+    {
+      "id": "2026/2149",
+      "title": "Identify Post-Quantum Cryptographic Algorithms for Automotive Security: Performance-Driven Guidance for Secure Boot, OTA, and V2X Communication",
+      "abstract": "The rapid expansion of quantum computing threatens the security foundations of classical public-key cryptography, including RSA and ECC, both vulnerable to Shor's algorithm. For the automotive industry, where secure communication underpins critical functions such as over-the-air (OTA) updates, secure boot, firmware signing, PKI validation, and vehicle-to-everything (V2X) connectivity, this threat demands early and informed migration planning. This paper presents a cross-platform performance evaluation of NIST-selected and candidate Post-Quantum Cryptography (PQC) algorithms integrated into the Transport Layer Security (TLS) protocol, in both standalone and hybrid (classical + PQC) configurations. Signature schemes CROSS, MAYO, SPHINCS+ (SHA and SHAKE variants), ML-DSA, and FALCON are evaluated alongside key encapsulation mechanisms including FrodoKEM, BIKE, and ML-KEM. Testing spans two representative platforms: a resource-constrained Raspberry Pi 4B (Broadcom BCM2711, 4GB RAM) representing embedded automotive ECUs, and an Ubuntu-based Intel Core i5 system representing backend or gateway infrastructure. Execution time, memory consumption, and CPU core utilization are measured across algorithm-KEM combinations to characterize real-world feasibility. Results indicate lattice-based schemes offer a strong balance of performance, interoperability, and long-term assurance suited to V2X and PKI-heavy communication, while compact signature schemes such as MAYO and FALCON better serve resource-constrained operations like secure boot and firmware signing, where verification speed and low memory footprint are prioritized over frequent key exchange. The study further identifies a critical dependency of PQC feasibility on 64-bit architecture, highlighting the limitations of legacy 32-bit automotive chipsets that lack dedicated cryptographic accelerators. These findings offer practical, use-case-specific guidance for automotive OEMs and suppliers navigating the transition from classical to quantum-resistant cryptography, supporting risk-informed decisions across onboard and offboard vehicle communication architectures.",
+      "authors": [
+        "Dileep Singh Kushwaha",
+        "Parneet Kaur"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 06:38:52 +0000",
+      "pub_date_iso": "2026-09-22T06:38:52+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2149",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2148",
+      "title": "Weighted Threshold Encryption with Silent Setup",
+      "abstract": "We construct the first non-trivial weighted threshold encryption scheme with silent setup. The CRS and each public key consists of O(W) group elements, where W is the maximum committee weight. Both the weight assignments and the threshold for decryption can be dynamically chosen at encryption time. Each partial decryption is a single G1 element computed non-interactively with one scalar multiplication, independent of the party's weight. The CPA ciphertext is two G_1 elements, improving upon the shortest known unweighted scheme, and CCA security costs two additional field elements. We prove security in the generic bilinear group model.",
+      "authors": [
+        "Guru-Vamsi Policharla"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 06:24:44 +0000",
+      "pub_date_iso": "2026-09-22T06:24:44+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2148",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2147",
+      "title": "ReedWeave: Faster Reed-Solomon Polynomial Commitments from Interleaving and Folding",
+      "abstract": "Polynomial commitment schemes (PCSs) allow a prover to commit to a polynomial and later prove its evaluations succinctly. Among hash-based constructions, FRI (Ben-Sasson et al., ICALP 2018) and its follow-up works achieve polylogarithmic proofs by recursively ``folding'' Reed-Solomon (RS) codes. However, their concrete evaluation costs remain relatively high, as the first few folding rounds operate on the largest codewords and dominate the prover work.\nWe present \\emph{ReedWeave}, a Reed-Solomon PCS that successfully incorporates interleaving with folding, achieving the best of the two worlds. ReedWeave decomposes a degree-$d$ polynomial into $m$ smaller components and commits to their RS encodings over a common domain. Under our novel decomposition, a random linear combination of these codewords is exactly an $m$-ary folding. At a high level, ReedWeave starts with an $m$-ary folding, followed by standard binary folding as in FRI. The prover costs are substantially reduced in the sense that at the very beginning it suffices to do interleaved-RS encoding rather than standard RS encoding. That is, we reduce prover costs from $\\mathcal{O}(d \\log d)$ to $\\mathcal{O}(d\\log(d/m))$ for constant code rate while maintaining efficient polylogarithmic verification. Moreover, our approach essentially works for arbitrary $m$, relaxing the smoothness requirements of the underlying fields by a multiplicative factor of $m$.\nWe benchmark our Rust implementation over Goldilocks using\n32 threads and targeting 100-bit security. At $d=2^{24}$, $\\rho=1/4$, and $m=64$, the DEEP variant commits in $475.0$ ms, opens in $111.6$ ms, verifies in\n$2.07$ ms, and produces a $594.7$ KiB proof. Compared with FRI (ICALP 2018), commitment, opening, and verification are $6.9\\times$, $51.5\\times$, and $4.2\\times$ faster, respectively. Against STIR (CRYPTO 2024), the corresponding speedups are $2.9\\times$, $68.5\\times$, and $2.1\\times$. Its proof is only $0.69\\times$ the size of FRI's and $2.31\\times$ that of STIR's.",
+      "authors": [
+        "Yuhao Jia",
+        "Zhe Li",
+        "Chaoping Xing",
+        "Yizhou Yao",
+        "Chen Yuan",
+        "Jielong Zhang"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 04:13:03 +0000",
+      "pub_date_iso": "2026-09-22T04:13:03+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2147",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2146",
+      "title": "Succinct Shortness Check Under a Few Kilobytes via Tensor Train Random Projections",
+      "abstract": "Range proofs are a fundamental building block of lattice-based proof systems. Existing approaches relying on standard Johnson-Lindenstrauss (JL) struggle to provide succinctness: unstructured JL incurs linear verifier complexity, while structured JL introduced in RoK and Roll [ASIACRYPT'25] produce large projection vectors that need to be sent in costly committed form. For a witness of dimension $m$ and a security parameter $\\lambda$, the JL projection vector is $O(\\lambda),$ but the projection matrix is $O(\\lambda m)$. Structured JL can be represented in $\\widetilde O(\\rho \\lambda^2)$, but the resulting projection length grows to $\\widetilde O(m / \\rho)$ for any trade-off parameter $\\rho > 1$.\n\n    \\hspace{5mm} In this paper, we introduce Tensor Train Random Projection (TTRP) to lattice-based cryptography, offering a ``best of both world\" structured JL variant. The Tensor Train (TT) matrix representation drops to $\\widetilde O(\\lambda)$, while maintaining the projection vector at $O(\\lambda)$.\n    \n    \\hspace{5mm} We show that TTRP can be seamlessly integrated into proof systems by linearizing the well-formedness of the projection with the sum-check protocol. Concretely, using TTRP + sum-check as a drop-in replacement for existing range proof techniques yields an approximate shortness check with $O(\\lambda \\log m (\\log\\log m)^2)$ verifier complexity and proof size around $4$ KB for relevant parameter settings.",
+      "authors": [
+        "Zhiyuan Geng",
+        "Maxime Plançon"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 03:51:26 +0000",
+      "pub_date_iso": "2026-09-22T03:51:26+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2146",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2145",
+      "title": "Fully Anonymous Perfect Secret-Sharing",
+      "abstract": "Fully anonymous secret-sharing schemes ensure two properties at once: for any fixed secret, the combined shares of every unauthorized set of participants are uniformly random, and every authorized set can reconstruct the secret exactly using only the share values, without needing to know which participant holds which share or in what order the shares appear. It was previously open whether such schemes exist for nontrivial exact-threshold parameters 2 < t < n. For the smallest previously open threshold, t= 3, we give, for every n≥4, an explicit fully anonymous scheme for one-bit secrets, with 2⌈log n⌉-bit shares and a perfect reconstruction algorithm running in poly(log n) time.\n\nThe next result, found by ChatGPT, shows that for every 1 ≤t ≤n there exists a fully anonymous perfect (t,n) threshold secret-sharing scheme for one-bit secrets, in which each share has length O(tlog n) bits. The proof is purely existential and does not provide an efficient construction. Moreover, ChatGPT identified a simple construction of a fully anonymous perfect scheme for every access structure A; if A contains ℓ authorized sets, then each share consists of ℓ2 bits. The authors subsequently verified and streamlined the proofs on their own and take full responsibility for their correctness.",
+      "authors": [
+        "Roni Con",
+        "Ray Li",
+        "Noam Mazor"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 00:43:44 +0000",
+      "pub_date_iso": "2026-09-22T00:43:44+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2145",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2144",
+      "title": "Algorithms for Computing Affine Equivalence and Self-Equivalence Groups",
+      "abstract": "We study affine and linear equivalence of functions $F,G:\\mathbb{F}_q^n\\to\\mathbb{F}_q^m$. We present practical equivalence algorithms that handle arbitrary functions (any algebraic degree, permutations and non-permutations) and are particularly effective on structured instances with nontrivial self-equivalences, covering most cryptographically relevant cases. We also give a dedicated algorithm for computing generators for the group of self-equivalences $(A_1,A_2)$ satisfying $A_2\\circ F = F\\circ A_1$, for which no comparably efficient general method was previously available.",
+      "authors": [
+        "Joakim Sunde"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 00:26:35 +0000",
+      "pub_date_iso": "2026-09-22T00:26:35+00:00",
+      "iacr_category": "Secret-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2144",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2143",
+      "title": "SAK: Sparse Arguments of Knowledge, from Sparse Lookup Arguments",
+      "abstract": "We formalize and construct $sparse$ arguments of knowledge, \nwhere given a length $N$ witness that contains $n$ non-zero values the prover time is $O(n) \\circ o(N)$.  \n     In particular,  we achieve a sparse argument of knowledge for the customizable constraint system relation, which generalizes circuit-satisfiability.  \n     We achieve this by first utilizing $sublinear$ lookup arguments \nto provably select only the subset of the constraint system that touches the non-zero entries of the variable assignment, and then running a standard argument of knowledge with mild qualifications.\n     Our resulting sparse argument of knowledge is publicly verifiable and supports a universal and updatable setup.  It features an $O(N \\log N)$ preprocessing phase, an $O(n \\log n)$ prover time, and an $O(1)$ verifier time, improving on the prior $O(n \\log^2 n)$ and $O(n \\log N)$ prover time.",
+      "authors": [
+        "Abhiram Kothapalli",
+        "Sriram Sridhar",
+        "Arantxa Zapico"
+      ],
+      "pub_date": "Mon, 21 Sep 2026 23:09:40 +0000",
+      "pub_date_iso": "2026-09-21T23:09:40+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/2143",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
+      "id": "2026/2142",
+      "title": "$\\mathsf{PRAWNS}$: Threshold Hash-Based Signatures from Threshold PRFs",
+      "abstract": "We propose an efficient threshold mechanism that is well suited for certain hash-based signatures. Our proposal has a number of compelling features:\n\n• The final signature assembled from a quorum of signature shares has the same format as a non-threshold hash-based signature. In particular, the verifier is unaware that the signer is thresholdized. Moreover, we can add and remove parties and change the threshold without changing the public key.\n\n•  Our framework can be used to thresholdize one-time signature schemes, such as Winternitz, and a few-time schemes, such as XMSS, HORS, FORS, and PORS+FP.\n\n• The public key and the signatures reveal nothing about the number of parties $n$ or the threshold $t$.\n\n• An instantiation of our framework scales well to a large number of parties $n$ and a large threshold $t$.\n\nOne limitation of the framework is that it does not support an efficient distributed key generation protocol (DKG). Another limitation is that the framework does not directly apply to SLH-DSA. It is primarily designed for the Winternitz, XMSS, and FORS schemes.",
+      "authors": [
+        "Dan Boneh",
+        "Benedikt Bünz",
+        "Justin D.",
+        "Yavor Litchev",
+        "Kamilla Nazirkhanova"
+      ],
+      "pub_date": "Mon, 21 Sep 2026 17:45:19 +0000",
+      "pub_date_iso": "2026-09-21T17:45:19+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2142",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2141",
+      "title": "BitZ: proofs and commitments in arbitrary rings through binary fields",
+      "abstract": "We introduce BitZ, a hash-based Polynomial Commitment Scheme (PCS) for committing to multilinear polynomials $\\mathbf{f}$ with coefficients in an arbitrary finitely generated ring $S$, e.g.\\ a finite field $\\mathbb{F}$, the integers $\\mathbb{Z}$, a cyclotomic ring, etc. Moreover, given another arbitrary ring $R$ and a ring homomorphism $\\psi:S\\to R$, BitZ then proves evaluation claims over $R$ for the polynomial $\\psi(\\mathbf{f})$. BitZ's costs depend almost exclusively on the number of bits in the coefficients of $\\mathbf{f}$, and not on $S$, $R$ or $\\psi$. Moreover, BitZ provides range checks (or more generally, bit-size checks) essentially for free. \n\nBitZ can thus be used as a PCS in essentially any proof system. We do so to build a SNARK, called BitZ-SNARK, for integer polynomial constraints, following the fingerprinting technique of Campanelli and Hall-Andersen, where one commits over $\\mathbb{Z}$ and proves the constraints over a random prime field $\\mathbb{F}_q$, i.e. BitZ is deployed with $S=\\mathbb{Z}$, $R=\\mathbb{F}_q$, and $\\psi$ reduction modulo $q$. BitZ applies equally to other ring-based proof systems, or field-based ones.\n\nTo commit to $\\mathbf{f}$, BitZ first decomposes  $\\mathbf{f}$ into a string of bits, and then commits to it over a binary field $\\mathbb{F}_{2^{\\nu}}$, in packed form. The scheme then  proves the linear claim on $\\psi(\\mathbf{f})$ over the arbitrary ring $R$, even though it committed to the bits forming $\\mathbf{f}$ over a binary field.\n\nWe implement BitZ-SNARK and use it to prove, among others, SHA-256 hashing followed by ECDSA signature verification; RSA modular exponentiation and Poseidon hashing;  integer multiplication; and SHA-256 hashing followed by multiplication modulo $2^{32}$, consistently obtaining better performance than prior approaches on most tasks. As an example, we achieve a throughput of $5$ million proved 32-bit integer multiplications per second on a  MacBook Air M5 24 GB (10 threads, CPU-only) with proof sizes under $150$ kB. We prove a SHA-256 hash of a $2$ kB ($2^5$ compressions) message followed by a P-256 ECDSA signature verification with $50$ ms and $3.3$ ms prover and verifier time, respectively, and with a proof of $76$ kB, single-threaded. With $10$ threads the times are $20$ ms and $3.4$ ms.",
+      "authors": [
+        "Remco Bloemen",
+        "Albert Garreta",
+        "Marcin Kostrzewa",
+        "Shreyas Londhe",
+        "John Wu"
+      ],
+      "pub_date": "Mon, 21 Sep 2026 15:16:27 +0000",
+      "pub_date_iso": "2026-09-21T15:16:27+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2141",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
+      "id": "2026/2140",
+      "title": "Multi-Reprogramming with Quantum Advice in the Quantum Random Oracle Model",
+      "abstract": "Adaptive reprogramming is a central tool for proving security in the quantum random oracle model (QROM). Recently, it has been extended to the setting when an oracle-dependent advice is in presence. However, the existing result is restricted to classical advice, and addresses only a single reprogramming. Extending it to n reprogrammings through naive hybridization yields a loss that is linear in the number of reprogrammings.\n\nIn this paper, we establish an adaptive reprogramming theorem that accommodates quantum advice, and has a tighter overall security loss that only scales in the cubic-root of n, with an attack that matches the number of queries required in order to reach constant advantage.\n\nUsing our reprogramming theorem, we provide improved time-space tradeoff bounds for PRG security of random oracles, and an IND-CPA security proof of salted pseudo one-time pad, in the quantum advice setting. Along the way, we also identify and prove a folklore lemma about indistinguishability of two oracles, which may be of independent interest.\n\nAs another application, we provide a generic security analysis of Fiat-Shamir and hash-and-sign signature schemes, in QROM with quantum advice. We do so via a two-step modular analysis, where in the first step we perform a generic UF-CMA to UF-NMA reduction using our reprogramming theorem, and in the second step we provide a characterization of when such a scheme satisfies UF-NMA security, which we then use to discuss security of several signature schemes in this model.",
+      "authors": [
+        "Yu-Hsuan Huang",
+        "Heming Liao"
+      ],
+      "pub_date": "Mon, 21 Sep 2026 14:38:46 +0000",
+      "pub_date_iso": "2026-09-21T14:38:46+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2140",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2139",
+      "title": "A Latency-Aware FPGA Architecture for SHAKE256 with Guarded Final-Block Construction: Targeting Post-Quantum XMSS Signatures",
+      "abstract": "The NIST SP 800-208 eXtended Merkle Signature Scheme (XMSS) profile XMSS-SHAKE256_10_256 repeatedly invokes\nSHAKE256 primitives, making field-programmable gate array (FPGA) accelerator latency sensitive to Keccak permutation time and\nabsorb/finalization-control overhead. Established round unrolling reduces permutation-side latency but leaves residual controller\nwork. We propose SAFE Final-Block Construction (SAFE FBC), combining guarded SHAKE256-rate-aware eligibility, direct\neligible final-block construction, and sequential-finalization bypass without modifying Keccak. A controlled 12-configuration study\ncrosses four controller/finalization organizations with one-, two-, and three-round-per-cycle datapaths over nine XMSS-oriented\ncases: 96-byte F and pseudorandom-function (PRF) inputs, 128-byte H and PRFkeygen inputs, and selected message-hash cases\naround the SHAKE256 rate boundary. At every fixed depth, SAFE FBC reduces aggregate L2-final latency by 13 cycles versus the\nStructural Controller Decoupling (SCD) baseline; L2-final spans the first accepted AXI input beat to the final accepted AXI output\nbeat. At three rounds per cycle, aggregate latency falls from 305 to 292 cycles, with no case regressing. F and ordinary PRF show\nthe largest per-call gain, from 30 to 25 cycles (16.67%). Component measurements localize the saving to absorb/finalization control;\nKeccak permutation latency, squeeze latency, and input-transfer span remain unchanged. SAFE FBC complements unrolling, trading\nlatency for substantial lookup-table/slice growth with very small flip-flop overhead.",
+      "authors": [
+        "Maryam Taghi Zadeh"
+      ],
+      "pub_date": "Mon, 21 Sep 2026 14:22:31 +0000",
+      "pub_date_iso": "2026-09-21T14:22:31+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/2139",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2138",
+      "title": "DASH: Distributed Asynchronous Schnorr with High Throughput",
+      "abstract": "Robust asynchronous threshold Schnorr signatures enable honest parties to complete signing despite malicious behavior and network delays. To reduce online latency, these schemes typically follow an offline–online paradigm. The parties prepare batches of shared nonces in the offline phase and consume them to generate signatures online. In high-throughput constructions such as SPRINT (Benhamouda et al.~Eurocrypt 2024), super-invertible matrices are used to extract multiple nonces and their corresponding commitments from a single execution of the nonce-generation protocol. However, the associated group operations incur substantial computational overhead. \n\nWe identify several computational bottlenecks in SPRINT and present $\\mathsf{DASH}$, a suite of robust asynchronous threshold Schnorr signature protocols that substantially improve computational efficiency while retaining SPRINT’s amortized linear communication cost.  Our contributions are threefold. First, we  propose distributing the group computations involved in nonce extraction among the parties.  This reduces the amortized computational cost from $\\mathcal{O}(\\log n)$ to $\\mathcal{O}(1)$ group operations per signature per party. To enable this distributed computation, we employ a batching technique that allows each dealer to distribute $L$ nonce polynomials simultaneously.  \nSecond, we introduce an efficient batched share-verification procedure that jointly checks shares of all $L$  polynomials. For concrete parameters, this can accelerate share verification by a factor of $40-60$. We also introduce a simple agreement protocol via player elimination, which could be of independent interest.  Finally, under a stronger honest-majority assumption, we develop a packed two-stage online reconstruction protocol that enables parties to reconstruct signatures through error correction. This eliminates the need for signature-share verification, and consequently, avoids the expensive group operations performed by the aggregator in SPRINT.  Surprisingly, even in the worst case, our $\\mathsf{DASH}$  protocols preserve the same asymptotic amortized computation and communication costs, provided that $L \\gg n\\log n$.   \n%We prove the security of all $\\mathsf{DASH}$ variants in the random oracle model under the standard discrete logarithm assumption.",
+      "authors": [
+        "Jiawei Ni",
+        "Yanhong Xu",
+        "Chen Yuan",
+        "Hongqing Liu"
+      ],
+      "pub_date": "Mon, 21 Sep 2026 13:27:24 +0000",
+      "pub_date_iso": "2026-09-21T13:27:24+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2138",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
     {
       "id": "2026/2137",
       "title": "Too Small to Hide: Single-Trace Key Recovery from  ML-KEM Key Generation",
@@ -1524,12 +1856,14 @@
     {
       "id": "2026/2045",
       "title": "Practical Key Recovery Attacks on Full DuX and Reduced-Round YuX",
-      "abstract": "DuX and YuX are recent block cipher families designed for efficient evaluation under fully homomorphic encryption.  Both keep sixteen words of a large finite field in four blocks, with a low-degree block-wise S-box and a circulant linear layer.  We show that, in the chosen-ciphertext model, the algebraic degree of their decryption functions grows far more slowly than the designers' encryption-side evaluation suggests, and we turn this into practical key-recovery attacks.\n\nOur starting point is a sufficient criterion for zero sums. It treats affine subspaces in characteristic 2, full prime fields, and multiplicative cosets uniformly, then over prime fields it is tight on every cell we could compute exactly. To turn it into attacks, we add full-block structures, cheap-coordinate elimination, and weighted moments. The first makes the\ninitial S-box layer free, the second extracts equations from states that are only partially balanced, and the third yields thousands of equations from a single structure.\n\nWe recover the master key of the full twelve-round DuX over $\\mathbb{F}_{65537}$ from $2^{32}$ chosen ciphertexts in 45 core-hours, executed on random keys.  For YuX, we recover the key of eleven of the fourteen rounds of both YupX-65537 and Yu2X-16 from $2^{32}$ chosen ciphertexts, with both attacks experimentally executed, reducing the data complexity for Yu2X-16 from the previously reported $2^{96}$ to $2^{32}$. Our distinguishers on DuX coincide with those of independent concurrent work by Liu and Sun (eprint 2026/1907). Furthermore, our key recovery attack lowers the data complexity of their full-round attack from $2^{67.58}$ to $2^{32}$.",
+      "abstract": "DuX and YuX are two recent families of FHE-friendly block ciphers, designed for efficient evaluation under fully homomorphic encryption.  Both keep a state of sixteen words of a large finite field, arranged in four blocks, and each round applies a block-wise S-box of low degree followed by a circulant linear layer.  We show that, in the chosen-ciphertext model, the algebraic degree of their decryption functions grows far more slowly than the designers' evaluation of the encryption direction suggests, and we turn this observation into practical key-recovery attacks.\n\nThe starting point is a sufficient criterion for zero sums.  It treats affine subspaces in characteristic 2, full prime fields, multiplicative cosets and arbitrary point sets in one statement, and over prime fields it is tight on every cell we could compute exactly.  Three techniques turn the criterion into attacks.  Full block structures make the first S-box layer free.  Cheap coordinate elimination extracts equations from states that are only partially balanced, helped in characteristic 2 by a second cheap coordinate that exists only there.  Weighted moments yield thousands of equations from a single structure, and weights with several indices take the place of further structures.\n\nWe recover the master key of the full twelve-round DuX over $\\mathbb{F}_{65537}$ from $2^{29}$ chosen ciphertexts and over $\\mathbb {F}_{2^{16}} $ from $2^{32}$, in both cases in complete runs on random keys, the former in $20$ hours on one processor core.  For YuX, we recover the key of eleven of the fourteen rounds of YupX-65537 and of Yu2X-16 from $2^{32}$ chosen ciphertexts, again in complete runs, where the best previous attack on Yu2X-16 needed $2^{96}$. Our distinguishers on DuX coincide with those of concurrent and independent work by Liu and Sun (eprint 2026/1907). Furthermore, our key recovery attacks lower the data of their full-round attacks from $2^{67.59}$ and $2^{67.32}$ chosen ciphertexts to $2^{29}$ and $2^{32}$.",
       "authors": [
         "Xingwei Ren",
         "Bo Xu",
         "Zhenyu Xiong",
         "Yongqiang Li",
+        "Xichao Hu",
+        "Lin Jiao",
         "Mingsheng Wang"
       ],
       "pub_date": "Tue, 15 Sep 2026 11:40:39 +0000",
@@ -3520,6 +3854,24 @@
       ]
     },
     {
+      "id": "2026/1840",
+      "title": "Efficient Homomorphic Arithmetic Logical Units with \\texorpdfstring{$O(1)$}{O(1)} Bootstrapping",
+      "abstract": "Arithmetic logic units (ALU) combine word-level arithmetic with bitwise\noperations over encrypted data. The state-of-the-art scheme, GZ26 (CRYPTO'26), constructs an ALU in\nCKKS via triangle encoding, but has two limitations: the radix-$2$ design restricts packing capacity, while the arithmetic-to-Boolean (A2B) conversion requires $O(\\ell)$ functional\nbootstrappings for $\\ell$-bit message without batching independent ciphertexts.\n\nIn this paper, we first generalize triangle encoding to arbitrary integer bases while preserving leveled modular arithmetic in CKKS. Larger bases reduce the number of slots required per message, allowing more messages to be packed into each ciphertext. %To ensure correct decoding despite rounding during CKKS plaintext encoding, we derive sufficient conditions relating the digit base to the encoding scale.\nFor power-of-two digit bases, we introduce an A2B conversion using two functional bootstrapping after overflow refreshing, without batching independent ciphertexts.\nOur key insight is to transform triangle\nencoding into radix representation with unknown carries, from which candidate bits can be extracted\nusing a single multi-value functional bootstrapping.\nSpecifically, we first cancel the overflow shared by neighboring windows\nusing one functional bootstrapping followed by linear operations,\nleaving expressions involving only radix digits and adjacent binary\ncarries. Then we use a multi-value functional bootstrapping to jointly  extract\ncandidate bits and evaluate the local carry state, which determines how carries propagate between\nwindows. Finally, we recover the canonical bits through\nparallel carry propagation and bit correction, using only\nleveled homomorphic operations.\n\n\nWe implement our scheme in OpenFHE and evaluate it for 64-bit,\n128-bit, and 256-bit message. The experimental results show that using\n\\(d=2\\) achieves the lowest latency for A2B\nconversion, yielding \\(3.49\\times\\)--\\(9.71\\times\\) speedups over\nGZ26 at the same packing capacity. In addition, using \\(d=32\\) increases the\npacking capacity and achieves the best amortized performance,\nyielding \\(8.15\\times\\)--\\(28.47\\times\\) speedups.",
+      "authors": [
+        "Xuan Shen",
+        "Zhihao Li",
+        "Ruida Wang",
+        "Xianhui Lu"
+      ],
+      "pub_date": "Mon, 31 Aug 2026 02:58:40 +0000",
+      "pub_date_iso": "2026-08-31T02:58:40+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1840",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1838",
       "title": "How to prove more false statements: Fiat–Shamir limitations on (generated) R1CS",
       "abstract": "The Fiat--Shamir (FS) transformation is a technique that converts interactive protocols into non-interactive ones.\nFS is secure in idealized models such as the random oracle model (ROM) (if the interactive protocol satisfies a condition known as state-restoration soundness).\n\nIt is known that there are protocols whose FS transformation is secure in the ROM, yet insecure when instantiated with any concrete hash function. Historically, these protocols were contrived (as in, they were designed so their FS transformation would be unsound).\nKhovratovich, Rothblum and Soukhanov (CRYPTO 2025) showed that a class of natural (and practically deployed) protocols based on a protocol of Goldwasser, Kalai and Rothblum (JACM 2015) was also unsound when compiled with FS and any concrete hash function.\n\nWe extend the attack to a different class of protocols: those whose instances are generated by running a program.\n\nThis setting covers concrete trends in modern proof systems, in which the computation to be proven is described by a program (often adversarialy generated) which is then either compiled or autonomously converted into an instance of target relation such as rank-1 constraint satisfaction (R1CS). We show that, when the conversion process is \"expressive enough\", an adversary controlling the program code can  break soundness of the non-interactive proof system.\n\nThe attacks generalize to a wide class of protocols: any protocol in which a cheating prover can prepare an accepting transcript before the statement is bound. We show that variants of the Spartan (CRYPTO 2020) and Aurora (EUROCRYPT 2019) proof systems for R1CS fall in this class.\n\nComplementing the attacks, we formalize a mitigation: deriving the first Fiat--Shamir challenge from the generated statement, rather than from the program that generates it, provably reduces the soundness of the compiled protocol to that of the underlying protocol for the non-generated relation.",
@@ -3635,6 +3987,27 @@
       ]
     },
     {
+      "id": "2026/1782",
+      "title": "EA Codes Approaching Singleton Bound (with Application to Field-Agnostic SNARKs)",
+      "abstract": "SNARKs based on error-correcting codes require codes that simultaneously support fast encoding and large relative distance. Reed--Solomon codes achieve the optimal rate--distance tradeoff given by the Singleton bound, but their fast encoding relies on FFT-friendly fields, limiting their applicability to field-agnostic constructions. \n    \nIn this work, we revisit expand--accumulate (EA) codes, a simple family of linear codes with efficient encoding over arbitrary fields. Although extensively studied in prior work, existing distance guarantees are weak, and practical instantiations have relied on conjectured results. We prove that EA codes with exact-weight expansion matrices, over sufficiently large fields, achieve a rate--distance tradeoff that approaches the Singleton bound with high probability, resolving these conjectures.\n\nBuilding on this result, we construct \\textsf{Flare}, a field-agnostic polynomial commitment scheme based on EA codes. At its core is an efficient IOPP for EA codes that leverages code switching. For statements of size $M$, \\textsf{Flare} achieves $O(M\\log M)$ prover time and $O(\\lambda\\log^2 M)$ proof size, improving upon the $O(\\sqrt{\\lambda M})$ proof size of prior constructions based on EA codes (Block et al., CRYPTO 2024).\n\nComprehensive evaluations show that \\textsf{Flare} achieves compact proofs while maintaining competitive prover efficiency. For proving circuits of size $2^{22}$, \\textsf{Flare} produces the smallest proofs of approximately $16$~MiB. Compared with BaseFold (Zeilberger et al., CRYPTO 2024) and ERA (Baweja et al., ASIACRYPT 2026), it reduces proof size by $1.66\\times$ and $1.47\\times$, respectively, while maintaining comparable prover efficiency. Compared with Brakedown (Golovnev et al., CRYPTO 2023), \\textsf{Flare} produces $4.85\\times$ smaller proofs at the cost of only a $1.50\\times$ slower prover.",
+      "authors": [
+        "Chongrong Li",
+        "Runtian Xu",
+        "Yun Li",
+        "Michael Dong",
+        "Alan Li",
+        "Yu Yu",
+        "Yuncong Hu"
+      ],
+      "pub_date": "Sun, 23 Aug 2026 16:27:20 +0000",
+      "pub_date_iso": "2026-08-23T16:27:20+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1782",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1780",
       "title": "The Limits of $t$-Private Share Conversion",
       "abstract": "Private information retrieval (PIR) protocols allow a user to retrieve an entry from a database held by several servers without revealing any information about the index to any individual server. State-of-the-art information-theoretic PIR protocols are based on a combination of matching vectors over the ring $\\mathbb{Z}_m$ and decoding polynomials (Efremenko, SICOMP 2012; Dvir and Gopi, STOC 2015; Ghasemi, Kopparty, and Sudan, STOC 2025). Decoding polynomials are sparse polynomials over a field $\\mathbb{F}_q$, where $q$ is a prime power coprime to $m$, that evaluate to a nonzero value at $1$ and to $0$ on a certain set of inputs determined by $m$.\n\nThe properties of decoding polynomials were abstracted by Beimel, Ishai, Kushilevitz, and Orlov (CCC 2012) through the notion of share conversions. Share conversions allow a set of parties to locally convert a secret shared under one scheme into a related secret shared under another scheme. They constructed a share conversion from $\\mathbb{Z}_m$ to $\\mathbb{F}_{q}$ for various values of $m$ and prime-powers $q$. More recent PIR protocols by Dvir and Gopi and by Ghasemi et al. were abstracted by Alon, Beimel, and Lasri (TCC 2025). The share conversion they considered transforms shares from the ring $\\mathbb{Z}_m$ to a finite field $\\mathbb{F}_q$, where $q$ is a prime-power coprime to $m$.\n\nWe observe that if the initial conversion is based on a $t$-private secret-sharing scheme, then the resulting PIR protocol of Alon et al. is also $t$-private: no set of $t$ servers learns any information about the user's index. We call such share conversions $t$-private share conversions. Moreover, the resulting PIR protocol could potentially achieve communication complexity better than that of the best-known $t$-private PIR protocols, due to Woodruff and Yekhanin (CCC 2005) and Barkol, Ishai, and Weinreb (APPROX-RANDOM 2007). This raises the natural question of whether $t$-private share conversions exist.\n\nWe show that there is no $t$-private share conversion from $\\mathbb{Z}_m$ to $\\mathbb{F}_q$ when $t\\geq 2$ and $q$ is coprime to $m$. As a result, the PIR framework of Alon et al. cannot be instantiated in a way that yields a $t$-private PIR protocol. We further generalize the result to conversions whose output is in the ring $\\mathbb{Z}_{m'}$.",
@@ -3668,7 +4041,7 @@
     {
       "id": "2026/1773",
       "title": "Enforcing Winner-Only Disclosure: Verifiable Tally Hiding for Weighted DAO Governance",
-      "abstract": "In weighted voting, an exact tally can reveal individual choices even when every ballot is encrypted. Publishing only the winner does not solve this problem if a tallying party first decrypts the total. We construct a publicly verifiable protocol that enforces winner-only disclosure within the computation. Voters prove that their encrypted contributions equal zero or their registered weight. Five trustees add and compare these contributions while encrypted, then release a decision bit that anyone can verify against the exact ballots accepted on chain. Under our assumptions, accepted-result correctness holds even with all five trustees malicious, with an explicit failure bound and abort allowed. For honestly cast boards, tally-layer privacy holds against up to two statically and actively corrupted trustees, a malicious network, and a malicious publisher: the computation adds no tally-derived plaintext beyond the decision and abort pattern. Retained executions reach 1,024 voters, including independent replay of a 17,406-gate,2.1 GB transcript. A separate historical eight-voter run completes the Arbitrum Sepolia path. The prototype uses test-only setup and demonstrates execution and public verification, not production security.",
+      "abstract": "Token-weighted governance can fingerprint individual voters: when weights are unequal and externally known, the exact weighted tally may reveal who voted which way. Publishing only the winning outcome hides the tally from the public, but a system that reconstructs the tally in order to decide still hands it to whoever runs the computation. Publishing only the winner is not the same as computing only the winner. We present a verifiable protocol for weighted DAO votes in which no protocol role ever receives the weighted tally in plaintext. Each ballot proves in zero knowledge that its encrypted contribution is exactly zero or the voter’s registered weight. Trustees add accepted contributions and compare the sum with a threshold entirely under encryption using the Cortier–Gaudry–Yang (CGY) conditional-gate toolbox, and decrypt only the final decision. A public verifier checks that the computation consumed exactly the ciphertexts accepted by the governance contract. We prove accepted-result correctness even when all trustees are malicious; restricted-I/O SUC security of the tally against static active corruption of any sub-threshold trustee coalition, which is any four of five in our reference instance; and winner-only disclosure relative to the real sealed board. With 1,024 voters, the encrypted tally takes 157 s and independent replay 115 s, while ballot proving dominates the 28.5-minute end-to-end pipeline. A fresh Arbitrum Sepolia execution exercises the complete public-chain path",
       "authors": [
         "Jiayu Li",
         "Gongli Li"
@@ -3678,7 +4051,7 @@
       "iacr_category": "Cryptographic protocols",
       "link": "https://eprint.iacr.org/2026/1773",
       "topics": [
-        "Uncategorized"
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
       ]
     },
     {
@@ -3834,7 +4207,7 @@
     {
       "id": "2026/1654",
       "title": "From Toy to Instrument: Seven Years of Verifpal",
-      "abstract": "Symbolic protocol verifiers must make a difficult tradeoff: their models and counterexamples should be accessible to protocol designers, but their results must still have a precise meaning. Verifpal addresses the first goal with a compact modeling language and source-level attack explanations. Its original analysis engine, introduced in 2019, had only a preliminary account of its guarantees. This paper presents and evaluates the replacement engine.\n\nThe engine searches backward from a violated security query to candidate attacker actions. A separate validator then checks whether the attacker can perform those actions, re-executes the affected roles, and evaluates the query. We specify this process from the term algebra and primitive registry through knowledge deduction, bounded sessions, peer configurations, validation, and counterexample presentation. We also give a single-history reference semantics, relate it to the implemented replay system, prove termination under the engine's search bounds, and state exactly what each result category establishes.\n\nOur evaluation combines targeted regression models, mutation analysis, corpus measurements, and comparisons with ProVerif, Tamarin, and Scyther. It shows that the engine can express and find attacks that require several sessions, different peer assignments, or staged compromise, while exposing the implementation choices that limit its search. The result is an auditable account of Verifpal as a bounded counterexample finder: useful for finding and explaining protocol flaws, but not a substitute for an unbounded proof or a certified attack trace.",
+      "abstract": "Symbolic protocol verifiers must make a difficult tradeoff: their models and counterexamples should be accessible to protocol designers, but their results must still have a precise meaning. Verifpal addresses the first goal with a compact modeling language and source-level attack explanations. Its original analysis engine, introduced in 2019, had only a preliminary account of its guarantees. This paper presents and evaluates the replacement engine.\n\nThe engine searches backward from a violated security query to candidate attacker actions. It then runs every session and peer configuration of the protocol together as one execution under those actions, in which each injected value must be derivable from what that same execution has already disclosed, and evaluates the query on that execution. We specify this process from the term algebra and primitive registry through knowledge deduction, bounded sessions, peer configurations, execution, and counterexample presentation. We also give a single-history reference semantics, prove that every execution the engine judges is a history of that semantics, prove termination under the engine's search bounds, and state exactly what each result category establishes.\n\nOur evaluation combines targeted regression models, mutation analysis, corpus measurements, and comparisons with ProVerif, Tamarin, and Scyther. It shows that the engine can express and find attacks that require several sessions, different peer assignments, or staged compromise, while exposing the implementation choices that limit its search. The result is an auditable account of Verifpal as a bounded counterexample finder: every reported attack is an explicit protocol execution, but a passing query is not an unbounded proof, and no report is a machine-checked certificate.",
       "authors": [
         "Nadim Kobeissi"
       ],
@@ -3842,6 +4215,22 @@
       "pub_date_iso": "2026-08-11T01:18:04+00:00",
       "iacr_category": "Cryptographic protocols",
       "link": "https://eprint.iacr.org/2026/1654",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1650",
+      "title": "D-James: Ultra Short Multivariate Signatures",
+      "abstract": "Multivariate signature schemes are among the few post-quantum candidates capable of providing very short signatures, but designing secure constructions has proven challenging. HFE-based schemes such as G$e$MSS were compromised by algebraic MinRank attacks. This motivates the HFE$_\\text{IP}^-$ framework, which combines IP and minus modifiers to address these attacks. We introduce James and D-James, the latter achieving signatures of only 156 bits at the 128-bit classical security level and 348 bits at the 256-bit classical security level, among the shortest signatures reported for practical post-quantum public-key signature schemes, with estimated signing and verification costs comparable to those of G$e$MSS. The main technical contribution is the introduction of Dragon terms, which decouple the number of public equations from the hash output length, allowing the signature size to be reduced independently of the security parameter. We characterize the algebraic structure introduced by Dragon terms and show that it does not enable known MinRank attacks when combined with the HFE$_\\text{IP}^-$ countermeasures. We also show that the known differential attack does not appear to extend to the minus variant. We further present parameter sets over both binary and small non-binary finite fields. For small values of $q>2$, the public-key size decreases by up to a factor of 10, while signature size and computational cost remain close to the binary case.",
+      "authors": [
+        "Jacques Patarin",
+        "Alexandre Roullet"
+      ],
+      "pub_date": "Mon, 10 Aug 2026 16:15:46 +0000",
+      "pub_date_iso": "2026-08-10T16:15:46+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1650",
       "topics": [
         "Uncategorized"
       ]
@@ -3895,6 +4284,22 @@
       "pub_date_iso": "2026-08-02T13:31:35+00:00",
       "iacr_category": "Attacks and cryptanalysis",
       "link": "https://eprint.iacr.org/2026/1579",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1478",
+      "title": "Provable Recovery of RSA Private Exponents below $N^{11/42-\\varepsilon}$",
+      "abstract": "Wiener's continued-fraction attack gives the classical provable bound\n\\(d<N^{1/4}\\) for balanced RSA.  Boneh and Durfee reached the exponent \\(1-\\sqrt{2}/2\\approx0.2929\\), but their argument relies on a heuristic independence assumption.  We prove the first fully provable improvement beyond Wiener's \\(1/4\\) exponent: for every fixed \\(\\varepsilon>0\\), balanced RSA with \\(e=\\Theta(N)\\) can be factored deterministically in polynomial time whenever \\(d\\leq N^{11/42-\\varepsilon}\\).",
+      "authors": [
+        "Yiming Gao",
+        "Honggang Hu"
+      ],
+      "pub_date": "Mon, 20 Jul 2026 05:34:15 +0000",
+      "pub_date_iso": "2026-07-20T05:34:15+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/1478",
       "topics": [
         "Uncategorized"
       ]
@@ -4499,6 +4904,21 @@
       ]
     },
     {
+      "id": "2026/995",
+      "title": "On Arithmetic Invariants for Permutation Equivalence",
+      "abstract": "We give an efficiently computable invariant we call the square class invariant for the (Signed) Permutation Code Equivalence ((S)PCE) problem, that was previously not recognised in coding theory, which arises from the arithmetic of quadratic forms over finite fields. Our invariant naturally yields a distinguisher for the decision version of (S)PCE as defined at Eurocrypt 2025 by Albrecht, Benčina and Lai [ABL25], breaking the hardness assumption that underpins the security of their updatable public-key encryption scheme.\n\nWe extend a 2023 result by Bruin, Ducas and Gibbons by fully classifying the genera of $q$-ary lattices, showing the genus is completely determined by the hull dimension and our square class invariant of the underlying linear code, and that none of these genera split non-trivially into spinor genera (as soon as the lattice dimension is at least 5), implying the genus of a $q$-ary lattice encodes all known efficiently computable coding-theoretic invariants for (S)PCE and vice versa. Thus our distinguisher can also be seen as comparing the genera of Construction A lattices of the (S)PCE instance in the spirit of the Lattice Isomorphism Problem. We give a complete description of the genus distribution of uniform $q$-ary lattices.\n\nThis motivates the definition of a genus of a linear code as the genus of the Construction A lattice of any of its generator matrices. We adapt the sampling algorithm from [ABL25] to sample from a single genus uniformly at random and can thus restrict their hardness assumption for (S)PCE to a single genus. Restricting PCE to one genus and using our sampling algorithm is then used with a slight modification to the security proof to mend the scheme from [ABL25].",
+      "authors": [
+        "Benjamin Benčina"
+      ],
+      "pub_date": "Tue, 19 May 2026 18:05:30 +0000",
+      "pub_date_iso": "2026-05-19T18:05:30+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/995",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/980",
       "title": "Key-Independent Secret-Key Distinguisher for 7-Round AES based on the Joint Generalized Zero-Difference Property",
       "abstract": "A key-independent secret-key distinguisher identifies structural deviations from an ideal random permutation without discovering any information about the secret key. It is therefore of primary importance for understanding the inherent properties of a block cipher's round function. While numerous key-independent secret-key distinguishers have been proposed for 5- and 6-round AES, none has been proposed for 7-round AES to date. In this paper, we propose the first key-independent secret-key distinguisher for 7-round AES, which exploits solely the structural properties of the round function. We propose the Joint Generalized Zero-Difference Property, where a quartet constructed from related differences satisfies three distinct generalized zero-difference properties simultaneously. By leveraging this joint property, we construct a new 7-round differential characteristic that a right quartet follows with a probability of $2^{-250.4}$, whereas a random permutation satisfies the same conditions with a probability of $2^{-253.4}$. Based on this characteristic, we design a distinguishing attack requiring data, time, and memory complexities of $2^{126.2}$. Our analysis confirms that the proposed distinguisher achieves a success probability of approximately 77.8%. We experimentally verify the joint property using small-scale AES, confirming that the theoretical predictions match the observed results. This work achieves the longest-round key-independent secret-key distinguisher for AES reported to date.",
@@ -4751,6 +5171,23 @@
       "link": "https://eprint.iacr.org/2026/848",
       "topics": [
         "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/843",
+      "title": "Efficient Fair Data Exchange without In-Circuit Public-Key Operations",
+      "abstract": "Fair data exchange (FDE) lets a seller receive payment if and only if a buyer can recover data matching an agreed commitment.  Existing code-based schemes achieve near-plaintext communication, but their auxiliary public-key ciphertexts make consistency proving expensive when low redundancy requires many samples.\n\nWe replace these auxiliary ciphertexts with direct polynomial authentication and external witness linking.  The resulting circuit checks unmasking and consistency using only field arithmetic.  We prove correctness, soundness, and zero knowledge for an externally supplied KZG setup in the algebraic group and random oracle models.\n\nCombining the smaller circuit with a BLS12-381 instantiation, our implementation reduces total sender computation from \\(179.6\\) to \\(2.75\\) seconds (\\(65.3\\times\\)) for a \\(2\\,\\)MiB file at redundancy \\(\\beta\\approx1.1\\), relative to the sampled-ElGamal baseline.\nBulk ciphertext remains about \\(1.1\\times\\) the plaintext size.  In the evaluated curve and EVM configurations, removing the in-circuit relation permits a BLS12-381 key group with a precompile, reducing successful seller-settlement gas by \\(31.3\\times\\) relative to the BLS12-377 sampled-ElGamal baseline.",
+      "authors": [
+        "Dongwook Kim",
+        "Jihye Kim",
+        "Hyunok Oh"
+      ],
+      "pub_date": "Thu, 30 Apr 2026 07:16:54 +0000",
+      "pub_date_iso": "2026-04-30T07:16:54+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/843",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
       ]
     },
     {
@@ -5400,6 +5837,24 @@
       ]
     },
     {
+      "id": "2026/021",
+      "title": "IND-CCA Lattice Threshold KEM under 30 KiB",
+      "abstract": "At Asiacrypt'25, Lapiha and Prest proposed a lattice-based IND-CCA threshold key-encapsulation mechanism (TKEM) obtained from a threshold identity-based encryption (TIBE) and a signature scheme. Their construction relies on a variant of the Boneh-Canetti-Halevi-Katz (BCHK) transform, instantiated with a lattice-based TIBE. However it suffers from large ciphertexts at 540 KiB for $\\kappa = 128$ bits of security.\n\nWe present substantial improvements to their TIBE, resulting in the first concretely efficient lattice-based IND-CCA TKEM, with ciphertexts just under 30 KiB for a threshold $T = 32$, $Q = 2^{45}$ queries, and the same $\\kappa$.\n\nOur design simplifies the original framework by leveraging the power of random oracles already present in their construction. We further enhance efficiency by adopting approximate computations where appropriate and by replacing module-NTRU trapdoors with NTRU trapdoors, achieving a remarkable eighteenfold reduction in ciphertext size. Finally, leveraging recent developments in secret sharing, we ensure the verifiability of key-extraction shares even in the presence of malicious parties.",
+      "authors": [
+        "Katharina Boudgoust",
+        "Oleksandra Lapiha",
+        "Rafaël del Pino",
+        "Thomas Prest"
+      ],
+      "pub_date": "Tue, 06 Jan 2026 17:35:55 +0000",
+      "pub_date_iso": "2026-01-06T17:35:55+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/021",
+      "topics": [
+        "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
       "id": "2025/2305",
       "title": "A New Approach to Large Party Beaver-Style MPC with Small Computational Overhead",
       "abstract": "Secure multi-party computation (MPC) enables $N$ parties to jointly evaluate any function over their private inputs while preserving confidentiality. While decades of research have produced concretely efficient protocols for small to moderate numbers of participants, scaling MPC to thousands of parties remains a central challenge. Most of the existing approaches either incur per-party costs linear in $N$, due to pairwise computations, or rely on heavy cryptographic tools such as homomorphic encryption, which introduces prohibitive overheads when evaluating Boolean circuits.\n\nIn this work, we introduce a new lightweight approach to designing semi-honest MPC protocols with per-party, per-gate computation and communication costs that are independent of $N$. Our construction leverages the Sparse Learning Parity with Noise (Sparse LPN) assumption in the random oracle model to achieve per-gate costs of $O(k^2 \\cdot c(\\lambda))$ computation and $O(c(\\lambda))$ communication, where $k$ is the sparsity parameter for the Sparse LPN assumption and $c(\\lambda)$ is an arbitrarily small super-constant in the security parameter $\\lambda$. Assuming Sparse LPN remains hard for any super-constant sparsity, this yields the first semi-honest MPC protocol in the dishonest-majority setting with per-party, per-gate costs bounded by an arbitrarily small super-constant overhead in $\\lambda$.\n\nStructurally, our MPC instantiates a Beaver-style MPC with the required correlations generated efficiently. Departing from prior approaches that generate Beaver triples either silently (Boyle et al., 2019; 2020; 2022) or through homomorphic computation (Damgård et al., 2012), our focus is on efficiently generating a weaker correlation. In particular, using Sparse LPN we show that if we relax the correctness requirement in generating random Beaver triples to permit a tunably small inverse-polynomial error probability, such triples can be silently generated with arbitrarily small super-constant per-party computation. We then show that such correlations can be used in an efficient online phase similar to Beaver's protocol (with a tiny super-constant factor blow-up in communication).",
@@ -6038,6 +6493,24 @@
       ]
     },
     {
+      "id": "2025/778",
+      "title": "Amplifying Randomized Encodings & Applications",
+      "abstract": "A randomized encoding for a promise problem is a randomized reduction whose outcome distribution on input $x$ can be simulated within some distance $d$, called privacy, using only one bit of information about $x$: whether it is a YES or NO instance. The encoding is one-sided if this property holds only for YES instances. Our main contribution is showing that (classical and quantum) one-sided randomized encodings have privacy and correctness amplification: any problem with a randomized encoding with privacy $1-1/poly(n)$ and error $1/2-1/poly(n)$, also has an encoding with negligible privacy and error. We then use this result to obtain the following statements:\n\n - We show that NISZK, the class of problems that have a non-interactive (statistical) zero-knowledge proof,  has strong zero-knowledge amplification, i.e., every problem with a non-interactive zero-knowledge proof with zero-knowledge error $1-1/poly(n)$, also has a non-interactive zero-knowledge proof with negligible zero-knowledge error. This solves a problem open since the work of Goldreich, Sahai, and Vadhan (CRYPTO '99).\n\n- The worst-case hardness of a problem that has a perfect (i.e., zero error) one-sided encoding implies one-way functions (OWFs). And if the encoding is quantum, it implies one-way state generators (OWSGs). We then conclude that by removing the error from one-sided randomized encodings, the worst-case hardness of the complexity class SZK becomes sufficient for the existence of OWFs. \n\n- Weak and imperfect indistinguishability obfuscation (iO) implies OWFs assuming that the Polynomial Hierarchy does not collapse to its third level. Here, weakness means that the computational distance between the obfuscated circuit and the original circuit is $1-1/poly(n)$, and imperfectness means that the error is $1/2-1/poly(n)$.\n\nTo achieve this privacy and correctness amplification, we study randomized encodings through the lens of lossy reductions (Ball et al. ITCS 2020).  In particular, we introduce an extended and flexible notion of lossy reductions, and show that it is equivalent to randomized encodings. This equivalence serves as the base of our main results and might be of independent interest.",
+      "authors": [
+        "Pouria Fallahpour",
+        "Alex B. Grilo",
+        "Garazi Muguruza",
+        "Mahshid Riahinia"
+      ],
+      "pub_date": "Wed, 30 Apr 2025 16:08:33 +0000",
+      "pub_date_iso": "2025-04-30T16:08:33+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2025/778",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
       "id": "2025/719",
       "title": "SNARKs over Small Prime Fields without Extension Field Multiplication",
       "abstract": "Sumcheck-based transparent SNARKs over small prime fields encounter a basic soundness bottleneck. When instantiated over $\\mathbb{F}_p$, the round-by-round soundness error is $O(d/p)$, where $d$ is the  degree parameter in the sumcheck instance. This is non-negligible for small $p$. A common remedy is to work over an extension field, which departs from native $\\mathbb{F}_p$ arithmetic and requires implementing general $\\mathbb{F}_{p^k}$ arithmetic, in particular multiplication.  A natural alternative is to amplify soundness by parallel repetition. However, naive $k$-parallel repetition does not achieve a proportional $k$-fold increase in round-by-round soundness for multi-round sumcheck.\n\nIn this work, we propose the \\emph{packed sumcheck protocol}, which amplifies round-by-round soundness over $\\mathbb{F}_p$ by combining repetition with folding, while avoiding extension field multiplication. The core idea is to couple $k$ independent instances within each round using random matrix challenges from the matrix ring $\\mathbb{F}_p^{k \\times k}$, so that every folding step mixes all $k$ coordinates. For degree-$d$ claims, we obtain round-by-round soundness error $\\bigl(((2k-1)d)/p\\bigr)^k$. The prover uses $O((kd^2+k^2d)N)$ base field multiplications and the verifier uses $O(k^2 d\\mu)$ base field operations, with communication $O(k d\\mu)$ base field elements, where $N=2^\\mu$ is the size of the $\\mu$-dimensional Boolean hypercube.\n\n\nTo compile the packed sumcheck protocol into SNARKs, we introduce \\emph{matrix-weighted multilinear extension (MW-MLE) commitments}, capturing the matrix-weighted linear forms induced by packed sumcheck, and instantiate them by adapting Brakedown (CRYPTO~2023) and Basefold (CRYPTO~2024). The resulting components are integrated into the HyperPlonk (EUROCRYPT~2023) framework by replacing its sumcheck and polynomial commitment modules with packed variants, obtaining transparent SNARK instantiations without extension field multiplication in the Random Oracle Model. We further apply our packed techniques to construct a TFHE-friendly SNARK; we evaluate its prover performance for a single bootstrapping, obtaining a prover time of 2.2 seconds.",
@@ -6275,6 +6748,24 @@
       "link": "https://eprint.iacr.org/2024/1830",
       "topics": [
         "Distributed Computing & Consensus"
+      ]
+    },
+    {
+      "id": "2024/1784",
+      "title": "Fine-Grained Non-Interactive Key-Exchange without Idealized Assumptions, and Lower Bounds",
+      "abstract": "In this paper, we study multi-party non-interactive key exchange (NIKE) in the fine-grained setting. More precisely, we propose three multi-party NIKE schemes in three computation models, namely, the bounded parallel-time, bounded time, and bounded storage models. Their security is based on a very mild assumption (e.g., NC1 ⊊ ⊕L/poly) or even without any complexity assumption. This improves the recent work of Afshar, Couteau, Mahmoody, and Sadeghi (EUROCRYPT 2023) that requires idealized assumptions, such as random oracles or generic groups.\nAdditionally, we show that all our constructions satisfy a natural desirable property that we refer to as extendability, and we give generic transformations from extendable multi-party NIKE to multi-party identity-based NIKEs in the fine-grained settings.\nFurthermore, we generalize the lower bound on users’ storage consumption in the bounded storage model by Dziembowski and Maurer (Eurocrypt 2004) to encompass any multi-party NIKE with extendability. This new lower bound suggests that the users’ storage consumption of our multi-party NIKE in the bounded storage model is optimal.",
+      "authors": [
+        "Yuyu Wang",
+        "Chuanjie Su",
+        "Jiaxin Pan",
+        "Chunxiang Xu"
+      ],
+      "pub_date": "Fri, 01 Nov 2024 11:41:45 +0000",
+      "pub_date_iso": "2024-11-01T11:41:45+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2024/1784",
+      "topics": [
+        "Uncategorized"
       ]
     },
     {
