@@ -1,6 +1,74 @@
 {
-  "updated_at": "2026-09-23T11:30:37.140184+00:00",
+  "updated_at": "2026-09-24T11:41:10.982036+00:00",
   "papers": [
+    {
+      "id": "2026/2160",
+      "title": "Accordion: Efficient Batch Proving via Algebraic Folding",
+      "abstract": "We present $\\mathsf{Accordion}$, a new proof system that works in two steps:\n  - $\\textit{Accumulate}$: The first building block is a multi-folding scheme that efficiently accumulates $k$ different instances of a degree-$d$ polynomial relation into a single accumulated instance, without using recursion. Our scheme builds on the Protostar [Bünz & Chen, ASIACRYPT '23] and Protogalaxy [Eagen & Gabizon, ePrint 2023/1106] line of work, improving further the verifier efficiency.\n    It supports the same expressive class of relations, arbitrary-degree polynomial constraints, enabling efficient folding for CCS, Plonkish constraints, and even custom gates.\n   - $\\textit{Decide}$: The second block is a SNARK decider for the folding scheme, which efficiently proves the validity of the resulting accumulated instance using off-the-shelf optimized building blocks. We give a concrete instantiation consisting of a Plonk-based proof plus an additional KZG polynomial commitment opening. \n  \nThis design is especially attractive in batch-aggregation settings where a prover collects many independent witnesses, folds them into a single accumulator, and then runs one succinct decider to certify the entire batch. Our scheme avoids costly recursion overheads. \n\nWe implement $\\mathsf{Accordion}$ and evaluate it against a highly optimized Plonk proving pipeline ($\\texttt{midnight-zk}$). For $k=64$ instances, $\\mathsf{Accordion}$ is up to $2.5\\times$ faster than computing $k$ Plonk proofs for SHA-256 preimages, with a $3\\times$ faster verifier and $4\\times$ smaller proofs. Its prover is also an order of magnitude faster than using IVC to aggregate the $k$ proofs.",
+      "authors": [
+        "David Balbás",
+        "Anca Nitulescu",
+        "Maxime Plançon"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 14:39:00 +0000",
+      "pub_date_iso": "2026-09-22T14:39:00+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2160",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
+      "id": "2026/2159",
+      "title": "Batch IT-MAC: Program the Randomness in Succinct VOLE",
+      "abstract": "Many cryptographic protocols rely on affine message authentication tags of the form \\({\\boldsymbol\\sigma}=\\Delta{\\boldsymbol x}+{\\boldsymbol k}\\), the batch version of information-theoretic MAC.  Generating the tags for a long message vector typically requires communication linear in its length. Recent chosen-input VOLE protocols achieve succinct communication, but do not allow the authenticator’s key $k$ to be fixed in advance.\n\nWe introduce $\\mathit{batch\\text{-}MAC}$, a primitive that authenticates a chosen message vector in two messages while allowing the authenticator’s key vector to be generated beforehand from a short seed. For a vector of length \\(m\\), we construct batch-MACs with \\(O(m^{2/3}\\lambda)\\) communication under the decisional composite residuosity (DCR) assumption and \\(\\operatorname{poly}(\\log m,\\lambda)\\) communication under the learning with errors assumption.  Both constructions require a common reference string (CRS).\n\nWe find applications in constrained pseudorandom functions, 2-message 2PC, and succinct zero-knowledge arguments.",
+      "authors": [
+        "Liqiang Liu",
+        "Tianren Liu"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 13:50:17 +0000",
+      "pub_date_iso": "2026-09-22T13:50:17+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2159",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
+      "id": "2026/2158",
+      "title": "Formally Modeling the Terrapin Attack on SSH",
+      "abstract": "The Terrapin attack against SSH channel integrity (USENIX Security 2024) used a novel attack vector: attacks on the channel state. Surprisingly, not all AEAD modes of SSH were equally affected by this attack, and it remained an open question if \"unaffected\" meant \"secure\". Existing formal models for secure channels are based on stateful encryption. However, these models do not define what the channel state is and how it is used as input to the different AEAD modes.\n\nIn this paper, we propose a formal model for channel integrity under partially chosen state. Applied to the Terrapin attack, the chosen state is the SSH sequence number. It uses an abstract stateful encryption interface, for which we provide pseudocode descriptions for the eight most prominent AEAD modes used in SSH. By varying the SND oracle, we can model ciphertext-only (CO; the Terrapin attack), known-plaintext (KPA), and chosen-plaintext (CPA) attacks. This allows us to establish concrete bounds on the security of the AEAD modes. We find that all three Encrypt-then-MAC (EtM) modes and ChaCha20-Poly1305 in SSH are insecure in the CO model. AES-GCM is the only cipher secure in all three model variants. Going beyond Terrapin, we show that Encrypt-and-MAC (EaM) with a CBC cipher is secure, even in the KPA model. In particular, we describe a novel BEAST-like chosen-plaintext attack on the channel integrity of EaM-CBC, which separates the KPA and CPA models for this scheme.",
+      "authors": [
+        "Jörg Schwenk",
+        "Fabian Bäumer",
+        "Marcus Brinkmann"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 12:59:32 +0000",
+      "pub_date_iso": "2026-09-22T12:59:32+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/2158",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2157",
+      "title": "Jolt-QED: Formally Verifying Bytecode Expansions In Lean",
+      "abstract": "In this work, we formally verify using the Lean4 proof assistant, that jolt zk-VM's bytecode expansion process faithfully emulates a RISC-V CPU. Prior work translated the official Sail specification of RISC-V into Lean. We extend this model to define the Jolt ISA in Lean. We then write a transpiler to automatically extract Jolt’s bytecode expansions into Lean from their Rust definitions. Finally, we prove these expansions equivalent to their corresponding RISC-V instructions. Additionally, this lays the groundwork for proving the upstream components of Jolt are complete and sound.",
+      "authors": [
+        "Ari Biswas",
+        "Quang Dao",
+        "Daniel Ross",
+        "Justin Thaler"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 10:24:21 +0000",
+      "pub_date_iso": "2026-09-22T10:24:21+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/2157",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
     {
       "id": "2026/2156",
       "title": "Cryptanalysis of Goldreich's PRGs with MAJ–XOR Predicates",
@@ -1426,7 +1494,7 @@
     {
       "id": "2026/2070",
       "title": "Polynomial Time Algorithms for the Kadison-Singer Problem",
-      "abstract": "Marcus, Spielman, and Srivastava [MSS15] established the existence of Kadison--Singer partitions. We provide polynomial-time algorithms for the Kadison--Singer problem. For Hermitian matrices $A_1,\\ldots,A_m\\in\\mathbb C^{n\\times n}$ of rank at most one, we give two algorithms that find signs $\\sigma\\in\\{\\pm1\\}^m$ satisfying $\\|\\sum_i \\sigma_iA_i\\|\\le C\\|\\sum_i A_i^2\\|^{1/2}$. The deterministic algorithm achieves $C=3.3443$ using $\\widetilde O(mn^2+n^{56})$ arithmetic operations. The randomized algorithm achieves $C=4.8628$ using $\\widetilde O(mn^2+n^{5.88})$ arithmetic operations in expectation. For vectors satisfying $\\sum_i a_ia_i^*=I$ and $\\|a_i\\|^2\\le\\alpha$, the algorithms yield partitions $[m]=I_1\\cup I_2$ satisfying $\\|\\sum_{i\\in I_j}a_ia_i^*-I/2\\|\\le (C/2)\\sqrt\\alpha$ for $j=1,2$.",
+      "abstract": "Marcus, Spielman, and Srivastava [MSS15] established the existence of Kadison--Singer partitions. We provide polynomial-time algorithms for the Kadison--Singer problem. For Hermitian matrices $A_1,\\ldots,A_m\\in\\mathbb C^{n\\times n}$ of rank at most one, we give two algorithms that find signs $\\sigma\\in\\{\\pm1\\}^m$ satisfying $\\|\\sum_i \\sigma_iA_i\\|\\le C\\|\\sum_i A_i^2\\|^{1/2}$. The deterministic algorithm achieves $C=3.3443$ using $\\widetilde O(mn^2+n^{4.75})$ arithmetic operations. The randomized algorithm achieves $C=4.8628$ using $\\widetilde O(mn^2+n^{3.58})$ arithmetic operations in expectation. For vectors satisfying $\\sum_i a_ia_i^*=I$ and $\\|a_i\\|^2\\le\\alpha$, the algorithms yield partitions $[m]=I_1\\cup I_2$ satisfying $\\|\\sum_{i\\in I_j}a_ia_i^*-I/2\\|\\le (C/2)\\sqrt\\alpha$ for $j=1,2$.",
       "authors": [
         "Zhao Song",
         "Song Yue"
@@ -3665,6 +3733,22 @@
       ]
     },
     {
+      "id": "2026/1920",
+      "title": "Compact Lattice Anonymous Credentials from Tighter Approximate Range Proofs",
+      "abstract": "Accommodating cryptographic authenticity with strong user privacy assurances has been the primary motivation for anonymous credentials systems. Their features have recently come into the spotlight with the European Digital Identity (EUDI) wallet initiative, insisting on the need for efficient and private solutions based on well-understood security foundations for high assurances. This coincides with the post-quantum transition, but current quantum-safe solutions based on standard assumptions are still lagging behind the ones on ad-hoc interactive assumptions performance-wise.\nIn this paper, we present several techniques to improve the efficiency of anonymous credentials from standard lattice assumptions, narrowing the gap with more efficient but also more exotic ones. Alongside other optimizations, our main contributions focus on the zero-knowledge protocol of Lyubashevsky, Nguyen, Plançon (Crypto'22), currently the efficiency bottleneck of lattice privacy-oriented constructions, for which we identify several sources of improvements that may be on independent interest.",
+      "authors": [
+        "Corentin Jeudy",
+        "Olivier Sanders"
+      ],
+      "pub_date": "Tue, 08 Sep 2026 07:21:32 +0000",
+      "pub_date_iso": "2026-09-08T07:21:32+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1920",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
       "id": "2026/1919",
       "title": "Second Round Key Recovery and a Floating-Point Attack on DNN-based AES Implementations",
       "abstract": "At EUROCRYPT 2026, Gérault et al. introduced natural DNN implementations of block ciphers: ReLU networks that agree exactly with the underlying cipher on binary inputs but extend it continuously to real-valued inputs. They showed that this extension exposes the first round key to recovery, and proposed a generic Secure Blackbox Transformation that turns an arbitrary DNN-based implementation into a provably secure implementation. We revisit both sides of their result. On the attack side, the known attacks on the unprotected implementation reach only the first round key. Under the same threat model, we refine the absorption property of the natural S-box and combine it with a chosen-plaintext collision test, validated empirically, to recover the second round key of AES-256 in about $2^{39}$ queries. On the defense side, their transformation is provably secure over the reals, but that guarantee does not carry over to finite precision, where any neural-network implementation must ultimately run. We give a floating-point attack that recovers the first round key of the protected AES-128 implementation in 128 chosen queries, driven by an input value that the defense fails to round to a bit. Such a value exists in bfloat16, float16, float32, and float64, so moving to higher precision does not remove the weakness. We confirm the recovery in all four formats. Finally, we block the attack with a clamp placed before the defense's rounding step, which keeps every finite input in $[0,1]$ in the working precision and changes neither the cipher nor the exact-real security guarantee.",
@@ -3906,8 +3990,8 @@
     },
     {
       "id": "2026/1821",
-      "title": "Concrete Security Assessment of Isogeny-based Cryptography with the new Isogeny-Path algorithm",
-      "abstract": "Very recently, Wesolowski (ePrint 2026/1486) proposed a heuristic\nalgorithm for solving the supersingular isogeny-path problem in time and\nmemory \\(p^{1/3+o(1)}\\), where \\(p\\) is the characteristic of the underlying\nfield. Although this constitutes an asymptotic improvement over the previous\nbest-known complexity of \\(p^{1/2}\\log^{O(1)}(p)\\), its concrete impact on\nthe security of isogeny-based cryptographic schemes, particularly SQIsign,\nremains unclear due to the superpolynomial overhead hidden in the\n\\(p^{o(1)}\\) factor and the algorithm's exponential memory requirement.\n\nIn this work, we assess the concrete cost of Wesolowski's attack, study its\ntime--memory tradeoffs, and investigate optimizations based on the\nvan Oorschot--Wiener (vOW) technique. Our analysis shows that, over the\npractical memory ranges considered, neither the optimized full-list attack\nnor its vOW variants outperform the previous state-of-the-art low-memory\nalgorithm for computing supersingular endomorphism rings. We further study\nquantum claw-finding improvements. While Grover search can essentially\nremove the large memory requirement, it offers little improvement in running\ntime, whereas Tani's algorithm provides a stronger gate--memory tradeoff at\nthe cost of substantial coherent quantum memory. Overall, our results show\nthat the asymptotic \\(p^{1/3+o(1)}\\) improvement does not directly translate\ninto a comparable reduction in concrete security.",
+      "title": "Complexity Analysis and Security Implications of the New Isogeny-Path Algorithm",
+      "abstract": "Very recently, Wesolowski (ePrint 2026/1486) proposed a novel heuristic algorithm for solving the supersingular isogeny-path problem in time and memory \\(p^{1/3+o(1)}\\), where \\(p\\) is the characteristic of the underlying field. Although this improves asymptotically on the previous \\(p^{1/2}\\log^{O(1)}(p)\\) complexity, its concrete impact on isogeny-based schemes, particularly SQIsign, remains unclear because of the superpolynomial overhead hidden in \\(p^{o(1)}\\) and the exponential memory requirement.\nIn this work, we assess the cost of Wesolowski's attack, study its time--memory tradeoffs, and investigate optimizations based on the van Oorschot -- Wiener (vOW) technique. Our analysis shows that, over the practical memory ranges considered, Wesolowski's algorithm is expected to improve on the state of the art only at NIST Level I. At higher security levels, its prohibitive memory requirements offset the asymptotic advantage over accelerated Delfs--Galbraith methods. With high parallelization, however, the vOW variant can recover this advantage.\nWe further study quantum claw-finding improvements. While Grover search can essentially eliminate the large memory requirement, it offers little improvement in running time, whereas Tani's algorithm provides a stronger gate--memory tradeoff at the cost of substantial coherent quantum memory. Finally, we provide an optimized SageMath implementation and compare the theoretical time and space complexities against their empirical counterparts.",
       "authors": [
         "Maher Mamah"
       ],
@@ -4036,6 +4120,22 @@
       "link": "https://eprint.iacr.org/2026/1779",
       "topics": [
         "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1775",
+      "title": "A Note on the Security Proof of SQIsign",
+      "abstract": "Aardal et al. (CRYPTO 2025) provided the first complete security proof of SQIsign; however, their reduction incurs a square-root loss in the prime characteristic due to the application of a loose bound on the min-entropy. For instance, at NIST security level I, an adversary making $2^{64}$ signing queries renders the security proof vacuous. In this note, we show that the min-entropy of SQIsign is optimal, namely $\\mathcal{O}(1/p)$. Although this improvement does not yield full $\\lambda$-bit security, we show that it preserves two-thirds of the expected bit-security. We show that this artifact comes from an information-theoretic loss in the zero-knowledge simulation of SQIsign, suggesting a new proof technique is needed to achieve full $\\lambda$-bit security at the current parameters.",
+      "authors": [
+        "Maher Mamah",
+        "David Jao"
+      ],
+      "pub_date": "Sat, 22 Aug 2026 10:58:28 +0000",
+      "pub_date_iso": "2026-08-22T10:58:28+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1775",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
       ]
     },
     {
@@ -4289,6 +4389,25 @@
       ]
     },
     {
+      "id": "2026/1565",
+      "title": "How to Back Up High-Value Secret Keys",
+      "abstract": "Consider a cryptocurrency exchange that secures the bulk of its reserves under a small set of keys, each of which is only used to transfer cryptocurrency once a year; or the backup codes for an account login or a password manager, which are again rarely used but provide access to crucial systems or information. Securing such infrequently-used high-value secrets is crucial, but existing solutions, such as threshold wallets and 'cold' (offline) wallets, are unsatisfactory.\n\nIn this work, we envision a system that allows users to conveniently back up their rarely-used, high-value keys. This new setting necessitates a novel set of design requirements. Specifically: \n\n- We allow user keys to be threshold secret-shared among a large number of custodians where each custodian wallet comprises of a hot (i.e., online) and a cold (i.e., offline) portion. The cold part of the wallet is not touched during the backup process (thus, it is independent of the number of system users) but must be accessed for recovery.\n- We provide a mechanism to continually assure users that their keys are safely stored. This feature is critical because our system is not designed for frequent key use. We also enable proactive key refresh.\n- Finally, in our approach, restoring a backed-up key is equivalent to generating a signature. Thus, signatures made by users of this system should look the same as \"normal\" signatures to avoid exposing holders of high-value keys to targeted attacks.\n\nBased on these requirements, we develop new security definitions and a UC-secure protocol that implements threshold BLS signatures in our new model. Our protocol is practically efficient for the envisioned large numbers of custodians: for a 67-out-of-100 threshold configuration, creating a new backup takes 10s, while recovery takes less than 2ms.",
+      "authors": [
+        "Sanjam Garg",
+        "Noemi Glaeser",
+        "Abhishek Jain",
+        "Michael Lodder",
+        "Hart Montgomery"
+      ],
+      "pub_date": "Thu, 30 Jul 2026 16:43:15 +0000",
+      "pub_date_iso": "2026-07-30T16:43:15+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1565",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1478",
       "title": "Provable Recovery of RSA Private Exponents below $N^{11/42-\\varepsilon}$",
       "abstract": "Wiener's continued-fraction attack gives the classical provable bound\n\\(d<N^{1/4}\\) for balanced RSA.  Boneh and Durfee reached the exponent \\(1-\\sqrt{2}/2\\approx0.2929\\), but their argument relies on a heuristic independence assumption.  We prove the first fully provable improvement beyond Wiener's \\(1/4\\) exponent: for every fixed \\(\\varepsilon>0\\), balanced RSA with \\(e=\\Theta(N)\\) can be factored deterministically in polynomial time whenever \\(d\\leq N^{11/42-\\varepsilon}\\).",
@@ -4339,6 +4458,26 @@
       "link": "https://eprint.iacr.org/2026/1443",
       "topics": [
         "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
+      "id": "2026/1439",
+      "title": "ABE for Unbounded Circuits from Circular LWE and Pairings",
+      "abstract": "Constructing attribute based encryption (ABE) for unbounded circuits, namely circuits with both depth and width being unbounded, and for Turing machines are perhaps the most important open questions in ABE research. Recent years saw some much-awaited progress on these long-standing problems -- (i) the work of Hsieh, Lin and Luo [HLL23] (HLL23) provided the first construction of ABE for unbounded circuits from a new circular evasive LWE assumption, (ii) the follow-up work of Agrawal, Kumari and Yamada [AKY24b] and Cini and Wee [CW25] gave the first constructions of ABE for Turing machines.\n\nUnfortunately, all these works relied on different versions of the ``private-coin'' Evasive Learning With Errors assumption which was invalidated in a sequence of attacks [BUW25, BDJ+25, DJM+25, AMYY25, HJL25, HHY26]. Finding new constructions from better-understood assumptions (without relying on compact functional encryption or obfuscation) is therefore an important open problem.\n\nIn this work, we make progress towards this goal. Our contributions are:\n1. *KP-ABE for Unbounded Circuits from Circular Small-Secret LWE and Bilinear GGM.*\nWe provide a new candidate for key-policy ABE for unbounded circuits from circular small-secret Learning With Errors (csLWE) and the Bilinear Generic Group Model (BGGM). Since the BGGM has a long history of study, we believe that this provides strong evidence for the security of our scheme. \n\nIn the standard model, we argue security from a novel, falsifiable ``doubly circular'' assumption which combines csLWE with key dependent message security of a variant of ElGamal encryption in an inseparable manner. \nWe show that in a restricted setting, it is implied by the standard SXDH assumption and csLWE. \n\n2. *SK CP-ABE for Unbounded Circuits from Circular Small-Secret LWE. *\nIn the symmetric key setting, we provide a new candidate for ciphertext-policy ABE for unbounded circuits from only the csLWE assumption. \n\n3. *SK KP-ABE for Turing Machines from Circular Small-Secret LWE.*\nIn the symmetric key setting, we provide the first key-policy ABE for Turing machines from the csLWE assumption.\n\nCuriously, each of our constructions is intrinsically key-policy or ciphertext-policy and stubbornly resists adaptation to its dual variant. Thus, our work exhibits a surprising (to us) dichotomy between the key and ciphertext policy versions of ABE for unbounded circuits. Finding dual versions of the above constructions, removing pairings altogether or dispensing with the symmetric key setting are fascinating open problems.",
+      "authors": [
+        "Shweta Agrawal",
+        "Supriyo Banerjee",
+        "Anuja Modi",
+        "Rajeev Raghunath",
+        "Anshu Yadav",
+        "Shota Yamada"
+      ],
+      "pub_date": "Wed, 15 Jul 2026 01:01:33 +0000",
+      "pub_date_iso": "2026-07-15T01:01:33+00:00",
+      "iacr_category": "Public-key cryptography",
+      "link": "https://eprint.iacr.org/2026/1439",
+      "topics": [
+        "Uncategorized"
       ]
     },
     {
@@ -4799,6 +4938,23 @@
       ]
     },
     {
+      "id": "2026/1039",
+      "title": "Related-Differential Distinguishers on up to 7 Rounds of AES",
+      "abstract": "Round-reduced variants of AES are widely used as building blocks in the design of cryptographic schemes. The study of non-random properties and distinguishers for round-reduced AES has always been an important research topic. The longest known secret-key distinguishers on AES cover 6 rounds. Related differences and related differentials were introduced by the designers of AES in 2009, but research in this direction remains limited. In this paper, we provide a new perspective on related differences through exchange and shift operations. Based on related differentials, we present new non-random properties and secret-key distinguishers for up to 7 rounds of AES. For 5-round AES, we present a new property with probability $2^{-22}$ by combining one-round byte-wise related differentials with the 4-round zero-difference property. Then we improve the secret-key distinguishers on 5-round AES in both the chosen plaintexts (CP) and adaptively chosen plaintexts (ACP) settings, achieving data/time complexities of $2^{27.2}$/$2^{28.05}$ and $2^{23.32}$/$2^{23.54}$, respectively. For 7-round AES, we identify the first non-random property by exploiting one-round exchanged diagonal related differentials and combining them with the 4-round related differentials given by Bardeh and Rijmen. Then, we propose the first secret-key distinguisher for 7-round AES with data complexity lower than the full codebook. For 6-round AES, using shifted diagonal related differentials, we present an alternative distinguisher that is dual to the exchange-attack distinguisher from ASIACRYPT 2019.",
+      "authors": [
+        "Xueping Yan",
+        "Lin Tan",
+        "Wenfeng Qi"
+      ],
+      "pub_date": "Sat, 23 May 2026 09:34:47 +0000",
+      "pub_date_iso": "2026-05-23T09:34:47+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/1039",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1037",
       "title": "On Publicly Verifiable Tokens in Group Signatures with Message-Dependent Opening",
       "abstract": "Group signatures (GSs; Chaum and van Heyst, EUROCRYPT 1991) are digital signatures that allow a signer to anonymously prove group membership, while still enabling a special authority, called the opener, to identify the signer when necessary. Group Signatures with Message-Dependent Opening (GS-MDO; Sakai et al., Pairing 2012) weaken the power of the opener by introducing another authority, the admitter, who issues a message-dependent token. In previous GS-MDO schemes, these tokens can be viewed as signatures. Therefore they can be publicly verified using the verification algorithm of the underlying signature scheme. However, no explicit notion of public verifiability for tokens, meaning the ability to publicly verify whether a token can be used for opening a group signature, has been defined so far. Clarifying this implicit security property is important for understanding the feasibility of GS-MDO. In this paper, we formally define public verifiability of tokens. We establish a proper relationship between verifying a token as a signature and verifying that the token can be used for opening, which typically requires the opener's secret key. We also show that the Ohara et al. pairing-based GS-MDO scheme (AsiaCCS 2013), the Libert et al. lattice-based GS-MDO scheme (ACNS 2016), and the Libert et al. pairing-based GS-MDO scheme (CT-RSA 2014) satisfy our definition, suggesting that our formalization is reasonable. Finally, we discuss how publicly verifiable tokens can be used to provide accountability for the admitter, enabling them to demonstrate that tokens have been honestly generated according to the token-generation algorithm.",
@@ -5176,7 +5332,7 @@
     {
       "id": "2026/843",
       "title": "Efficient Fair Data Exchange without In-Circuit Public-Key Operations",
-      "abstract": "Fair data exchange (FDE) lets a seller receive payment if and only if a buyer can recover data matching an agreed commitment.  Existing code-based schemes achieve near-plaintext communication, but their auxiliary public-key ciphertexts make consistency proving expensive when low redundancy requires many samples.\n\nWe replace these auxiliary ciphertexts with direct polynomial authentication and external witness linking.  The resulting circuit checks unmasking and consistency using only field arithmetic.  We prove correctness, soundness, and zero knowledge for an externally supplied KZG setup in the algebraic group and random oracle models.\n\nCombining the smaller circuit with a BLS12-381 instantiation, our implementation reduces total sender computation from \\(179.6\\) to \\(2.75\\) seconds (\\(65.3\\times\\)) for a \\(2\\,\\)MiB file at redundancy \\(\\beta\\approx1.1\\), relative to the sampled-ElGamal baseline.\nBulk ciphertext remains about \\(1.1\\times\\) the plaintext size.  In the evaluated curve and EVM configurations, removing the in-circuit relation permits a BLS12-381 key group with a precompile, reducing successful seller-settlement gas by \\(31.3\\times\\) relative to the BLS12-377 sampled-ElGamal baseline.",
+      "abstract": "Fair data exchange (FDE) ties payment to recovery of data matching an agreed commitment.  Code-based FDE offers near-plaintext communication, but the sampled-ElGamal baseline incurs costly in-circuit checks when low redundancy requires many samples.  We replace auxiliary ElGamal ciphertexts with direct KZG authentication and external witness linking.  This leaves only field arithmetic in the consistency circuit and permits a BLS12-381 instantiation with EVM precompile support for settlement-key verification. We prove correctness, soundness, and zero knowledge under an external KZG setup in the algebraic group and random oracle models.  Our implementation reduces aggregate sender computation from \\(179.6\\) to \\(2.75\\) seconds (\\(65.3\\times\\)) for a \\(2\\,\\)MiB file at redundancy \\(\\beta\\approx1.1\\), relative to the sampled-ElGamal baseline.  Bulk ciphertext remains about \\(1.1\\times\\) the plaintext size.  The corresponding EVM implementation reduces gas for successful seller settlement by a factor of \\(31.3\\).",
       "authors": [
         "Dongwook Kim",
         "Jihye Kim",
@@ -5759,6 +5915,22 @@
       "link": "https://eprint.iacr.org/2026/141",
       "topics": [
         "Distributed Computing & Consensus"
+      ]
+    },
+    {
+      "id": "2026/107",
+      "title": "Veriﬁed non-recursive calculation of Beneš networks applied to Classic McEliece",
+      "abstract": "The Beneš network can be utilised to apply a single permutation to different inputs repeatedly. We present novel generalisations of Bernstein's formulae for the control bits of a Beneš network and from them derive an iterative control bit setting algorithm. We provide verified proofs of our formulae and prototype a a provably correct implementation in the Lean language and theorem prover. We develop and evaluate portable and vectorised implementations of our algorithm in the C programming language. Our implementation utilising Intel's Advanced Vector eXtensions 2 feature reduces execution latency by 25% compared to the equivalent implementation in the libmceliece software library.",
+      "authors": [
+        "Wrenna Robson",
+        "Samuel Kelly"
+      ],
+      "pub_date": "Fri, 23 Jan 2026 11:29:49 +0000",
+      "pub_date_iso": "2026-01-23T11:29:49+00:00",
+      "iacr_category": "Implementation",
+      "link": "https://eprint.iacr.org/2026/107",
+      "topics": [
+        "Uncategorized"
       ]
     },
     {
@@ -6422,6 +6594,24 @@
       "pub_date_iso": "2025-06-27T07:40:55+00:00",
       "iacr_category": "Applications",
       "link": "https://eprint.iacr.org/2025/1200",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2025/1130",
+      "title": "An Open-Source Framework for Efficient Side-Channel Analysis on Cryptographic Implementations",
+      "abstract": "Side-channel attacks (SCAs) are increasingly recognized as a significant threat to hardware roots of trust. As a result, cryptographic module designers must ensure that their modules are resilient to such attacks before deployment. However, efficient evaluation of side-channel vulnerabilities in cryptographic implementations remains challenging. This article introduces an open-source framework integrating field-programmable gate array (FPGA) designs, power measurement tools, and high-performance side-channel analysis libraries to streamline the evaluation process. The framework provides design templates for two widely used FPGA boards in the side-channel analysis community, enabling Shell-Role architecture, a modern FPGA design pattern. This shell abstraction allows designers to focus on developing cryptographic modules while utilizing standardized software tools for hardware control and power trace acquisition. Additionally, the framework includes acceleration plugins for ChipWhisperer, the leading open-source side-channel analysis platform, to enhance the performance of correlation power analysis (CPA) attacks. These plugins exploit modern many-core processors and graphics processing units (GPUs) to speed up analysis significantly. To showcase the capabilities of the proposed framework, we conducted multiple case studies and highlighted significant findings that advance side-channel research. Furthermore, we compare our CPA plugins with existing tools and show that our plugins achieve up to 8.60x speedup over the state-of-the-art CPA tools.",
+      "authors": [
+        "Takuya Kojima",
+        "Masaki Morita",
+        "Hideki Takase",
+        "Hiroshi Nakamura"
+      ],
+      "pub_date": "Mon, 16 Jun 2025 06:02:41 +0000",
+      "pub_date_iso": "2025-06-16T06:02:41+00:00",
+      "iacr_category": "Implementation",
+      "link": "https://eprint.iacr.org/2025/1130",
       "topics": [
         "Uncategorized"
       ]
