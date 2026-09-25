@@ -1,6 +1,58 @@
 {
-  "updated_at": "2026-09-24T11:41:10.982036+00:00",
+  "updated_at": "2026-09-25T11:47:10.841416+00:00",
   "papers": [
+    {
+      "id": "2026/2163",
+      "title": "Write-Public Oblivious RAM and Its Applications",
+      "abstract": "Oblivious RAM (ORAM) protocols enable a resource-constrained client to outsource data to an untrusted server, and access this data without revealing what is being accessed. While ORAM protocols are almost optimal, concretely efficient ORAM protocols incur sub-optimal bandwidth overhead and require multiple roundtrips of communication between the client and the server.\n\nIn this work, we introduce write-public ORAM: a relaxed variant of ORAM that hides what data is being read, but not what data is being updated on the server. We present wpORAM, a write-public ORAM that modifies Path ORAM to achieve a log N-factor improvement in bandwidth and roundtrips over Path ORAM during writes. The asymptotic cost of reads in wpORAM remains the same as Path ORAM, with a slight slowdown in practice. wpORAM, when used with a Trusted Execution Environment (TEE), can implement a dynamic Private Information Retrieval scheme that efficiently updates data stored in a public database.\n\nWe use wpORAM to implement a private blockchain RPC server that enables blockchain clients to query RPC nodes without revealing their queries to the server operator. Our evaluation shows that, while syncing with the latest blockchain state, our RPC node achieves a 3-4x speedup over Path ORAM. Our RPC node can serve reads with a slowdown of approximately 23% compared to Path ORAM.",
+      "authors": [
+        "Ananya Appan",
+        "James Austgen",
+        "Kushal Babel",
+        "Sourav Das"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 18:41:48 +0000",
+      "pub_date_iso": "2026-09-22T18:41:48+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/2163",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2162",
+      "title": "A Survey of Pseudorandom Codes",
+      "abstract": "A pseudorandom code (PRC) is a cryptographic primitive combining pseudorandom encryption and error-correcting codes (Christ and Gunn, CRYPTO 2024). That is, any polynomial number of codewords are pseudorandom, and decryption tolerates a constant rate of bit-flips. Although this might seem like a natural combination of standard properties, it is a fundamentally new object: PRCs are black-box separated from many primitives, including one-way functions, public-key encryption, and even virtual black-box obfuscation (Döttling et al., Garg et al., TCC 2025).\n    \n    Pseudorandom codes were introduced to build watermarks for AI-generated content. In particular, they imply watermarks that preserve the model's quality in a strong sense and withstand modification of the content. This relationship makes pseudorandom codes an inviting area for researchers: improvements to this simple theoretical object yield better watermarks. Beyond watermarks, PRCs have been used to construct error-correcting codes against computationally bounded channels (Lu et al., CRYPTO 2026), and techniques underlying them have led to new public-key encryption schemes (Döttling et al., CRYPTO 2026, Dyseryn et al. ASIACRYPT 2026).\n\n    This survey aims to equip the interested researcher with tools to make progress in the area. We detail the current landscape of definitions, techniques, and applications. A main contribution is introducing new tricks and assembling existing tricks to generically strengthen PRCs (e.g., from substitution-robustness to random-deletion-robustness). We also show natural weakenings of PRCs that can be constructed from OWFs or even unconditionally. We conclude with a number of concrete open questions.",
+      "authors": [
+        "Miranda Christ"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 16:04:35 +0000",
+      "pub_date_iso": "2026-09-22T16:04:35+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2026/2162",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/2161",
+      "title": "Extracting CNNs in the Unknown-Architecture and Feedback-Agnostic Setting",
+      "abstract": "This paper studies the cryptanalytic extraction of convolutional neural networks (CNNs). Existing cryptanalytic extraction attacks on CNNs assume that the network architecture is known, and try to recover model parameters. In this paper, we prove for the first time that the architecture assumption can be removed for CNNs with both max and average pooling. Our core finding is that the spatial geometry of the weight vectors recovered by existing parameter-recovery attacks naturally leaks the architecture. We formalize this geometry and establish its correspondence with the architectural knowledge of a convolutional layer: (1) The sparsity consistency with the convolution receptive field reveals the layer type, the kernel size, and the stride; (2) The numerical consistency with the kernel parameters reveals the padding mode and the output-channel number; (3) The structural consistency with the pooling operation reveals the pooling type, the window size, and the stride. Although the recovered vectors are obtained using different methods in the raw-output and hard-label settings, their spatial geometry remains the same. Therefore, our architecture recovery is feedback-agnostic: combined with a parameter-recovery attack, it yields a complete cryptanalytic extraction framework that recovers both the architecture and the parameters in the black-box setting. Extensive experiments, including both layer-wise and end-to-end ones, on a wide range of CNNs demonstrate that simultaneously recovering the network architecture and the model parameters is practical.",
+      "authors": [
+        "Jiashuo Liu",
+        "Ruijie Ma",
+        "Manman Li",
+        "Yi Chen",
+        "Shaozhen Chen"
+      ],
+      "pub_date": "Tue, 22 Sep 2026 15:46:21 +0000",
+      "pub_date_iso": "2026-09-22T15:46:21+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/2161",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
     {
       "id": "2026/2160",
       "title": "Accordion: Efficient Batch Proving via Algebraic Folding",
@@ -54,7 +106,7 @@
     {
       "id": "2026/2157",
       "title": "Jolt-QED: Formally Verifying Bytecode Expansions In Lean",
-      "abstract": "In this work, we formally verify using the Lean4 proof assistant, that jolt zk-VM's bytecode expansion process faithfully emulates a RISC-V CPU. Prior work translated the official Sail specification of RISC-V into Lean. We extend this model to define the Jolt ISA in Lean. We then write a transpiler to automatically extract Jolt’s bytecode expansions into Lean from their Rust definitions. Finally, we prove these expansions equivalent to their corresponding RISC-V instructions. Additionally, this lays the groundwork for proving the upstream components of Jolt are complete and sound.",
+      "abstract": "In this work, we verify, using the Lean 4 proof assistant, that the Jolt zk-VM's expanded programs faithfully emulate a RISC-V CPU. Prior work translated the official Sail specification of RISC-V into Lean. We extend this model to define the Jolt ISA in Lean. We build a generator that runs Jolt's Rust bytecode expander and renders its output as Lean programs. Finally, for 51 out of 58 such programs, we prove these expansions are equivalent to their corresponding RISC-V instructions. This lays the groundwork for proving completeness and soundness of further stages of Jolt's proving pipeline.",
       "authors": [
         "Ari Biswas",
         "Quang Dao",
@@ -4713,6 +4765,22 @@
       ]
     },
     {
+      "id": "2026/1207",
+      "title": "\"Sticking their heads out above the parapets\": Lived Experiences of Legal Risks in Research (Extended)",
+      "abstract": "Overbroad computer crime, intellectual property, and other laws are well known to create legal risks that can discourage essential research. Notable examples include the US Computer Fraud and Abuse Act and the UK Computer Misuse Act. Because such laws fail to distinguish malicious hacking from good-faith testing and research, researchers face serious legal risks for public-interest research activity like identifying software or hardware vulnerabilities or scraping data. Despite the research community's broad awareness of these risks, our understanding of their practical impacts is limited, as most of the community's knowledge comes from anecdotal evidence rather than systematic study.\n\nWe conduct the first qualitative study focused on researchers' lived experiences, to empirically document the *impacts of legal risks and threats* on research and researchers*, and *how researchers navigate legal risk situations*. Our study engages two participant groups: researchers with legal-risk experiences in the UK or the US ($N_R=36$), who discuss 130 projects and incidents spanning over three decades, and professionals that offer support to researchers navigating legal risks ($N_S=8$), who have collectively supported thousands of researchers. We thus provide an unprecedented big-picture view of researchers' experiences with legal risks. We synthesise actionable strategies for researchers, and our findings provide evidence to support policy reform.",
+      "authors": [
+        "Sunoo Park",
+        "Daniel R. Thomas"
+      ],
+      "pub_date": "Mon, 08 Jun 2026 13:43:43 +0000",
+      "pub_date_iso": "2026-06-08T13:43:43+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/1207",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1164",
       "title": "Algebraic Cryptanalytic Extraction on Hard-Label Neural Networks",
       "abstract": "Although the state-of-the-art model extraction attack on the hard-label Fully-connected Neural Network (FCN) by Carlini et al. at EUROCRYPT 2025 has polynomial-time complexity in theory, its dual-point clustering relies on singular value decomposition (SVD) with a time complexity of $\\mathcal{O}(n^2 (d^{(k)})^3)$, resulting in huge runtime in practice. To address this computational bottleneck, this work transforms Carlini et al.'s geometric-view hard-label attack into an algebraic framework, and proposes two efficient clustering methods: Normal Rank Check (NRC) and Approximate Signature Vector (ASV). The NRC and ASV methods replace Carlini et al.'s heavy SVD-based rank checking with simple rank checking or inner-product operations, reducing the clustering complexity to $\\mathcal{O}(n (d^{(k)})^3)$ on average. Furthermore, this paper presents the first model extraction attack against hard-label max-pooling Convolutional Neural Networks (CNNs) by combining the ASV method with the kernel-centric clustering scheme instead of the neuron-centric clustering, which fully exploits the property of weight sharing in convolutions and fills a cryptanalysis gap. Experiments on FCNs and the max-pooling LeNet-5 demonstrate that our NRC/ASV methods drastically cut clustering time, and improve the overall efficiency in the model extraction.",
@@ -4865,6 +4933,26 @@
       ]
     },
     {
+      "id": "2026/1084",
+      "title": "BRaccoon: Concurrently Secure Blind Lattice Signatures from Raccoon",
+      "abstract": "Blind signatures are a central primitive for privacy-preserving applications such as e-cash, anonymous credentials, and e-voting. \n\nClassical constructions such as blind Schnorr adapt an ordinary signature scheme while producing signatures that follow the same format and distribution as those generated by the ordinary signing algorithm. This property is particularly relevant in settings where blind and non-blind signatures coexist within the same infrastructure. Achieving an analogous result for lattice-based Fiat--Shamir signatures, with security based on the underlying ordinary signature scheme, has remained open.\n\nWe present $\\mathsf{BRaccoon}$, the first concurrently secure lattice-based realization of the ``blind signatures from a signature assumption'' paradigm of Fuchsbauer and Wolf (EUROCRYPT~2024).\nOur construction builds on the rejection-free lattice signature scheme $\\mathsf{Raccoon}$, yielding signatures that retain the algebraic format and verification relation of $\\mathsf{Raccoon}$.\n\nAt a high level, we introduce blinding at the commitment stage and enforce correct challenge and response generation via linearly homomorphic encryption combined with $\\mathsf{NIZK}$ proofs. Since these proofs already bind the hidden message to the resulting signature, their relation can naturally incorporate predicates on that message, providing a direct route toward predicate blind signatures.\n\nA central technical challenge stems from discrete Gaussian sampling, where blinding induces a non-trivial distributional shift that precludes direct security reductions. To overcome this, we introduce a modified scheme $\\mathsf{Raccoon}^\\star$ that explicitly captures this shift. We analyze one-more unforgeability through non-rounded versions of $\\mathsf{Raccoon}^\\star$ and $\\mathsf{Raccoon}$. The deployed blind-signing protocol retains rounding.\n\nFor a concrete instantiation, we encode the lattice relations and the non-linear challenge computation in a common mixed Boolean and arithmetic relation. Our instantiation retains SHA3-256 and SHAKE256 and proves both protocol statements using the ZK-LaBRADOR toolkit. For up to $2^{32}$ signing queries, its total communication is estimated at approximately $862$ KB.",
+      "authors": [
+        "Lucjan Hanzlik",
+        "Mark Manulis",
+        "Marzio Mula",
+        "Alan Pulval-Dady",
+        "Tjerand Silde",
+        "Daniel Slamanig"
+      ],
+      "pub_date": "Thu, 28 May 2026 15:24:45 +0000",
+      "pub_date_iso": "2026-05-28T15:24:45+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/1084",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1072",
       "title": "Proactive Secret Sharing without Erasures",
       "abstract": "Proactive secret-sharing (PSS) offers security for shared secrets in a setting of a mobile adversary which, over time, may corrupt the whole shareholder set. This remarkable property is achieved by having parties proactively and in a coordinated manner refresh their shares on a regular basis, while it assumes that the adversary never manages to corrupt more than a threshold number of parties between two consecutive share refresh operations.\n\nA common assumption for achieving PSS is the ability of parties to securely erase their private state once they have performed the refresh operation. Motivated by the difficulty in the real world to ensure secure erasure, we investigate whether it is possible to achieve PSS without erasures. As in the classic model of computation it can be easily shown that PSS without erasures is impossible, we hence ask whether it is possible to achieve PSS via quantum computation, while still requiring only classical communication.\n\nWe answer the question in the affirmative by utilizing one-shot signatures and post-quantum classical extractable witness encryption. In the process of developing our result, we define and construct threshold one-shot decryption and make connections to quantum money with classical communication both of which may be of independent interest. Finally, we show how, by combining post-quantum secure functional witness encryption with our PSS, it is possible for the secret to be used without explicitly being reconstructed, something that paves the way towards proactively secure threshold cryptography without erasures.",
@@ -4911,6 +4999,25 @@
       "pub_date_iso": "2026-05-26T14:28:16+00:00",
       "iacr_category": "Public-key cryptography",
       "link": "https://eprint.iacr.org/2026/1059",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/1054",
+      "title": "Improved Complexity Estimates for Underdetermined MQ Systems via Generalized Variable Partitioning",
+      "abstract": "Multivariate quadratic (MQ) signature schemes are an important class of post-quantum digital signatures. These schemes rely on the hardness of solving underdetermined MQ systems, where the number of variables \\(n\\) exceeds the number of equations \\(m\\). Therefore, analyzing the efficiency of algorithms for underdetermined MQ systems is essential for evaluating the security of MQ-based signature schemes. Several algorithms have been proposed to solve underdetermined MQ systems efficiently. Among them, Hashimoto's method is one of the best known partition-based direct attacks; it partitions the variables into three groups and reduces the original problem to two smaller MQ subproblems. \nIn this paper, we propose a generalized partition-based algorithm for solving underdetermined MQ systems. The proposed algorithm extends Hashimoto's method by partitioning the variables into more groups and reducing the original problem to smaller MQ subproblems. We derive its applicability conditions and time complexity, and develop an efficient parameter search strategy to find the best partition parameters without a naive exhaustive search. Finally, we evaluate the proposed algorithm on parameter sets of MAYO, QR-UOV, and SNOVA, and compare the resulting estimates with those of existing algorithms for underdetermined MQ systems. In the classical case, the proposed method improves on Hashimoto's method for some parameter sets; in particular, it reduces the estimate for MAYO1 from \\(2^{156}\\) to \\(2^{145}\\). In the quantum case, the proposed method gives estimates smaller than both Just Guess and Hashimoto's method for many parameter sets.",
+      "authors": [
+        "Hideki Asanuma",
+        "Yilong Chen",
+        "Hiroki Furue",
+        "Kosuke Sakata",
+        "Tsuyoshi Takagi"
+      ],
+      "pub_date": "Tue, 26 May 2026 04:59:19 +0000",
+      "pub_date_iso": "2026-05-26T04:59:19+00:00",
+      "iacr_category": "Attacks and cryptanalysis",
+      "link": "https://eprint.iacr.org/2026/1054",
       "topics": [
         "Uncategorized"
       ]
@@ -5239,6 +5346,25 @@
       ]
     },
     {
+      "id": "2026/908",
+      "title": "Titan: Efficient Polynomial Commitments from IOPs over Groups",
+      "abstract": "In this paper, we propose Titan, an efficient polynomial commitment scheme (PCS) with transparent setup. It achieves commitment time of $O(n)$, evaluation time of $O(\\sqrt{n})$ while the proof size and verification scales as $O(\\sqrt[4]{n})$. Titan features an order of magnitude smaller proof sizes than hash based PCS, while featuring a significantly more efficient prover and verifier compared to state of the art group based schemes like Dory and Hyrax. To achieve this balance, Titan borrows two-tiered commitments from Dory, and realizes outer commitment using interactive protocols of proximity (IOPP) over groups, such as Basefold and WHIR, instead of expensive bilinear pairings. This allows Titan to be instantiated over general curves with discrete-log hardness such as Pasta Curves, instead of requiring pairing friendly curves.\n\n    We compile a variant of Spartan protocol for R1CS with Titan PCS to realize a SNARK. Our SNARK construction preserves the prover efficiency of the existing Spartan protocol, while improving proof size and verification quadratically from $O(\\sqrt{n})$ to $O(\\sqrt[4]{n})$. Concretely, for circuits of size $\\geq 2^{22}$ this results in around $3\\times$ more efficient proof size and verification.\n\n    Our blueprint of combining IOPPs over groups with Pedersen style inner commitments is of independent interest, as are several optimizations towards efficiently realizing WHIR IOPP over prime-order groups.",
+      "authors": [
+        "Chethan Kamath",
+        "Ravi Prakash",
+        "Samipa Samanta",
+        "Sruthi Sekar",
+        "Nitin Singh"
+      ],
+      "pub_date": "Fri, 08 May 2026 09:50:04 +0000",
+      "pub_date_iso": "2026-05-08T09:50:04+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/908",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
+      ]
+    },
+    {
       "id": "2026/907",
       "title": "Zero-Knowledge Proofs for Gradient Boosted Decision Trees",
       "abstract": "Gradient boosted decision trees (GBDTs) are widely used for tabular data in finance, healthcare, and risk ssessment. As GBDT training and inference are increasingly outsourced, clients need to verify that models are trained as claimed and predictions are consistent with those models, while providers may need to keep training data and model parameters private. This makes zero-knowledge proofs for GBDT training and inference a natural solution.\n\nExisting approaches typically compile training certification into circuits and prove their execution using generic ZKP backends, incurring high prover costs. Directly proving the underlying algebraic relations offers an alternative, but proving each relation separately incurs substantial costs for committing to and opening auxiliary witnesses. Batching is challenging because these witnesses have different shapes and sizes and are encoded over different domains.\n\nWe present \\textsc{Terrae}, a zero-knowledge proof system for quantized GBDT training and inference based on KZG polynomial commitments. \\textsc{Terrae} avoids both proving circuit computation and proving each constraint separately by leveraging the structure of GBDT training and two new batching techniques: domain-lifting batching for low-degree algebraic constraints and interleaving batching for same-form non-native constraints. Both techniques work over differently-sized domains and reduce many constraints to a single claim without introducing extra polynomial commitments. We also design a histogram proof that proves the correctness of aggregating sample-wise updates into histograms, which may be of independent interest. Our evaluation shows that, compared with prior work CertXGB instantiated with the same KZG backend, \\textsc{Terrae} achieves proof-generation speedups of $3.18$--$13.55\\times$ for training and $1.96$--$4.31\\times$ for inference across completed benchmark comparisons, with lower peak prover memory, at the cost of moderately larger proofs and higher verification time.",
@@ -5503,6 +5629,26 @@
       ]
     },
     {
+      "id": "2026/595",
+      "title": "Registration-Optimized Dynamic Group Time-based One-time Passwords for Mobile Access",
+      "abstract": "Mobile access within public finance and enterprise environments often requires lightweight anonymous authentication, allowing users to prove authorization without disclosing their identities. Group Time-based One-Time Passwords (GTOTP) has recently been proposed as a lightweight primitive meeting this need with post-quantum security.  To address dynamic group membership, Cao et al. introduced DGTOne, the first dynamic GTOTP construction. It employs chameleon hashes to precompute a fixed set of Merkle-tree leaves (mount points), into which conventional TOTP verification points (VPs) contributed by group members are adaptively inserted. However, DGTOne partitions mount points by time epochs, so they can expire and become unusable, causing capacity waste due to unpredictable join times. Moreover, its outsourced proof generation requires verifiers to be online each epoch to fetch refreshed credentials from Registration Authority (RA), defeating offline verification needed in mobile access. \nWe address these limitations with two new schemes. First, we propose NWDGT, a no-wastage DGTOTP design that constructs Merkle trees of members' verification points (VP-trees) on demand, eliminating expired mount points at the cost of added handling latency. To mitigate this latency, we introduce LWDGT, which instantiates multiple small one-time signature (OTS) trees whose leaves (OTS public keys) serve as mount points. New members' VPs are signed immediately using unused leaves, achieving low wastage. We formally prove that the wastage rate of LWDGT is, with overwhelming probability, lower than that of DGTOne. By modeling the registration process and optimizing OTS-tree size, for deployments with up to 500 members (209 initially, 20 added monthly), LWDGT reduces mount point wastage rate by 10.2% over one year compared to DGTOne.",
+      "authors": [
+        "Jiaqing Guo",
+        "Xuelian Cao",
+        "Zengpeng Li",
+        "Yong Zhou",
+        "Zheng Yang",
+        "Jianying Zhou"
+      ],
+      "pub_date": "Wed, 25 Mar 2026 11:52:31 +0000",
+      "pub_date_iso": "2026-03-25T11:52:31+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/595",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/590",
       "title": "On the Security of Constraint-Friendly Map-to-Curve Relations",
       "abstract": "Standard hash-to-curve constructions first hash the message to a field element through a cryptographic hash-to-field step, then map this field element to an elliptic-curve point.  Inside constraint systems, this inner cryptographic hash is often the dominant cost.  Groth, Malvai, Miller and Zhang (Asiacrypt 2025) introduced \\emph{constraint-friendly map-to-elliptic-curve-group relations} that bypass this step, achieving substantial reductions in circuit size. Their security proof works in the Elliptic Curve Generic Group Model (EC-GGM).\nWe identify three gaps.  First, the security bound in terms of the message space size $M$ and tweak bound $T$ is not explicitly analyzed, and the bounds stated for the concrete instantiations are loose.\nSecond, the EC-GGM does not capture the algebraic structure of most deployed curves; we exhibit a concrete signature forgery using the parameters claimed secure.  Third, the construction requires a congruence condition on the field that is not satisfied by all deployed curves; we extend it to any field, although witness generation remains practical only for fields of low 2-adicity.\nAs a countermeasure we propose a $y$-increment variant that, on the $j=0$ curves used in practice, neutralizes the algebraic attack, removes the field restriction in practice, and preserves a comparable constraint count.  We implement and benchmark both constructions in the open-source gnark (Go) library; the attack is additionally demonstrated via a self-contained SageMath simulation and confirmed at the circuit level against the authors' own Noir (Rust) implementation.",
@@ -5648,6 +5794,22 @@
       "link": "https://eprint.iacr.org/2026/437",
       "topics": [
         "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/435",
+      "title": "Information-Theoretic Strong Traceable Secret Sharing Schemes",
+      "abstract": "Traceable secret sharing complements traditional schemes by enabling the identification of parties who sell their shares. Recently, two independent works extended traceable secret sharing to general access structures.\n\nGoyal, Jain, and Partap [EC'26] introduced a model in which a reconstruction box is augmented with a label $I \\subseteq [n]$ and is only required to distinguish between two secrets when queried with the shares of parties in $I$. Based on how this label relates to the corrupted set $J$ that built the box, they defined two notions of traceability. If $I \\cap J = \\emptyset$, the model is called $\\emptyset$-strong traceability, for which they presented a construction based on indistinguishability obfuscation (iO). Otherwise, their model is calledstrong traceability, for which they proved an impossibility result.\nFarràs and Guiot [EC'26] proposed a different model, which we call hiding traceability, where the reconstruction box has no label and the access structure is hidden from the parties. \n\nIn this work, we improve traceable secret sharing for general access structures in three directions. First, we present a fully information-theoretic scheme for the $\\emptyset$-strong traceability model, eliminating the need for strong cryptographic assumptions. This resolves an open question posed by Goyal, Jain, and Partap, who asked what are the minimal assumptions needed in the $\\emptyset$-strong traceability model.\n\nSecond, motivated by the impossibility of strong traceability, we introduce a relaxed notion calledhidden mildly strong traceability. This model is relevant in practice and bridges the strong and hidden models. For this setting, we present an information-theoretic scheme for general access structures.\n\nFinally, we consider the more general model of stateful traceability, where reconstruction boxes may keep state across queries, and we prove an impossibility result for this setting.",
+      "authors": [
+        "Oriol Farràs",
+        "Miquel Guiot"
+      ],
+      "pub_date": "Tue, 03 Mar 2026 15:45:48 +0000",
+      "pub_date_iso": "2026-03-03T15:45:48+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/435",
+      "topics": [
+        "MPC / Threshold / Secret Sharing"
       ]
     },
     {
@@ -6255,6 +6417,28 @@
       ]
     },
     {
+      "id": "2025/1952",
+      "title": "KPIR-C: Keyword PIR with Arbitrary Server-Side Computation",
+      "abstract": "Keyword Private Information Retrieval (KPIR) enables clients to retrieve database entries by keyword without revealing their query, with many efficient schemes relying on Fully Homomorphic Encryption (FHE). However, existing FHE-based KPIR schemes fix parameters to a bounded computation depth, which becomes a bottleneck in privacy-sensitive settings such as distributed ledger systems and private web search, where databases grow dynamically and clients are lightweight: exceeding this bound incurs significant overhead, forces larger parameters, and leaves any post-retrieval computation to the client or to communication-heavy interactive protocols.\n\nWe introduce Keyword PIR with Computation (KPIR-C), a new paradigm that enables arbitrary, non-interactive server-side computation on query responses while preserving query privacy. Unlike prior designs, KPIR-C fixes parameters independently of database size or computation depth by leveraging bootstrapping via a co-design of Torus Fully Homomorphic Encryption (TFHE) and KPIR that keeps bootstrapping overhead practical. We further introduce Keyword PIR with Default (KPIR-D) to handle mismatched queries non-interactively. We instantiate KPIR-C with two constructions: one based on equality circuits and constant-weight codes, and one based on Learning With Errors (LWE)-based KPIR, offering complementary communication-runtime trade-offs. We demonstrate experimentally that both achieve competitive performance compared to state-of-the-art KPIR schemes that do not support arbitrary computation.",
+      "authors": [
+        "Ali Arastehfard",
+        "Weiran Liu",
+        "Qixian Zhou",
+        "Zinan Shen",
+        "Liqiang Peng",
+        "Lin Qu",
+        "Shuya Feng",
+        "Yuan Hong"
+      ],
+      "pub_date": "Sun, 19 Oct 2025 16:05:43 +0000",
+      "pub_date_iso": "2025-10-19T16:05:43+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2025/1952",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2025/1950",
       "title": "Fully Adaptive FROST with Identifiable Aborts from AOMDL",
       "abstract": "We present FaFROST+, the first two-round Schnorr threshold signature scheme achieving full adaptive security under the Algebraic One-More Discrete Logarithm (AOMDL) assumption with identifiable aborts. Building on the FROST framework, FaFROST+ preserves its communication efficiency while dispensing with the LDVR assumption introduced at CRYPTO'25. \nOur result demonstrates that round-optimal adaptive security, practical efficiency, and identifiable aborts are simultaneously achievable under the well-studied AOMDL assumption.",
@@ -6451,6 +6635,25 @@
       "pub_date_iso": "2025-09-09T14:42:49+00:00",
       "iacr_category": "Cryptographic protocols",
       "link": "https://eprint.iacr.org/2025/1625",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2025/1575",
+      "title": "BitPriv: A Privacy-Preserving Protocol for DeFi Applications on Bitcoin",
+      "abstract": "Bitcoin secures over a trillion dollars in assets, yet its scripting language limits expressive decentralized-finance applications. BitVM enables arbitrary off-chain computation to be enforced through Bitcoin fraud proofs, but it does not provide privacy for inputs such as bids, quotes, and reserve prices.\n\nWe present BitPriv, to our knowledge the first protocol that conditions payments on the outcome of an arbitrary secure two-party computation over private inputs on unmodified Bitcoin. Its core primitive, the Garbled Hashed Timelock Contract (GHTLC), binds Bitcoin payments to garbled-circuit output labels. Parties evaluate the circuit off-chain, while cut-and-choose detects malformed garbling and BitVM punishes detected violations. Under application-specific bounds, collateral can make deviations unprofitable for rational adversaries.\n\nWe instantiate BitPriv in BitMarket, a Bitcoin-native sealed-bid auction, and BitBridge, an intent-based cross-chain bridge. Inputs remain private until the protocol execution fixes the outcome. Optimistic settlement costs less than \\$3 in both applications. Depending on the backend, BitMarket disputes cost \\$47–\\$312 and BitBridge disputes cost \\$47–\\$657. BitPriv provides a blueprint for enforceable, privacy-preserving DeFi primitives on Bitcoin without trusted hardware, sidechains, or consensus changes.",
+      "authors": [
+        "Ioannis Alexopoulos",
+        "Zeta Avarikioti",
+        "Paul Gerhart",
+        "Matteo Maffei",
+        "Dominique Schröder"
+      ],
+      "pub_date": "Tue, 02 Sep 2025 14:27:52 +0000",
+      "pub_date_iso": "2025-09-02T14:27:52+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2025/1575",
       "topics": [
         "Uncategorized"
       ]
@@ -6959,6 +7162,23 @@
       ]
     },
     {
+      "id": "2024/1625",
+      "title": "On the Tight Security of the Double Ratchet",
+      "abstract": "The Signal Protocol is a two-party secure messaging protocol used in applications such as Signal, WhatsApp, Google Messages and Facebook Messenger and is used by billions daily. It consists of two core components, one of which is the Double Ratchet protocol that has been the subject of a line of work that aims to understand and formalise exactly what security it provides. Existing models capture strong guarantees including resilience to state exposure in both forward security (protecting past secrets) and post-compromise security (restoring security), adaptive state corruptions, message injections and out-of-order message delivery. Due to this complexity, prior work has failed to provide security guarantees that do not degrade in the number of interactions, even in the single-session setting.\n\nGiven the ubiquity of the Double Ratchet in practice, we explore tight security bounds for the Double Ratchet in the multi-session setting. To this end, we revisit the modelling of Alwen, Coretti and Dodis (EUROCRYPT 2019) who decompose the protocol into modular, abstract components, notably continuous key agreement (CKA) and forward-secure AEAD (FS-AEAD). To enable a tight security proof, we propose a CKA security model that provides one-way security under key checking attacks. We show that multi-session security of the Double Ratchet can be tightly reduced to the multi-session security of CKA and FS-AEAD, capturing the same strong security guarantees as Alwen et al.\n\nOur result improves upon the bounds of Alwen et al. in the random oracle model. Even so, we are unable to provide a completely tight proof for the Double Ratchet based on standard Diffie-Hellman assumptions, and we conjecture it is not possible. We thus go a step further and analyse CKA based on key encapsulation mechanisms (KEMs). In contrast to previous works, our new analysis allows for tight constructions based on the DDH and post-quantum assumptions.",
+      "authors": [
+        "Daniel Collins",
+        "Doreen Riepel",
+        "Si An Oliver Tran"
+      ],
+      "pub_date": "Thu, 10 Oct 2024 20:26:46 +0000",
+      "pub_date_iso": "2024-10-10T20:26:46+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2024/1625",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2024/1619",
       "title": "Structure-Preserving Compressing Primitives: Vector Commitments and Accumulators and Applications",
       "abstract": "Compressing primitives such as accumulators and vector commitments, allow to rep- resent large data sets with some compact, ideally constant-size value. Moreover, they support operations like proving membership or non-membership with minimal, ideally also constant- size, storage and communication overhead. In recent years, these primitives have found numer- ous practical applications, with many constructions based on various hardness assumptions. So far, however, it has been elusive to construct these primitives in a strictly structure-preserving setting, i.e., in a bilinear group in a way that messages, commitments and openings are all ele- ments of the two source groups. Interestingly, backed by existing impossibility results, not even conventional commitments with such constraints are known in this setting. However, in many practical applications it would be convenient or even required to be structure-preserving, e.g., to commit or accumulate group elements. In this paper we investigate whether strictly structure-preserving compressing primitives can be realized. We close this gap by presenting the first strictly structure-preserving commitment that is shrinking (and in particular constant-size). We circumvent existing impossibility results by em- ploying a more structured message space, i.e., a variant of the Diffie-Hellman message space. Our main results are constructions of structure-preserving vector commitments as well as structure- preserving accumulators. We first discuss generic constructions and then present concrete con- structions under the Diffie-Hellman Exponent assumption. To demonstrate the usefulness of our constructions, we discuss various applications. Most notable, we present the first entirely prac- tical constant-size ring signature scheme in bilinear groups (i.e., the discrete logarithm setting). Concretely, using the popular BLS12-381 pairing-friendly curve, our ring signatures achieve a size of roughly 3 Kbits.",
@@ -6993,6 +7213,22 @@
       ]
     },
     {
+      "id": "2024/772",
+      "title": "Reducing the Share Size of Weighted Threshold Secret Sharing Schemes via Chow Parameters Approximation",
+      "abstract": "A secret sharing scheme is a cryptographic primitive that allows a dealer to share a secret among a set of parties, so that only authorized subsets of them can recover it. The access structure of the scheme is the family of authorized subsets.\n\nIn a weighted threshold access structure, each party is assigned a weight according to its importance, and the authorized subsets are those in which the sum of their weights is at least the threshold value. For these access structures, the share size of the best known secret sharing schemes is either linear on the weights or quasipolynomial on the number of parties, which leads to long shares, in general. \n\nIn certain settings, a way to circumvent this efficiency problem is to approximate the access structure by another one that admits more efficient schemes. This work is dedicated to the open problem posed by this strategy: Finding secret sharing schemes with a good tradeoff between the efficiency and the accuracy of the approximation.\n\nWe present a method to approximate weighted threshold access structures by others that admit schemes with small shares. This method is based on the techniques for the approximation of the Chow parameters developed by De et al. [Journal of the ACM, 2014]. Our method provides secret sharing schemes with share size $n^{1+o(1)}$, where $n$ is the number of parties, and whose access structure is close to the original one. Namely, in this approximation the condition of being authorized or not is preserved for almost all subsets of parties. \n\nIn addition, we apply the recent results on computational secret sharing schemes by Applebaum et al. [STOC, 2023] to construct computational secret sharing schemes whose share size is polylogarithmic in the number of parties.",
+      "authors": [
+        "Oriol Farràs",
+        "Miquel Guiot"
+      ],
+      "pub_date": "Mon, 20 May 2024 11:12:55 +0000",
+      "pub_date_iso": "2024-05-20T11:12:55+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2024/772",
+      "topics": [
+        "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
       "id": "2024/719",
       "title": "Client-Efficient Online-Offline Private Information Retrieval",
       "abstract": "Private Information Retrieval (PIR) permits clients to query data entries from a public database hosted on untrusted servers while preserving client privacy. Traditional PIR models suffer from high computation and/or bandwidth overhead due to linear database processing for privacy. Recently, Online-Offline PIR (OO-PIR) has been proposed to improve PIR practicality by precomputing query-independent materials to accelerate online access. While state-of-the-art OO-PIR schemes (e.g., S&P’24, CRYPTO’23) successfully reduce online processing cost to sublinear levels, they still impose substantial bandwidth and storage burdens on the client, especially when operating on large databases.\n\nIn this paper, we propose Pirex, a new two-server OO-PIR with semi-honest security that offers minimal client inbound bandwidth and storage cost while retaining the sublinear processing efficiency. The Pirex design is simple with most operations are naturally low-cost and streamlined (e.g., XOR, PRF, modular arithmetic). We have fully implemented Pirex and evaluated its real-world performance using commodity hardware. Our results showed that Pirex outperforms existing OO-PIR schemes by at least two orders of magnitude. With a 1 TB database, Pirex takes 55ms to retrieve a 4 KB entry, compared with 9-30s by state-of-the-art. For practical databases with billions of 4 KB entries, Pirex only takes 16 KB of inbound bandwidth, which is up to three orders of magnitude more efficient.",
@@ -7005,6 +7241,24 @@
       "pub_date_iso": "2024-05-10T02:53:56+00:00",
       "iacr_category": "Cryptographic protocols",
       "link": "https://eprint.iacr.org/2024/719",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2024/655",
+      "title": "Implementation and Performance Analysis of Homomorphic Signature Schemes",
+      "abstract": "Homomorphic signatures allow to validate computation on signed data. Alice, holding a dataset, $\\{m_1 , \\ldots , m_t \\}$ uses her secret key $\\sf sk$ to sign these data and stores the authenticated dataset on a remote server. The server can later (publicly) compute $m = f(m_1,...,m_t)$ together with a signature $\\sigma$ certifying that $m$ is indeed the correct output of the computation $f$. Over the last fifteen years, the problem of realizing homomorphic signatures has been the focus of numerous research works, with constructions now ranging from very efficient ones supporting linear functions to very expressive ones supporting (up to) arbitrary circuits. In this work we tackle the question of assessing the practicality of schemes belonging to this latter class. Specifically, we implement the GVW lattice based scheme for circuits from STOC 2015 and two, recently proposed, pairings based constructions building from functional commitments. Our experiments show that (both) pairings based schemes outperform GVW on all fronts.",
+      "authors": [
+        "Davide Carnemolla",
+        "Dario Catalano",
+        "Mario Di Raimondo",
+        "Federico Savasta"
+      ],
+      "pub_date": "Mon, 29 Apr 2024 08:07:52 +0000",
+      "pub_date_iso": "2024-04-29T08:07:52+00:00",
+      "iacr_category": "Implementation",
+      "link": "https://eprint.iacr.org/2024/655",
       "topics": [
         "Uncategorized"
       ]
