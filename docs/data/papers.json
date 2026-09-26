@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-25T11:47:10.841416+00:00",
+  "updated_at": "2026-09-26T11:20:16.704554+00:00",
   "papers": [
     {
       "id": "2026/2163",
@@ -1155,7 +1155,7 @@
       ],
       "pub_date": "Fri, 18 Sep 2026 15:44:23 +0000",
       "pub_date_iso": "2026-09-18T15:44:23+00:00",
-      "iacr_category": "Secret-key cryptography",
+      "iacr_category": "Attacks and cryptanalysis",
       "link": "https://eprint.iacr.org/2026/2097",
       "topics": [
         "Uncategorized"
@@ -4388,6 +4388,26 @@
       ]
     },
     {
+      "id": "2026/1645",
+      "title": "Track me if you can: Ephemeral coin tracing",
+      "abstract": "Privacy-preserving payment systems are well understood, yet concerns about their misuse for financial crime have led to only limited adoption in regulated settings such as central bank digital currencies (CBDCs) and institutional stablecoins. Tracing is one tool for addressing these concerns: acting on external evidence implicating a user, law enforcement follows the suspect's funds through the ledger to uncover laundering routes and accomplices. Existing coin-tracing schemes, however, provide no cryptographic bound on tracing reach: once initiated, a trace may propagate indefinitely through the transaction graph or persist across all future transactions of a targeted user. Keeping surveillance targeted and temporary therefore depends on the restraint of the authority or a committee.\n\nWe introduce ephemeral coin tracing (ECT), a primitive that bounds tracing reach by construction. Each account carries an encrypted tag that records which traced identifiers its funds carry while hiding its tracing status from users. When funds move, the sender's tag degrades and merges with the recipient's tag. Each tracing contribution expires independently after a policy-defined number of hops and then becomes unrecoverable even to the tracing authority, without affecting other live contributions in the same tag. Public parameters also bound how many identifiers a tag can distinguish simultaneously. We formalize ECT and give constructions based on exponential ElGamal, Damgård-Jurik encryption, and Ring-LWE, the last providing post-quantum security.",
+      "authors": [
+        "Ignacio Amores-Sesar",
+        "Christian Cachin",
+        "Rohit Chatterjee",
+        "Luiza Soezima",
+        "François-Xavier Wicht",
+        "Michelle Yeo"
+      ],
+      "pub_date": "Mon, 10 Aug 2026 08:18:10 +0000",
+      "pub_date_iso": "2026-08-10T08:18:10+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/1645",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/1627",
       "title": "Adaptively CCA-Secure Threshold Decryption from Lattices with Polynomial Modulus",
       "abstract": "Threshold Decryption (TD) enables a set of decryptors, each holding a secret key share, to collaboratively decrypt ciphertexts. In this paper, we resolve the open problem raised by Devevey et al. [PKC 2021] of constructing an adaptively secure TD with polynomial modulus from lattices. As identified by Hwang et.al. [ePrint 2026/1585], solving this open problem is a particularly challenging task. The most challenging part is how to limit the leakage of secret key shares from decryption queries while keeping the modulus a polynomial. \n\nIn this paper, we resolve the above open problem with two TD schemes TD1, TD2 from lattices in the random oracle model.\n\n -- TD1 is a non-interactive TD scheme achieving adaptive CCA-security with polynomial modulus for a small number of decryptors and bounded decryption queries. It can be extended to achieve robustness and works well in the asynchronous settings. \n\n -- TD2 is a non-interactive TD scheme achieving adaptive CCA-security with polynomial modulus for bounded decryption queries. Compared with TD1, it supports any polynomial number of decryptors and works well in the synchronous settings.\n\nTo our best knowledge, our TD1 and TD2 are the first non-interactive TD schemes achieving adaptive security and polynomial modulus from lattices. The core techniques behind our schemes include the polynomial noise flooding technique and the coupled refined Leftover Hash Lemma (LHL) working for adaptive noisy linear leakage, which may be of independent interest.",
@@ -5781,6 +5801,21 @@
       ]
     },
     {
+      "id": "2026/450",
+      "title": "A unified toolkit for advanced arithmetic in FHE",
+      "abstract": "We suggest an extension of discrete--CKKS that enables advanced computations over real, Boolean and large integers (e.g., 64/128-bit), including standard arithmetic operations, comparison, shift, bit length, quotient, square root, and other non linear functions based on binary representation. The flexibility of our approach lies in the synergy between the integer and the real arithmetic layers. At the core of our approach  lies indeed a novel non-iterative binary decomposition technique extracting the $i$-th bit of $x$ by evaluating an approximation of $\\lfloor x/2^i \\rfloor \\bmod 2$, very efficient when $x$ has at most 8 bits.\n\nWe show how such procedure can decompose not only a value $x$, but also a more general $g(x)$ at no additional cost by generalizing the evaluation to $\\lfloor g(x)/2^i \\rfloor$, enabling fast LUT evaluation over integers. Interestingly, the output of our LUTs can be arbitrarily large at the cost of requiring redundant slots: this unlocks the computation of large seeds for Newton--Raphson algorithms, enabling for the first time the practical evaluation of (exact) non linear functions over large integers such as square root and quotient within the discrete--CKKS family of schemes.\n\nBy supporting computations over different domains, our framework is usable in various applications: smart contracts naturally fit our framework, as it efficiently supports both arbitrary logical gates and operations over large integers. It also allows integer computations on the output class of a real-valued neural network, such as metadata lookup. \n\nCompared to the state-of-the-art by Gao and Zheng (CRYPTO '26), our solution does not require ad-hoc encoding or expensive integer to Boolean conversions, making it more suitable when some non arithmetic structure is involved. %has lower latency on all standard integer operations  (additions, multiplications, comparisons and logical shifts), and we additionally support nonlinear integer operations. \nOur current limitation lies in the throughput, which is lower. \nWe additionally provide an open source proof of concept for GPU, showing that our work has better latency and throughput than TFHE-rs on most arithmetic and non-arithmetic operations.",
+      "authors": [
+        "Lorenzo Rovida"
+      ],
+      "pub_date": "Wed, 04 Mar 2026 15:10:16 +0000",
+      "pub_date_iso": "2026-03-04T15:10:16+00:00",
+      "iacr_category": "Applications",
+      "link": "https://eprint.iacr.org/2026/450",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
       "id": "2026/437",
       "title": "Efficient Single-Server Stateful PIR Using Format-Preserving Encryption",
       "abstract": "Recently, Stateful Private Information Retrieval (PIR) has emerged as a promising new paradigm of PIR. Despite significant recent progress, state-of-the-art single-server schemes in this paradigm still suffer from practical inefficiencies in communication, computation, and/or client storage. In this work, we construct a new single-server stateful PIR scheme called HarmonyPIR that achieves efficient communication, computation, and client storage. From a technical standpoint, we build on the recent work of Wang and Ren (EUROCRYPT 25) and propose a new hint organization that uses only a single random permutation. The random permutation can be instantiated using either AES or the recently standardized FF1 Format-Preserving Encryption, yielding two variants of HarmonyPIR. Our new scheme achieves up to two orders of magnitude better amortized computation and up to five times better amortized communication than state-of-the-art schemes.",
@@ -5984,6 +6019,21 @@
       "pub_date_iso": "2026-02-12T18:24:53+00:00",
       "iacr_category": "Attacks and cryptanalysis",
       "link": "https://eprint.iacr.org/2026/237",
+      "topics": [
+        "Uncategorized"
+      ]
+    },
+    {
+      "id": "2026/230",
+      "title": "Rule Variant Restrictions for the Tamarin Prover",
+      "abstract": "We introduce an optimization to the Tamarin prover that reduces its search space. The optimization applies to protocol models that use equational theories with cancellative operators, for example, when modelling Diffie-Hellman groups or bilinear pairings. We prove the optimization's soundness and evaluate its performance.",
+      "authors": [
+        "Felix Linker"
+      ],
+      "pub_date": "Wed, 11 Feb 2026 13:42:08 +0000",
+      "pub_date_iso": "2026-02-11T13:42:08+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2026/230",
       "topics": [
         "Uncategorized"
       ]
@@ -6263,6 +6313,23 @@
       ]
     },
     {
+      "id": "2025/2247",
+      "title": "Beyond Incentive Compatibility: Rational Harm-Proof Transaction Fee Mechanisms",
+      "abstract": "On a blockchain, users compete for scarce block space in an auction run by the miner to get their transactions confirmed in the block. This auction is called transaction fee mechanism (TFM). Recent work [Rou21, CS23, SCW23] has been focused on incentive compatibility (IC), requiring that honest behavior maximizes the payoff for each type of strategic player: users, the miner, or miner–user coalitions. In this work, we introduce rational-harm proofness (RHP), which rules out deviations that harm honest parties without also reducing the deviator’s own utility relative to the honest baseline. RHP closes a gap left by IC: IC does not forbid utility neutral yet externally harmful deviations. For example, in a second-price auction, the second-highest bidder can increase the winner’s payment without affecting their own payoff. Such deviation is eliminated by RHP.\n\nWe characterize TFMs satisfying RHP alongside incentive compatibility for users (UIC) and miners (MIC). For finite block size, we develop a complete characterization in two models:\n- In the plain model---where a single miner unilaterally implements the auction---we prove a tetrilemma (3-out-of-4 impossibility): among the four desired properties {positive miner revenue, UIC, MIC, RHP against miner–user coalitions}, no mechanism achieves all four simultaneously. This trade-off is tight: any three are jointly achievable in the plain model.\n- In the MPC-assisted model---where a committee of miners jointly implement the auction via multi-party computation (MPC)---we construct a randomized TFM with a positive miner revenue that achieves UIC, MIC, and RHP against all three types of strategic players. We further show that randomness is necessary: any deterministic TFM satisfying UIC and RHP in this model must confirm no transactions when the number of users exceeds the block size.\n\nFinally, we show that IC and RHP are incomparable: for each strategic role, there are mechanisms satisfying one but not the other in both models. Our results broaden the design objectives for TFMs: beyond incentive compatibility, mechanisms should also preclude costless harm to honest participants.",
+      "authors": [
+        "Forest Zhang",
+        "Elain Park",
+        "Ke Wu"
+      ],
+      "pub_date": "Sun, 14 Dec 2025 01:01:14 +0000",
+      "pub_date_iso": "2025-12-14T01:01:14+00:00",
+      "iacr_category": "Foundations",
+      "link": "https://eprint.iacr.org/2025/2247",
+      "topics": [
+        "MPC / Threshold / Secret Sharing"
+      ]
+    },
+    {
       "id": "2025/2205",
       "title": "Selective ML-Guided Beam Search for Differential-Trail Discovery in GIFT-64",
       "abstract": "Beam search bounds differential-trail exploration, but may still expand many intermediate differences. We test whether a learned short-horizon tail-cost residual can reduce this work while leaving classical selection in control. A regressor estimates a residual adjustment to an active-nibble heuristic. With four or two rounds remaining, the post-selection policy protects the best $25\\%$ of the classical frontier, removes at most $30\\%$ of accepted states, and abstains when fewer than five states can be pruned. It cannot restore candidates already rejected by classical selection.\nWe develop the method on a state-grouped GIFT-64 corpus and evaluate it on $D=8$ and $D=12$ holdouts and a $D=16$ stress test. Target recovery and the best classical cost are preserved on all $48$ holdout cases and all $18$ stress cases. Aggregate node reductions are $6.832\\%$, $0.099\\%$, and $0.040\\%$ at $D=8$, $D=12$, and $D=16$. An equal-budget ablation fixes the frontier, protected core, and pruning quota while changing only the removed-state ranking. Learned and classical ranking preserve all $48$ holdout cases, with aggregate reductions of $2.359\\%$ and $2.411\\%$. Their removal sets differ on $57$ of $85$ active frontiers, but the learned score does not establish a measurable advantage over the classical control. Random ranking produces larger raw reductions but loses quality. All comparisons use a bounded classical baseline; no globally optimal trails are claimed.",
@@ -6414,6 +6481,23 @@
       "link": "https://eprint.iacr.org/2025/1994",
       "topics": [
         "Uncategorized"
+      ]
+    },
+    {
+      "id": "2025/1993",
+      "title": "A Simplified Round-by-round Soundness Proof of FRI",
+      "abstract": "The FRI protocol (ICALP '18) is one of the most influential and widely deployed building blocks at the core of modern SNARK systems. While its concrete security is well understood, existing security proofs are intricate and technically complex.\n\nIn this work, we present a significantly simpler security analysis of FRI, in particular its round-by-round soundness. Our approach is more accessible to a broader audience, lowering the barrier to understanding this fundamental protocol. Furthermore, the simplicity of our analysis may pave the way for future formal verification efforts of modern SNARK constructions.",
+      "authors": [
+        "Albert Garreta",
+        "Nicolas Mohnblatt",
+        "Benedikt Wagner"
+      ],
+      "pub_date": "Fri, 24 Oct 2025 13:27:25 +0000",
+      "pub_date_iso": "2025-10-24T13:27:25+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2025/1993",
+      "topics": [
+        "Zero-Knowledge Proofs & SNARKs/STARKs"
       ]
     },
     {
@@ -7074,7 +7158,7 @@
     },
     {
       "id": "2024/2038",
-      "title": "Adaptive Special Soundness: Improved Knowledge Extraction by Adaptive Useful Challenge Sampling",
+      "title": "Adaptive Special Soundness: A new framework for knowledge extraction with applications to Kilian’s protocol",
       "abstract": "The knowledge soundness of an interactive proof is often proven via various ``special soundness (SS)'' frameworks which separate knowledge extraction into:\n(1) extracting accepting transcripts conforming to some structure;\n(2) recovering a witness from structure-conforming transcripts.\nHowever, even access-structure SS [TCC'23], one of the most general, does not handle proof systems employing probabilistic tests, a protocol design technique common in more advanced and especially succinct proof systems. The reason is that its extraction strategy decides whether a challenge is ``useful'' from the challenges used in previous transcripts alone, ignoring the prover messages. While predicate SS [CRYPTO'24] captures probabilistic tests, it does not capture access structures and forgoes the combinatorial nature and simplicity of SS.\n\nWe introduce adaptive special soundness (AdSS), which generally captures extraction strategies that adaptively pick challenges for the prover taking the history of entire transcripts into account. AdSS in particular captures protocols employing probabilistic tests, formally generalises access-structure SS, and provides a simpler interface than predicate SS while retaining the same expressiveness under mild conditions. We provide knowledge extractors for AdSS protocols with optimal knowledge error $\\kappa$ and almost optimal tradeoffs between extraction probability and runtime.\n\nTo demonstrate the utility of AdSS, we provide a new (knowledge) soundness analysis of Kilian's succinct argument, resolving an open problem in [TCC'24]. In passing, we tighten the existing soundness error bound and unify the analyses in the strict and expected polynomial time regimes. We also provide a range of other examples, from simple ones showing how AdSS captures prior notions, to a new analysis of lattice-based Bulletproofs with unstructured challenges, which improves modularity and covers certain rings beyond $\\mathbb{Z}$ compared to [TCC'23].",
       "authors": [
         "Thomas Attema",
@@ -7294,6 +7378,23 @@
       "link": "https://eprint.iacr.org/2024/159",
       "topics": [
         "Uncategorized"
+      ]
+    },
+    {
+      "id": "2020/635",
+      "title": "Two-Round Oblivious Linear Evaluation from Learning with Errors",
+      "abstract": "Oblivious Linear Evaluation (OLE) is the arithmetic analogue of the well-know oblivious transfer primitive. It allows a sender, holding an affine function $f(x)=a+bx$ over a finite field or ring, to let a receiver learn $f(w)$ for a $w$ of the receiver's choice. In terms of security, the sender remains oblivious of the receiver's input $w$, whereas the receiver learns nothing beyond $f(w)$ about $f$. In recent years, OLE has emerged as an essential building block to construct efficient, reusable and maliciously-secure two-party computation.\n\nIn this work, we present efficient two-round protocols for OLE over large fields based on the Learning with Errors (LWE) assumption, providing a full arithmetic generalization of the oblivious transfer protocol of Peikert, Vaikuntanathan and Waters (CRYPTO 2008). At the technical core of our work is a novel extraction technique which allows to determine if a non-trivial multiple of some vector is close to a $q$-ary lattice.",
+      "authors": [
+        "Pedro Branco",
+        "Nico Döttling",
+        "Paulo Mateus"
+      ],
+      "pub_date": "Wed, 03 Jun 2020 09:36:21 +0000",
+      "pub_date_iso": "2020-06-03T09:36:21+00:00",
+      "iacr_category": "Cryptographic protocols",
+      "link": "https://eprint.iacr.org/2020/635",
+      "topics": [
+        "MPC / Threshold / Secret Sharing"
       ]
     },
     {
